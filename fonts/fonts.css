@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-Regular.woff2') format('woff2'),
+         url('CirceRounded-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-AltBold.woff2') format('woff2'),
+         url('CirceRounded-AltBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+} 
