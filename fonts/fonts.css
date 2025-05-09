@@ -1,15 +1,55 @@
 @font-face {
     font-family: 'Circe Rounded';
-    src: url('CirceRounded-Regular.woff2') format('woff2'),
-         url('CirceRounded-Regular.woff') format('woff');
-    font-weight: normal;
+    src: url('CirceRounded-Thin.woff') format('woff');
+    font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Circe Rounded';
-    src: url('CirceRounded-AltBold.woff2') format('woff2'),
-         url('CirceRounded-AltBold.woff') format('woff');
-    font-weight: bold;
+    src: url('CirceRounded-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded Alt';
+    src: url('CirceRounded-Alt-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circe Rounded Alt';
+    src: url('CirceRounded-Alt-ExtraBold.woff') format('woff');
+    font-weight: 800;
     font-style: normal;
 } 
