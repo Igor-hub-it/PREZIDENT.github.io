@@ -228,13 +228,24 @@
             animation: showCamamber 1s ease-in-out forwards;
         }
 
-        .brush {
+        .brush-desktop {
+            position: fixed;
             bottom: -100vh;
             left: 50%;
             width: 24%;
             height: auto;
             transform: translateX(-50%);
-            animation: showBrush 1s ease-in-out forwards;
+            animation: showBrushDesktop 1s ease-in-out forwards;
+        }
+
+        .brush-mobile {
+            display: none;
+            position: fixed;
+            bottom: -100vh;
+            left: 50%;
+            width: 50%;
+            height: auto;
+            transform: translateX(-50%);
         }
 
         .camambert {
@@ -243,6 +254,10 @@
             width: 30%;
             height: auto;
             animation: showCamambert 1s ease-in-out forwards;
+        }
+
+        .camambert-mobile {
+            display: none;
         }
 
         .grape {
@@ -404,13 +419,24 @@
             }
         }
 
-        @keyframes showBrush {
+        @keyframes showBrushDesktop {
             from {
                 bottom: -100vh;
                 left: 50%;
             }
             to {
                 bottom: 30%;
+                left: 50%;
+            }
+        }
+
+        @keyframes showBrushMobile {
+            from {
+                bottom: -100vh;
+                left: 50%;
+            }
+            to {
+                bottom: 56%;
                 left: 50%;
             }
         }
@@ -734,12 +760,13 @@
                 animation: firstShowSlateMobile 1s ease-in-out forwards;
             }
 
-            .brush {
-                bottom: -100vh;
-                left: 50%;
-                width: 50%;
-                height: auto;
-                transform: translateX(-50%);
+            .brush-desktop {
+                display: none;
+            }
+
+            .brush-mobile {
+                display: block;
+                animation: showBrushMobile 1s ease-in-out forwards;
             }
 
             .honey {
@@ -821,7 +848,7 @@
                 }
             }
 
-            @keyframes showBrush {
+            @keyframes showBrushMobile {
                 from {
                     bottom: -100vh;
                     left: 50%;
@@ -864,17 +891,6 @@
                     right: -50%;
                 }
             }
-
-            /* @keyframes showBrieMobile {
-                from {
-                    bottom: -100vh;
-                    right: 20vw;
-                }
-                to {
-                    bottom: 25%;
-                    right: -0%;
-                }
-            } */
 
             @keyframes showGrape {
                 from {
@@ -1080,6 +1096,147 @@
             }
         }
         
+        @keyframes hideWordDrum {
+            from {
+                transform: translate(-50%, 0) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translate(-50%, 30vh) scale(3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes showWordDrum {
+            from {
+                transform: translate(-50%, 30vh) scale(3);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, 0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes hideBrushDesktop {
+            from {
+                bottom: 30%;
+                left: 50%;
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            to {
+                bottom: 30vh;
+                left: 50%;
+                transform: translateX(-50%) scale(3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes showBrushDesktop {
+            from {
+                bottom: 30vh;
+                left: 50%;
+                transform: translateX(-50%) scale(3);
+                opacity: 0;
+            }
+            to {
+                bottom: 30%;
+                left: 50%;
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            gap: 45px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 40;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu .nav-button {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-menu.active .nav-button {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu .nav-button:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu .nav-button:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu .nav-button:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu .nav-button:nth-child(4) { transition-delay: 0.4s; }
+
+        .mobile-menu .quiz-button {
+            font-size: 32px;
+            font-weight: 700;
+            margin-top: 85px;
+            background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+            border: none;
+            border-radius: 12px;
+            width: 88%;
+            cursor: pointer;
+            color: #442F1E;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .mobile-menu.active .quiz-button {
+            padding: 24px 30px;
+            min-height: 88px;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu .enter-button {
+            font-size: 32px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            color: #FDE170;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-menu.active .enter-button {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu .enter-button img {
+            height: 36px;
+            width: auto;
+        }
     </style>
 </head>
 <body>
@@ -1128,6 +1285,16 @@
         </div>
     </header>
 
+    <div class="mobile-menu">
+        <button class="nav-button">Благородные сыры</button>
+        <button class="nav-button">Частые вопросы</button>
+        <button class="quiz-button">Пройти сырный квиз</button>
+        <button class="enter-button">
+            <img src="images/enter.webp" alt="Enter">
+            <span>Вход</span>
+        </button>
+    </div>
+
     <div class="content-wrapper">
         <img src="images/slate.png" alt="Slate" class="slate-desktop">
         <img src="images/slate.png" alt="Slate" class="slate-mobile">
@@ -1136,7 +1303,8 @@
         <img src="images/brie-mobile.webp" alt="Brie" class="product brie-mobile">
         <img src="images/brie-box.webp" alt="Brie Box" class="product brie-box">
         <img src="images/camamber-box.webp" alt="Camamber" class="product camamber">
-        <img src="images/brush.webp" alt="Brush" class="product brush">
+        <img src="images/brush.webp" alt="Brush" class="product brush-desktop">
+        <img src="images/brush.webp" alt="Brush" class="product brush-mobile">
         <img src="images/camambert_.webp" alt="Camambert" class="product camambert">
         <img src="images/camambert-mobile.webp" alt="Camambert" class="product camambert-mobile">
         <img src="images/grape.webp" alt="Grape" class="product grape">
@@ -1146,6 +1314,10 @@
         let isFirstLoad = true;
         const slateMobile = document.querySelector('.slate-mobile');
         const burgerMenu = document.querySelector('.burger-menu');
+        const wordDrums = document.querySelectorAll('.word-drum');
+        const brushMobile = document.querySelector('.brush-mobile');
+        const brushDesktop = document.querySelector('.brush-desktop');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
         // Функция для применения анимации
         function applyAnimation(element, animationName) {
@@ -1165,11 +1337,24 @@
         burgerMenu.addEventListener('click', function() {
             this.classList.toggle('active');
             document.querySelector('.content-wrapper').classList.toggle('menu-active');
+            mobileMenu.classList.toggle('active');
             
             if (this.classList.contains('active')) {
                 applyAnimation(slateMobile, 'hideSlate');
+                wordDrums.forEach(drum => applyAnimation(drum, 'hideWordDrum'));
+                if (window.innerWidth <= 768) {
+                    applyAnimation(brushMobile, 'hideBrushMobile');
+                } else {
+                    applyAnimation(brushDesktop, 'hideBrushDesktop');
+                }
             } else {
                 applyAnimation(slateMobile, 'showSlate');
+                wordDrums.forEach(drum => applyAnimation(drum, 'showWordDrum'));
+                if (window.innerWidth <= 768) {
+                    applyAnimation(brushMobile, 'showBrushMobile');
+                } else {
+                    applyAnimation(brushDesktop, 'showBrushDesktop');
+                }
             }
         });
     </script>
