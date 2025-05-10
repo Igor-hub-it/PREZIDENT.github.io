@@ -88,9 +88,8 @@
 
         .logo {
             position: absolute;
-            top: 10%;
+            top: 30%;
             width: 10%;
-            max-height: 100px;
             margin-left: 6.85%;
             z-index: 1;
         }
@@ -165,7 +164,7 @@
             width: auto;
         }
 
-        .slate {
+        .slate-desktop {
             position: fixed;
             bottom: -170%;
             left: 55%;
@@ -173,7 +172,18 @@
             width: 158%;
             height: 158%;
             object-fit: contain;
-            animation: showSlate 1s ease-in-out forwards;
+            animation: firstShowSlateDesktop 1s ease-in-out forwards;
+        }
+
+        .slate-mobile {
+            display: none;
+            position: fixed;
+            bottom: -200vh;
+            left: 150%;
+            transform: translateX(-50%);
+            width: 450%;
+            height: 158%;
+            object-fit: contain;
         }
 
         .product {
@@ -292,17 +302,17 @@
         }
 
         .word-1 {
-            animation: wordAnimation1 20s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation1 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 3;
         }
 
         .word-2 {
-            animation: wordAnimation2 20s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation2 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 2;
         }
 
         .word-3 {
-            animation: wordAnimation3 20s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation3 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 1;
         }
 
@@ -347,17 +357,6 @@
             }
             to {
                 top: 0;
-            }
-        }
-
-        @keyframes showSlate {
-            from {
-                bottom: -100%;
-                left: 150vh;
-            }
-            to {
-                bottom: -45vh;
-                left: 55%;
             }
         }
 
@@ -439,11 +438,11 @@
         }
 
         @keyframes wordAnimation1 {
-            0%, 30% {
+            0%, 25% {
                 transform: translateY(0);
                 opacity: 1;
             }
-            33%, 96% {
+            30%, 95% {
                 transform: translateY(100%);
                 opacity: 0;
             }
@@ -454,15 +453,15 @@
         }
 
         @keyframes wordAnimation2 {
-            0%, 30% {
+            0%, 25% {
                 transform: translateY(-100%);
                 opacity: 0;
             }
-            33%, 63% {
+            30%, 60% {
                 transform: translateY(0);
                 opacity: 1;
             }
-            66%, 96% {
+            65%, 95% {
                 transform: translateY(100%);
                 opacity: 0;
             }
@@ -473,11 +472,11 @@
         }
 
         @keyframes wordAnimation3 {
-            0%, 63% {
+            0%, 60% {
                 transform: translateY(-100%);
                 opacity: 0;
             }
-            66%, 96% {
+            65%, 95% {
                 transform: translateY(0);
                 opacity: 1;
             }
@@ -488,12 +487,12 @@
         }
 
         @keyframes wordAnimation4 {
-            0%, 30% {
+            0%, 25% {
                 transform: translateY(0);
                 opacity: 1;
             }
-            33%, 96% {
-                transform: translateY(100%);
+            30%, 95% {
+                transform: translateY(-100%);
                 opacity: 0;
             }
             100% {
@@ -503,35 +502,35 @@
         }
 
         @keyframes wordAnimation5 {
-            0%, 30% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            33%, 63% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            66%, 96% {
+            0%, 25% {
                 transform: translateY(100%);
                 opacity: 0;
             }
-            100% {
+            30%, 60% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            65%, 95% {
                 transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100%);
                 opacity: 0;
             }
         }
 
         @keyframes wordAnimation6 {
-            0%, 63% {
-                transform: translateY(-100%);
+            0%, 60% {
+                transform: translateY(100%);
                 opacity: 0;
             }
-            66%, 96% {
+            65%, 95% {
                 transform: translateY(0);
                 opacity: 1;
             }
             100% {
-                transform: translateY(100%);
+                transform: translateY(-100%);
                 opacity: 0;
             }
         }
@@ -594,24 +593,91 @@
             top: 6px;
         }
 
+        .burger-menu.active ~ .brie-mobile {
+            animation: hideBrieMobile 0.5s ease-in-out forwards;
+        }
+
+        .burger-menu.active ~ .camamber {
+            animation: hideCamamber 0.5s ease-in-out forwards;
+        }
+
+        .burger-menu.active ~ .brie-box {
+            animation: hideBrieBox 0.5s ease-in-out forwards;
+        }
+
+        .burger-menu.active ~ .grape {
+            animation: hideGrape 0.5s ease-in-out forwards;
+        }
+
+        .burger-menu.active ~ .slate-mobile {
+            animation: hideSlate 1s ease-in-out forwards;
+        }
+
+        @keyframes hideBrieMobile {
+            from {
+                bottom: 25%;
+                right: 0%;
+            }
+            to {
+                bottom: -100vh;
+                right: 100vw;
+            }
+        }
+
+        @keyframes hideCamamber {
+            from {
+                bottom: 0;
+                left: 19%;
+            }
+            to {
+                bottom: -100vh;
+                left: 19%;
+            }
+        }
+
+        @keyframes hideBrieBox {
+            from {
+                bottom: 13%;
+                left: 2%;
+            }
+            to {
+                bottom: -100vh;
+                left: -100vw;
+            }
+        }
+
+        @keyframes hideGrape {
+            from {
+                top: 0%;
+                right: 8%;
+            }
+            to {
+                top: -100vh;
+                right: 100vw;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .logo {
-                top: 50%;
-                transform: translateY(-50%);
-                width: 40px;
-                height: 40px;
-                margin-left: 20px;
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 35%;
+                height: auto;
+                margin: 0;
             }
 
             .header-red {
-                content: url('images/header-red-mobile.webp');
+                content: url('./images/header-red-mobile.webp');
                 height: auto;
                 width: 100%;
                 z-index: 1;
+                position: relative;
             }
 
             .header-yellow {
-                content: url('images/header-yellow-mobile.webp');
+                content: url('./images/header-yellow-mobile.webp');
                 top: 1px;
                 height: auto;
                 width: 100%;
@@ -625,6 +691,7 @@
             .burger-menu {
                 display: flex;
                 position: absolute;
+                top: 15%;
                 right: 20px;
             }
 
@@ -655,8 +722,16 @@
                 font-family: 'Circe Rounded', Arial, sans-serif;
             }
 
-            .slate {
-                width: 450%;
+            .slate-desktop {
+                display: none;
+            }
+
+            .slate-mobile {
+                display: block;
+            }
+
+            .slate-mobile.first-load {
+                animation: firstShowSlateMobile 1s ease-in-out forwards;
             }
 
             .brush {
@@ -679,9 +754,11 @@
             }
 
             .brie-mobile {
+                display: block;
                 bottom: -100vh;
-                width: 110%;
+                width: 50%;
                 height: auto;
+                animation: showBrieMobile 1s ease-in-out forwards;
             }
     
             .brie-box {
@@ -699,10 +776,20 @@
             }
     
             .camambert {
+                display: none;
                 top: -100vh;
                 right: 5vw;
                 width: 65%;
                 height: auto;
+            }
+
+            .camambert-mobile {
+                display: block;
+                top: -100vh;
+                right: 5vw;
+                width: 45%;
+                height: auto;
+                animation: showCamambertMobile 1s ease-in-out forwards;
             }
     
             .grape {
@@ -714,12 +801,23 @@
 
             @keyframes showSlate {
                 from {
-                    bottom: -100%;
-                    left: 150vh;
+                    bottom: -35vh;
+                    left: 185%;
                 }
                 to {
-                    bottom: -45vh;
-                    left: 55%;
+                    bottom: -20vh;
+                    left: 150%;
+                }
+            }
+
+            @keyframes hideSlate {
+                from {
+                    bottom: -20vh;
+                    left: 150%;
+                }
+                to {
+                    bottom: -35vh;
+                    left: 185%;
                 }
             }
 
@@ -767,13 +865,24 @@
                 }
             }
 
-            @keyframes showGrape {
+            /* @keyframes showBrieMobile {
                 from {
-                    top: -100vh;
+                    bottom: -100vh;
                     right: 20vw;
                 }
                 to {
-                    top: 0%;
+                    bottom: 25%;
+                    right: -0%;
+                }
+            } */
+
+            @keyframes showGrape {
+                from {
+                    top: -100vh;
+                    right: -100vh;
+                }
+                to {
+                    top: -2%;
                     left: -15%;
                 }
             }
@@ -788,7 +897,189 @@
                     right: 0%;
                 }
             }
+
+            @keyframes showCamambertMobile {
+                from {
+                    top: -100vh;
+                    right: -20%;
+                }
+                to {
+                    top: -5%;
+                    right: 0%;
+                }
+            }
+
+            .burger-menu.active ~ .brie-mobile {
+                animation: hideBrieMobile 0.5s ease-in-out forwards;
+            }
+
+            .burger-menu.active ~ .camamber {
+                animation: hideCamamber 0.5s ease-in-out forwards;
+            }
+
+            .burger-menu.active ~ .brie-box {
+                animation: hideBrieBox 0.5s ease-in-out forwards;
+            }
+
+            .burger-menu.active ~ .grape {
+                animation: hideGrape 0.5s ease-in-out forwards;
+            }
+
+            .burger-menu.active ~ .slate-mobile:not(.first-load) {
+                animation: hideSlate 1s ease-in-out forwards;
+            }
+
+            .burger-menu:not(.active) ~ .slate-mobile:not(.first-load) {
+                animation: showSlate 1s ease-in-out forwards;
+            }
+
+            @keyframes hideBrieMobile {
+                from {
+                    bottom: 25%;
+                    right: 0%;
+                }
+                to {
+                    bottom: -100vh;
+                    right: -100vw;
+                }
+            }
+
+            @keyframes hideCamambertMobile {
+                from {
+                    top: -5%;
+                    right: 0%;
+                }
+                to {
+                    bottom: -100vh;
+                    right: -100vw;
+                }
+            }
+
+            @keyframes hideCamamber {
+                from {
+                    bottom: 0;
+                    left: 35%;
+                }
+                to {
+                    bottom: -100vh;
+                    left: 35%;
+                }
+            }
+
+            @keyframes hideBrieBox {
+                from {
+                    bottom: 4%;
+                    left: -15%;
+                }
+                to {
+                    bottom: -100vh;
+                    left: -100vw;
+                }
+            }
+
+            @keyframes hideGrape {
+                from {
+                    top: -2%;
+                    left: -15%;
+                }
+                to {
+                    top: -100vh;
+                    right: -100vw;
+                }
+            }
         }
+
+        .content-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-wrapper.menu-active .brie-mobile {
+            animation: hideBrieMobile 1s ease-in-out forwards;
+        }
+
+        .content-wrapper.menu-active .camambert-mobile {
+            animation: hideCamambertMobile 1s ease-in-out forwards;
+        }
+
+        .content-wrapper.menu-active .camamber {
+            animation: hideCamamber 1s ease-in-out forwards;
+        }
+
+        .content-wrapper.menu-active .brie-box {
+            animation: hideBrieBox 1s ease-in-out forwards;
+        }
+
+        .content-wrapper.menu-active .grape {
+            animation: hideGrape 1s ease-in-out forwards;
+        }
+
+        .content-wrapper.menu-active .slate-mobile {
+            animation: hideSlate 1s ease-in-out forwards;
+        }
+
+        .content-wrapper:not(.menu-active) .brie-mobile {
+            animation: showBrieMobile 1s ease-in-out forwards;
+        }
+
+        .content-wrapper:not(.menu-active) .camamber {
+            animation: showCamamber 1s ease-in-out forwards;
+        }
+
+        .content-wrapper:not(.menu-active) .brie-box {
+            animation: showBrieBox 1s ease-in-out forwards;
+        }
+
+        .content-wrapper:not(.menu-active) .grape {
+            animation: showGrape 1s ease-in-out forwards;
+        }
+
+        .content-wrapper:not(.menu-active) .slate-mobile {
+            animation: showSlate 1s ease-in-out forwards;
+        }
+
+        @keyframes showBrieMobile {
+            from {
+                bottom: -100vh;
+                right: -100vw;
+            }
+            to {
+                bottom: 25%;
+                right: 0%;
+            }
+        }
+
+        .content-wrapper.menu-active .slate-mobile {
+            animation: hideSlate 1s ease-in-out forwards;
+        }
+
+        .content-wrapper:not(.menu-active) .slate-mobile {
+            animation: showSlate 1s ease-in-out forwards;
+        }
+
+        @keyframes firstShowSlateDesktop {
+            from {
+                bottom: -100%;
+                left: 150vh;
+            }
+            to {
+                bottom: -45vh;
+                left: 55%;
+            }
+        }
+
+        @keyframes firstShowSlateMobile {
+            from {
+                bottom: -200vh;
+                left: 150%;
+            }
+            to {
+                bottom: -30vh;
+                left: 100%;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -837,20 +1128,50 @@
         </div>
     </header>
 
+    <div class="content-wrapper">
+        <img src="images/slate.png" alt="Slate" class="slate-desktop">
+        <img src="images/slate.png" alt="Slate" class="slate-mobile">
+        <img src="images/honey.webp" alt="Honey" class="product honey">
+        <img src="images/brie_.webp" alt="Brie" class="product brie">
+        <img src="images/brie-mobile.webp" alt="Brie" class="product brie-mobile">
+        <img src="images/brie-box.webp" alt="Brie Box" class="product brie-box">
+        <img src="images/camamber-box.webp" alt="Camamber" class="product camamber">
+        <img src="images/brush.webp" alt="Brush" class="product brush">
+        <img src="images/camambert_.webp" alt="Camambert" class="product camambert">
+        <img src="images/camambert-mobile.webp" alt="Camambert" class="product camambert-mobile">
+        <img src="images/grape.webp" alt="Grape" class="product grape">
+    </div>
+
     <script>
-        document.querySelector('.burger-menu').addEventListener('click', function() {
+        let isFirstLoad = true;
+        const slateMobile = document.querySelector('.slate-mobile');
+        const burgerMenu = document.querySelector('.burger-menu');
+
+        // Функция для применения анимации
+        function applyAnimation(element, animationName) {
+            element.style.animation = 'none';
+            element.offsetHeight; // Форсируем перерисовку
+            element.style.animation = `${animationName} 1s ease-in-out forwards`;
+        }
+
+        // При загрузке страницы
+        window.addEventListener('load', function() {
+            if (window.innerWidth <= 768) {
+                applyAnimation(slateMobile, 'firstShowSlateMobile');
+            }
+        });
+
+        // При клике на бургер-меню
+        burgerMenu.addEventListener('click', function() {
             this.classList.toggle('active');
+            document.querySelector('.content-wrapper').classList.toggle('menu-active');
+            
+            if (this.classList.contains('active')) {
+                applyAnimation(slateMobile, 'hideSlate');
+            } else {
+                applyAnimation(slateMobile, 'showSlate');
+            }
         });
     </script>
-
-    <img src="images/slate.png" alt="Slate" class="slate">
-    <img src="images/honey.webp" alt="Honey" class="product honey">
-    <img src="images/brie_.webp" alt="Brie" class="product brie">
-    <img src="images/brie-mobile.webp" alt="Brie" class="product brie-mobile">
-    <img src="images/brie-box.webp" alt="Brie Box" class="product brie-box">
-    <img src="images/camamber-box.webp" alt="Camamber" class="product camamber">
-    <img src="images/brush.webp" alt="Brush" class="product brush">
-    <img src="images/camambert_.webp" alt="Camambert" class="product camambert">
-    <img src="images/grape.webp" alt="Grape" class="product grape">
 </body>
 </html>
