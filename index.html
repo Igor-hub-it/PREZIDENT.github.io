@@ -101,7 +101,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.6% 6% 0.6% 25%;
+            padding: 0.6% 6% 0.6% 35%;
             box-sizing: border-box;
         }
 
@@ -1444,6 +1444,142 @@
                 opacity: 1;
             }
         }
+
+        .cheese-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .cheese-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cheese-modal-content {
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cheese-modal-close {
+            position: fixed;
+            top: 130px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .cheese-modal-title {
+            max-width: 70%;
+            color: #fff;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 7%;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            line-height: 1.2;
+        }
+
+        .cheese-grid {
+            display: flex;
+            padding: 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            max-width: 100%;
+        }
+
+        .cheese-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cheese-card {
+            padding: 30px;
+            display: flex;
+            justify-content: end;
+            flex-direction: column;
+            align-items: center;
+            width: 13%;
+            max-width: 300px;
+            flex-shrink: 0;
+        }
+
+        .cheese-image {
+            width: 100%;
+            min-height: 200px;
+            object-fit: contain;
+            margin-bottom: 27px;
+        }
+
+        .cheese-name {
+            min-height: 70px;
+            margin-bottom: 12px;
+            color: #FFE26B;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+        }
+
+        .cheese-description {
+            min-height: 150px;
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.4;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+        }
+
+        @media screen and (max-width: 768px) {
+            .cheese-modal-close {
+                top: 70px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .cheese-modal-title {
+                max-width: 90%;
+                margin-top: 25%;
+                font-size: 20px;
+            }
+
+            .cheese-card {
+                min-width: 280px;
+                padding: 20px;
+            }
+
+            .cheese-image {
+                height: 300px;
+            }
+
+            .cheese-name {
+                margin: 0%;
+                min-height: 20px;
+                font-size: 20px;
+            }
+
+            .cheese-description {
+                max-width: 80%;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1539,6 +1675,45 @@
         <button class="discover-button">ВПЕРЕД, К БЛАГОРОДНЫМ ОТКРЫТИЯМ!</button>
     </div>
 
+    <div class="cheese-modal">
+        <img src="images/close.webp" alt="Close" class="cheese-modal-close">
+        <div class="cheese-modal-content">
+            <h2 class="cheese-modal-title">ОКУНИТЕСЬ В МИР ОТТЕНКОВ ИЗЫСКАННОГО ВКУСА НАСТОЯЩЕГО БЛАГОРОДНОГО СЫРА PRÈSIDENT!</h2>
+            <div class="cheese-grid">
+                <div class="cheese-card">
+                    <img src="images/brie-box-demo.webp" alt="Brie" class="cheese-image">
+                    <h3 class="cheese-name">Brie</h3>
+                    <p class="cheese-description">Классический сыр с благородной плесенью, знаменитый своей бархатистой корочкой и глубоким сливочным вкусом</p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/camamber-box-demo.webp" alt="Camembert" class="cheese-image">
+                    <h3 class="cheese-name">Camembert</h3>
+                    <p class="cheese-description">Легендарный сыр с нежной сердцевиной и пикантным вусом тонкой бархатистой корочки</p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/cremiot.webp" alt="Le Cremiot Extra Fondant" class="cheese-image">
+                    <h3 class="cheese-name">Le Cremiot Extra Fondant</h3>
+                    <p class="cheese-description">Сыр с нежнейшей кремовой текстурой, который буквально тает во рту.</p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/bleu.webp" alt="Royal Blue" class="cheese-image">
+                    <h3 class="cheese-name">Royal Blue</h3>
+                    <p class="cheese-description">Сыр с голубой плесенью и уникальным вкусом, который достигается благодаря длинному сроку созревания (до 90 дней)</p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/brique.webp" alt="La Brique" class="cheese-image">
+                    <h3 class="cheese-name">La Brique</h3>
+                    <p class="cheese-description">Тонкая корочка, текучая текстура и бесподобный вкус с прятными нотками тёплого молока и фундка</p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/snack.webp" alt="Red Snack" class="cheese-image">
+                    <h3 class="cheese-name">Red Snack</h3>
+                    <p class="cheese-description">Уникальный насыщенный вкус с пикантными дымными нотками и сливочным послевкусием</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let isFirstLoad = true;
         const slateMobile = document.querySelector('.slate-mobile');
@@ -1550,6 +1725,9 @@
         const overlay = document.querySelector('.overlay');
         const cardsContainer = document.querySelector('.cards-container');
         const discoverButton = document.querySelector('.discover-button');
+        const cheeseModal = document.querySelector('.cheese-modal');
+        const cheeseModalClose = document.querySelector('.cheese-modal-close');
+        const nobleCheeseButtons = document.querySelectorAll('.nav-button:first-child');
 
         // Функция для применения анимации
         function applyAnimation(element, animationName) {
@@ -1600,6 +1778,10 @@
                 } else {
                     applyAnimation(brushDesktop, 'hideBrushDesktop');
                 }
+                // Скрываем карточки и кнопку
+                overlay.classList.remove('active');
+                cardsContainer.classList.remove('active');
+                discoverButton.classList.remove('active');
             } else {
                 applyAnimation(slateMobile, 'showSlate');
                 wordDrums.forEach(drum => applyAnimation(drum, 'showWordDrum'));
@@ -1608,6 +1790,39 @@
                 } else {
                     applyAnimation(brushDesktop, 'showBrushDesktop');
                 }
+                // Показываем карточки и кнопку
+                setTimeout(() => {
+                    overlay.classList.add('active');
+                    cardsContainer.classList.add('active');
+                    discoverButton.classList.add('active');
+                }, 500);
+            }
+        });
+
+        // Функция для открытия модального окна с сырами
+        function openCheeseModal() {
+            cheeseModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Функция для закрытия модального окна с сырами
+        function closeCheeseModal() {
+            cheeseModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Добавляем обработчики событий для кнопок
+        nobleCheeseButtons.forEach(button => {
+            button.addEventListener('click', openCheeseModal);
+        });
+
+        // Обработчик для кнопки закрытия
+        cheeseModalClose.addEventListener('click', closeCheeseModal);
+
+        // Закрытие по клику вне контента
+        cheeseModal.addEventListener('click', (e) => {
+            if (e.target === cheeseModal) {
+                closeCheeseModal();
             }
         });
     </script>
