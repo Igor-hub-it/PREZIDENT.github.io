@@ -31,8 +31,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation: hidePlaceholder 1s ease-in-out forwards;
-            animation-delay: 5s;
+            opacity: 1;
+            z-index: 100;
         }
 
         .placeholder {
@@ -56,6 +56,9 @@
             background-position: center;
             filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(10000%) hue-rotate(0deg);
             clip-path: inset(0 100% 0 0);
+        }
+
+        .placeholder-shadow.active {
             animation: reveal 4s ease-in-out forwards;
         }
 
@@ -66,8 +69,12 @@
             display: flex;
             align-items: center;
             box-sizing: border-box;
-            animation: showHeader 1s ease-in-out forwards;
+            opacity: 0;
             z-index: 50;
+        }
+
+        .header.active {
+            animation: showHeader 1s ease-in-out forwards;
         }
 
         .header-red {
@@ -175,13 +182,13 @@
 
         .slate-desktop {
             position: fixed;
-            bottom: -170%;
+            bottom: -165%;
             left: 55%;
             transform: translateX(-50%);
-            width: 158%;
-            height: 158%;
+            width: 170%;
+            height: 170%;
             object-fit: contain;
-            animation: firstShowSlateDesktop 1s ease-in-out forwards;
+            opacity: 0;
         }
 
         .slate-mobile {
@@ -193,6 +200,7 @@
             width: 450%;
             height: 158%;
             object-fit: contain;
+            opacity: 0;
         }
 
         .product {
@@ -200,6 +208,12 @@
             height: 150px;
             width: auto;
             object-fit: contain;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .product.active {
+            visibility: visible;
         }
 
         .honey {
@@ -207,18 +221,19 @@
             right: 5vw;
             width: 15%;
             height: auto;
-            animation: showHoney 1s ease-in-out forwards;
         }
 
         .brie {
             bottom: -100vh;
             width: 50%;
             height: auto;
-            animation: showBrie 1s ease-in-out forwards;
         }
 
         .brie-mobile {
             display: none;
+            bottom: -100vh;
+            width: 50%;
+            height: auto;
         }
 
         .brie-box {
@@ -226,7 +241,6 @@
             left: 30vw;
             width: 45%;
             height: auto;
-            animation: showBrieBox 1s ease-in-out forwards;
         }
 
         .camamber {
@@ -234,7 +248,6 @@
             left: 45vw;
             width: 45%;
             height: auto;
-            animation: showCamamber 1s ease-in-out forwards;
         }
 
         .brush-desktop {
@@ -244,7 +257,6 @@
             width: 24%;
             height: auto;
             transform: translateX(-50%);
-            animation: showBrushDesktop 1s ease-in-out forwards;
         }
 
         .brush-mobile {
@@ -262,11 +274,14 @@
             right: 5vw;
             width: 30%;
             height: auto;
-            animation: showCamambert 1s ease-in-out forwards;
         }
 
         .camambert-mobile {
             display: none;
+            top: -100vh;
+            right: 5vw;
+            width: 45%;
+            height: auto;
         }
 
         .grape {
@@ -274,17 +289,15 @@
             right: 20vw;
             width: 45%;
             height: auto;
-            animation: showGrape 1s ease-in-out forwards;
         }
 
         .word-drum {
             position: fixed;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, 0);
             overflow: hidden;
             z-index: 100;
             opacity: 0;
-            animation: showText 1s ease-in-out forwards;
         }
 
         .word-drum-1 {
@@ -378,9 +391,11 @@
         @keyframes showHeader {
             from {
                 top: -120px;
+                opacity: 0;
             }
             to {
                 top: 0;
+                opacity: 1;
             }
         }
 
@@ -388,10 +403,12 @@
             from {
                 bottom: -100vh;
                 right: 5vw;
+                opacity: 0;
             }
             to {
                 bottom: 0vh;
                 right: 0vw;
+                opacity: 1;
             }
         }
 
@@ -399,10 +416,12 @@
             from {
                 bottom: -100vh;
                 right: 20vw;
+                opacity: 0;
             }
             to {
                 bottom: 0;
                 right: 1%;
+                opacity: 1;
             }
         }
 
@@ -410,10 +429,12 @@
             from {
                 bottom: -100vh;
                 left: 30vw;
+                opacity: 0;
             }
             to {
                 bottom: 13%;
                 left: 2%;
+                opacity: 1;
             }
         }
 
@@ -421,10 +442,12 @@
             from {
                 bottom: -100vh;
                 left: 45vw;
+                opacity: 0;
             }
             to {
                 bottom: 0;
                 left: 19%;
+                opacity: 1;
             }
         }
 
@@ -432,10 +455,12 @@
             from {
                 bottom: -100vh;
                 left: 50%;
+                opacity: 0;
             }
             to {
                 bottom: 30%;
                 left: 50%;
+                opacity: 1;
             }
         }
 
@@ -443,21 +468,38 @@
             from {
                 bottom: -100vh;
                 left: 50%;
+                opacity: 0;
             }
             to {
                 bottom: 56%;
                 left: 50%;
+                opacity: 1;
             }
         }
 
         @keyframes showCamambert {
-            from {
+           from {
                 top: -100vh;
                 right: 5vw;
+                opacity: 0;
             }
             to {
                 top: 0;
                 right: 0;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showCamambertMobile {
+            from {
+                top: -100vh;
+                right: -20%;
+                opacity: 0;
+            }
+            to {
+                top: -5%;
+                right: 0%;
+                opacity: 1;
             }
         }
 
@@ -465,10 +507,38 @@
             from {
                 top: -100vh;
                 right: 20vw;
+                opacity: 0;
             }
             to {
                 top: 0%;
                 right: 8%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showSlateDesktop {
+            from {
+                bottom: -100%;
+                left: 150vh;
+                opacity: 0;
+            }
+            to {
+                bottom: -50vh;
+                left: 55%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showSlate {
+            from {
+                bottom: -200vh;
+                left: 150%;
+                opacity: 0;
+            }
+            to {
+                bottom: -30vh;
+                left: 100%;
+                opacity: 1;
             }
         }
 
@@ -693,6 +763,30 @@
         }
 
         @media screen and (max-width: 768px) {
+
+            .placeholder {
+                width: 230px;
+                height: 46px;
+                background-image: url('images/preloader.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .placeholder-shadow {
+                position: absolute;
+                top: -1px;
+                left: -1px;
+                width: 230px;
+                height: 46px;
+                background-image: url('images/preloader.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(10000%) hue-rotate(0deg);
+                clip-path: inset(0 100% 0 0);
+            }
+
             .logo {
                 position: absolute;
                 top: 60%;
@@ -765,8 +859,8 @@
                 display: block;
             }
 
-            .slate-mobile.first-load {
-                animation: firstShowSlateMobile 1s ease-in-out forwards;
+            .slate-mobile.active {
+                animation: showSlateMobile 1s ease-in-out forwards;
             }
 
             .brush-desktop {
@@ -804,6 +898,10 @@
                 height: auto;
             }
     
+            .brie-box.active {
+                animation: showBrieBox 1s ease-in-out forwards;
+            }
+    
             .camamber {
                 bottom: -100vh;
                 left: 45vw;
@@ -828,11 +926,19 @@
                 animation: showCamambertMobile 1s ease-in-out forwards;
             }
     
+            .camambert-mobile.active {
+                animation: showCamambertMobile 1s ease-in-out forwards;
+            }
+    
             .grape {
                 top: -100vh;
                 right: 20vw;
                 width: 130%;
                 height: auto;
+            }
+
+            .grape.active {
+                animation: showGrapeMobile 1s ease-in-out forwards;
             }
 
             @keyframes showSlate {
@@ -901,7 +1007,7 @@
                 }
             }
 
-            @keyframes showGrape {
+            @keyframes showGrapeMobile {
                 from {
                     top: -100vh;
                     right: -100vh;
@@ -1064,17 +1170,6 @@
             animation: showSlate 1s ease-in-out forwards;
         }
 
-        @keyframes showBrieMobile {
-            from {
-                bottom: -100vh;
-                right: -100vw;
-            }
-            to {
-                bottom: 25%;
-                right: 0%;
-            }
-        }
-
         .content-wrapper.menu-active .slate-mobile {
             animation: hideSlate 1s ease-in-out forwards;
         }
@@ -1083,13 +1178,118 @@
             animation: showSlate 1s ease-in-out forwards;
         }
 
+        @keyframes showBrieMobile {
+            from {
+                bottom: -100vh;
+                right: -100vw;
+                opacity: 0;
+            }
+            to {
+                bottom: 25%;
+                right: 0%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showCamambertMobile {
+            from {
+                top: -100vh;
+                right: -20%;
+                opacity: 0;
+            }
+            to {
+                top: -5%;
+                right: 0%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showBrushMobile {
+            from {
+                bottom: -100vh;
+                left: 50%;
+                opacity: 0;
+            }
+            to {
+                bottom: 56%;
+                left: 50%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showGrapeMobile {
+            from {
+                top: -100vh;
+                right: -100vh;
+                opacity: 0;
+            }
+            to {
+                top: -2%;
+                left: -15%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showCamamberMobile {
+            from {
+                bottom: -100vh;
+                left: 45vw;
+                opacity: 0;
+            }
+            to {
+                bottom: 0;
+                left: 35%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showBrieBoxMobile {
+            from {
+                bottom: -100vh;
+                left: 30vw;
+                opacity: 0;
+            }
+            to {
+                bottom: 4%;
+                left: -15%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showSlateMobile {
+            from {
+                bottom: -35vh;
+                left: 190%;
+                opacity: 1;
+            }
+            to {
+                bottom: -25vh;
+                left: 150%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes hideSlateMobile {
+            from {
+                
+                bottom: -25vh;
+                left: 150%;
+                opacity: 1;
+            }
+            to {
+                bottom: -35vh;
+                left: 190%;
+                opacity: 1;
+            }
+        }
+
         @keyframes firstShowSlateDesktop {
             from {
                 bottom: -100%;
                 left: 150vh;
             }
             to {
-                bottom: -45vh;
+                bottom: -55vh;
                 left: 55%;
             }
         }
@@ -1098,10 +1298,12 @@
             from {
                 bottom: -200vh;
                 left: 150%;
+                /* opacity: 0; */
             }
             to {
                 bottom: -30vh;
                 left: 100%;
+                opacity: 1;
             }
         }
 
@@ -1387,7 +1589,7 @@
             .card-circle {
                 width: 30px;
                 height: 30px;
-                margin-bottom: 10px;
+                margin-bottom: 25px;
             }
 
             .card-circle span {
@@ -1401,7 +1603,7 @@
 
             .discover-button.active {
                 width: 95%;
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 700;
                 padding: 15px 22px;
                 min-height: fit-content;
@@ -1468,7 +1670,6 @@
             position: relative;
             width: 100%;
             min-height: 100%;
-            padding: 40px 20px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -1491,7 +1692,8 @@
             font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-top: 7%;
+            position: relative;
+            top: 100px;
             font-family: 'Circe Rounded', Arial, sans-serif;
             line-height: 1.2;
         }
@@ -1555,6 +1757,7 @@
             }
 
             .cheese-modal-title {
+                top: 40px;
                 max-width: 90%;
                 margin-top: 25%;
                 font-size: 20px;
@@ -1717,6 +1920,7 @@
     <script>
         let isFirstLoad = true;
         const slateMobile = document.querySelector('.slate-mobile');
+        const slateDesktop = document.querySelector('.slate-desktop');
         const burgerMenu = document.querySelector('.burger-menu');
         const wordDrums = document.querySelectorAll('.word-drum');
         const brushMobile = document.querySelector('.brush-mobile');
@@ -1728,12 +1932,150 @@
         const cheeseModal = document.querySelector('.cheese-modal');
         const cheeseModalClose = document.querySelector('.cheese-modal-close');
         const nobleCheeseButtons = document.querySelectorAll('.nav-button:first-child');
+        const placeholderContainer = document.querySelector('.placeholder-container');
+        const placeholderShadow = document.querySelector('.placeholder-shadow');
+        const products = document.querySelectorAll('.product');
+        const header = document.querySelector('.header');
 
         // Функция для применения анимации
         function applyAnimation(element, animationName) {
+            if (!element) return;
             element.style.animation = 'none';
-            element.offsetHeight; // Форсируем перерисовку
+            element.offsetHeight;
             element.style.animation = `${animationName} 1s ease-in-out forwards`;
+        }
+
+        // Функция для показа продуктов
+        function showProducts() {
+            products.forEach(product => {
+                if (!product) return;
+                product.classList.add('active');
+                
+                if (window.innerWidth <= 768) {
+                    if (product.classList.contains('slate-mobile')) {
+                        applyAnimation(product, 'firstShowSlateMobile');
+                    } else if (product.classList.contains('brie-mobile')) {
+                        applyAnimation(product, 'showBrieMobile');
+                    } else if (product.classList.contains('camambert-mobile')) {
+                        applyAnimation(product, 'showCamambertMobile');
+                    } else if (product.classList.contains('brush-mobile')) {
+                        applyAnimation(product, 'showBrushMobile');
+                    } else if (product.classList.contains('grape')) {
+                        applyAnimation(product, 'showGrapeMobile');
+                    } else if (product.classList.contains('camamber')) {
+                        applyAnimation(product, 'showCamamberMobile');
+                    } else if (product.classList.contains('brie-box')) {
+                        applyAnimation(product, 'showBrieBoxMobile');
+                    }
+                } else {
+                    if (product.classList.contains('honey')) {
+                        applyAnimation(product, 'showHoney');
+                    } else if (product.classList.contains('brie')) {
+                        applyAnimation(product, 'showBrie');
+                    } else if (product.classList.contains('brie-box')) {
+                        applyAnimation(product, 'showBrieBox');
+                    } else if (product.classList.contains('camamber')) {
+                        applyAnimation(product, 'showCamamber');
+                    } else if (product.classList.contains('brush-desktop')) {
+                        applyAnimation(product, 'showBrushDesktop');
+                    } else if (product.classList.contains('camambert')) {
+                        applyAnimation(product, 'showCamambert');
+                    } else if (product.classList.contains('grape')) {
+                        applyAnimation(product, 'showGrape');
+                    }
+                }
+            });
+
+            if (window.innerWidth <= 768) {
+                if (slateMobile) {
+                    slateMobile.classList.add('active');
+                    applyAnimation(slateMobile, 'firstShowSlateMobile');
+                }
+            } else {
+                if (slateDesktop) {
+                    slateDesktop.classList.add('active');
+                    applyAnimation(slateDesktop, 'showSlateDesktop');
+                }
+            }
+        }
+
+        // Функция для скрытия продуктов
+        function hideProducts() {
+            products.forEach(product => {
+                if (!product) return;
+                product.classList.remove('active');
+                product.style.animation = 'none';
+                product.offsetHeight;
+                product.style.opacity = '0';
+                
+                if (window.innerWidth <= 768) {
+                    if (product.classList.contains('slate-mobile')) {
+                        product.style.bottom = '-200vh';
+                        product.style.left = '150%';
+                    } else if (product.classList.contains('brie-mobile')) {
+                        product.style.bottom = '-100vh';
+                        product.style.right = '-100vw';
+                    } else if (product.classList.contains('camambert-mobile')) {
+                        product.style.top = '-100vh';
+                        product.style.right = '-20%';
+                    } else if (product.classList.contains('brush-mobile')) {
+                        product.style.bottom = '-100vh';
+                        product.style.left = '50%';
+                    } else if (product.classList.contains('grape')) {
+                        product.style.top = '-100vh';
+                        product.style.right = '-100vh';
+                    } else if (product.classList.contains('camamber')) {
+                        product.style.bottom = '-100vh';
+                        product.style.left = '45vw';
+                    } else if (product.classList.contains('brie-box')) {
+                        product.style.bottom = '-100vh';
+                        product.style.left = '30vw';
+                    }
+                } else {
+                    if (product.classList.contains('honey')) {
+                        product.style.bottom = '-100vh';
+                        product.style.right = '5vw';
+                    } else if (product.classList.contains('brie')) {
+                        product.style.bottom = '-100vh';
+                        product.style.right = '20vw';
+                    } else if (product.classList.contains('brie-box')) {
+                        product.style.bottom = '-100vh';
+                        product.style.left = '30vw';
+                    } else if (product.classList.contains('camamber')) {
+                        product.style.bottom = '-100vh';
+                        product.style.left = '45vw';
+                    } else if (product.classList.contains('brush-desktop')) {
+                        product.style.bottom = '-100vh';
+                        product.style.left = '50%';
+                    } else if (product.classList.contains('camambert')) {
+                        product.style.top = '-100vh';
+                        product.style.right = '5vw';
+                    } else if (product.classList.contains('grape')) {
+                        product.style.top = '0%';
+                        product.style.right = '8%';
+                    }
+                }
+            });
+
+            if (window.innerWidth <= 768) {
+                if (slateMobile) {
+                    slateMobile.classList.remove('active');
+                    slateMobile.style.animation = 'none';
+                    slateMobile.offsetHeight;
+                    slateMobile.style.bottom = '-200vh';
+                    slateMobile.style.left = '150%';
+                    slateMobile.style.opacity = '0';
+                }
+            } else {
+                if (slateDesktop) {
+                    slateDesktop.classList.remove('active');
+                    slateDesktop.style.animation = 'none';
+                    slateDesktop.offsetHeight;
+                    slateDesktop.style.bottom = '-170%';
+                    slateDesktop.style.left = '55%';
+                    slateDesktop.style.opacity = '0';
+                }
+            }
         }
 
         // Функция для скрытия слов
@@ -1745,6 +2087,15 @@
             });
         }
 
+        // Функция для показа слов
+        function showWords() {
+            wordDrums.forEach(drum => {
+                drum.style.animation = 'none';
+                drum.offsetHeight;
+                drum.style.animation = 'showWords 0.5s ease-in-out forwards';
+            });
+        }
+
         // Функция для показа карточек
         function showCards() {
             hideWords();
@@ -1752,16 +2103,39 @@
                 overlay.classList.add('active');
                 cardsContainer.classList.add('active');
                 discoverButton.classList.add('active');
-            }, 500); // Ждем 0.5 секунды после исчезновения слов
+            }, 500);
+        }
+
+        function hideCards() {
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                cardsContainer.classList.remove('active');
+                discoverButton.classList.remove('active');
+            }, 500);
         }
 
         // При загрузке страницы
         window.addEventListener('load', function() {
-            if (window.innerWidth <= 768) {
-                applyAnimation(slateMobile, 'firstShowSlateMobile');
-            }
-            // Показываем карточки через 10 секунд (после анимации слов)
-            setTimeout(showCards, 1000);
+            // Запускаем анимацию preloader
+            placeholderShadow.classList.add('active');
+            
+            // 1. Сначала показываем preloader (5 секунд)
+            setTimeout(() => {
+                // 2. Скрываем preloader и показываем header
+                applyAnimation(placeholderContainer, 'hidePlaceholder');
+                if (header) {
+                    header.classList.add('active');
+                }
+                
+                // 3. Через 1 секунду показываем продукты и слова
+                setTimeout(() => {
+                    showProducts();
+                    showWords();
+                    
+                    // 4. Через 2 секунды показываем карточки
+                    setTimeout(showCards, 9000);
+                }, 1000);
+            }, 5000);
         });
 
         // При клике на бургер-меню
@@ -1771,26 +2145,16 @@
             mobileMenu.classList.toggle('active');
             
             if (this.classList.contains('active')) {
-                applyAnimation(slateMobile, 'hideSlate');
-                wordDrums.forEach(drum => applyAnimation(drum, 'hideWordDrum'));
-                if (window.innerWidth <= 768) {
-                    applyAnimation(brushMobile, 'hideBrushMobile');
-                } else {
-                    applyAnimation(brushDesktop, 'hideBrushDesktop');
-                }
-                // Скрываем карточки и кнопку
+                hideProducts();
+                hideWords();
+                applyAnimation(slateMobile, 'hideSlateMobile');
                 overlay.classList.remove('active');
                 cardsContainer.classList.remove('active');
                 discoverButton.classList.remove('active');
             } else {
-                applyAnimation(slateMobile, 'showSlate');
-                wordDrums.forEach(drum => applyAnimation(drum, 'showWordDrum'));
-                if (window.innerWidth <= 768) {
-                    applyAnimation(brushMobile, 'showBrushMobile');
-                } else {
-                    applyAnimation(brushDesktop, 'showBrushDesktop');
-                }
-                // Показываем карточки и кнопку
+                showProducts();
+                hideWords();
+                applyAnimation(slateMobile, 'showSlateMobile');
                 setTimeout(() => {
                     overlay.classList.add('active');
                     cardsContainer.classList.add('active');
@@ -1821,7 +2185,12 @@
 
         // Закрытие по клику вне контента
         cheeseModal.addEventListener('click', (e) => {
-            if (e.target === cheeseModal) {
+            const rect = e.target.getBoundingClientRect();
+            const clickY = e.clientY;
+            const topThreshold = rect.top + 50;
+            const bottomThreshold = rect.bottom - 50;
+
+            if (clickY <= topThreshold || clickY >= bottomThreshold) {
                 closeCheeseModal();
             }
         });
