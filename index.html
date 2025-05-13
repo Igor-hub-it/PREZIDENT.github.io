@@ -185,8 +185,8 @@
             bottom: -165%;
             left: 55%;
             transform: translateX(-50%);
-            width: 170%;
-            height: 170%;
+            width: 160%;
+            height: 160%;
             object-fit: contain;
             opacity: 0;
         }
@@ -523,7 +523,7 @@
                 opacity: 0;
             }
             to {
-                bottom: -50vh;
+                bottom: -45vh;
                 left: 55%;
                 opacity: 1;
             }
@@ -1298,7 +1298,6 @@
             from {
                 bottom: -200vh;
                 left: 150%;
-                /* opacity: 0; */
             }
             to {
                 bottom: -30vh;
@@ -1783,6 +1782,197 @@
                 font-size: 14px;
             }
         }
+
+        .faq-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .faq-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .faq-modal-content {
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .faq-modal-close {
+            position: fixed;
+            top: 130px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .faq-modal-title {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .faq-container {
+            width: 45%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-item {
+            background: #CC0102;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:first-child {
+            border-radius: 20px 20px 0 0;
+        }
+
+        .faq-item:last-child {
+            border-radius: 0 0 20px 20px;
+        }
+
+        .faq-item:nth-child(2) {
+            background: rgba(204, 1, 2, 0.8);
+        }
+
+        .faq-item:nth-child(3) {
+            background: rgba(204, 1, 2, 0.6);
+        }
+
+        .faq-item:nth-child(4) {
+            background: rgba(204, 1, 2, 0.4);
+        }
+
+        .faq-item:nth-child(5) {
+            background: rgba(204, 1, 2, 0.2);
+        }
+
+        .faq-question {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .faq-arrow {
+            width: 24px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer-content {
+            padding: 0 30px 12px;
+            color: #fff;
+            font-size: 18px;
+            line-height: 1.6;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+        }
+
+        .faq-answer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .faq-answer-content li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .faq-answer-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: white;
+        }
+
+        @media screen and (max-width: 768px) {
+            .faq-modal-close {
+                top: 120px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .faq-modal-content {
+                padding: 80px 0;
+            }
+
+            .faq-container {
+                width: 90%;
+            }
+
+            .faq-modal-title {
+                font-size: 24px;
+                max-width: 80%;
+            }
+
+            .faq-question {
+                padding: 20px;
+                font-size: 16px;
+                gap: 8%;
+            }
+
+            .faq-answer-content {
+                padding: 0 20px 20px;
+                font-size: 16px;
+            }
+
+            .faq-arrow {
+                width: 18px;
+            }
+
+            .faq-item:first-child {
+                border-radius: 12px 12px 0 0;
+            }
+
+            .faq-item:last-child {
+                border-radius: 0 0 12px 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1917,6 +2107,80 @@
         </div>
     </div>
 
+    <div class="faq-modal">
+        <img src="images/close.webp" alt="Close" class="faq-modal-close">
+        <div class="faq-modal-content">
+            <h2 class="faq-modal-title">Часто задаваемые вопросы</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли есть корочку сыра с плесенью?</span>
+                        <img src="images/arrow.webp" alt="Arrow" class="faq-arrow">
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Да, корочка этих сыров съедобна и придает им особый вкус.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Чем отличается белая и голубая плесень?</span>
+                        <img src="images/arrow.webp" alt="Arrow" class="faq-arrow">
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Белая плесень образует мягкую, бархатистую корочку, а голубая придает сыру пикантный вкус и мраморную текстуру.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как правильно хранить благородные сыры?</span>
+                        <img src="images/arrow.webp" alt="Arrow" class="faq-arrow">
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Лучше всего – в пергаменте или контейнере в отделении для сыра в холодильнике.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>С чем лучше сочетать такие сыры?</span>
+                        <img src="images/arrow.webp" alt="Arrow" class="faq-arrow">
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Благородные сыры прекрасно подходят к фруктам, орехам, меду, вину и багету.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>В чем отличие Бри от Камамбера?</span>
+                        <img src="images/arrow.webp" alt="Arrow" class="faq-arrow">
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Бри и камамбер — оба сыра с благородной белой плесенью, но с рядом различий. Бри немного мягче, сливочнее и выпускается в крупных кругах. Камамбер созревает быстрее, а также  имеет более насыщенный вкус и выраженный грибной аромат. У камамбера плотная корочка и текучая текстура, у бри — нежнее и кремовее.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let isFirstLoad = true;
         const slateMobile = document.querySelector('.slate-mobile');
@@ -1936,6 +2200,10 @@
         const placeholderShadow = document.querySelector('.placeholder-shadow');
         const products = document.querySelectorAll('.product');
         const header = document.querySelector('.header');
+        const faqModal = document.querySelector('.faq-modal');
+        const faqModalClose = document.querySelector('.faq-modal-close');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const faqButtons = document.querySelectorAll('.nav-button:nth-child(2)');
 
         // Функция для применения анимации
         function applyAnimation(element, animationName) {
@@ -2193,6 +2461,52 @@
             if (clickY <= topThreshold || clickY >= bottomThreshold) {
                 closeCheeseModal();
             }
+        });
+
+        // Функция для открытия FAQ модального окна
+        function openFaqModal() {
+            faqModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Функция для закрытия FAQ модального окна
+        function closeFaqModal() {
+            faqModal.classList.remove('active');
+            document.body.style.overflow = '';
+            // Закрываем все аккордионы при закрытии модального окна
+            faqItems.forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+
+        // Добавляем обработчики событий для кнопок FAQ
+        faqButtons.forEach(button => {
+            button.addEventListener('click', openFaqModal);
+        });
+
+        // Обработчик для кнопки закрытия
+        faqModalClose.addEventListener('click', closeFaqModal);
+
+        // Закрытие по клику вне контента
+        faqModal.addEventListener('click', (e) => {
+            if (e.target === faqModal) {
+                closeFaqModal();
+            }
+        });
+
+        // Обработка аккордионов
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Закрываем все остальные аккордионы
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Переключаем текущий аккордион
+                item.classList.toggle('active');
+            });
         });
     </script>
 </body>
