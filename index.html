@@ -145,7 +145,7 @@
             border: none;
             width: auto;
             height: 50px;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 12px 24px;
             cursor: pointer;
             color: #442F1E;
@@ -296,7 +296,7 @@
             left: 50%;
             transform: translate(-50%, 0);
             overflow: hidden;
-            z-index: 100;
+            z-index: 40;
             opacity: 0;
         }
 
@@ -339,32 +339,32 @@
         }
 
         .word-1 {
-            animation: wordAnimation1 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation1 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 3;
         }
 
         .word-2 {
-            animation: wordAnimation2 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation2 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 2;
         }
 
         .word-3 {
-            animation: wordAnimation3 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation3 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 1;
         }
 
         .word-4 {
-            animation: wordAnimation4 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation4 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 3;
         }
 
         .word-5 {
-            animation: wordAnimation5 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation5 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 2;
         }
 
         .word-6 {
-            animation: wordAnimation6 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+            animation: wordAnimation6 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
             z-index: 1;
         }
 
@@ -1406,7 +1406,7 @@
         .mobile-menu .quiz-button {
             font-size: 32px;
             font-weight: 700;
-            margin-top: 85px;
+            margin-top: 120px;
             background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
             border: none;
             border-radius: 12px;
@@ -1973,6 +1973,401 @@
                 border-radius: 0 0 12px 12px;
             }
         }
+
+        .quiz-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .quiz-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .quiz-modal-content {
+            position: relative;
+            width: 25%;
+            background: #CC0102;
+            border-radius: 20px;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transition: height 0.3s ease;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 1s ease;
+            visibility: hidden;
+        }
+
+        .quiz-options.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .quiz-image {
+            position: absolute;
+            height: auto;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .quiz-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quiz-image-1 {
+            width: 60%;
+            top: -100px;
+            left: 20%;
+        }
+
+        .quiz-image-2 {
+            width: 140%;
+            top: -270px;
+            left: 20%;
+        }
+
+        .quiz-image-3 {
+            width: 120%;
+            top: -220px;
+            left: 15%;
+        }
+
+        .quiz-image-4 {
+            width: 130%;
+            top: -200px;
+            left: 25%;
+        }
+
+        .quiz-image-5 {
+            width: 100%;
+            top: -170px;
+            left: 30%;
+        }
+
+        .quiz-image-6 {
+            width: 60%;
+            top: -50px;
+            left: 20%;
+        }
+
+        .quiz-image-7 {
+            width: 60%;
+            top: -100px;
+            left: 20%;
+        }
+
+        .quiz-text {
+            margin-top: 100px;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1.4;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .quiz-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quiz-question-number {
+            position: absolute;
+            color: #FFE26B;
+            font-size: 24px;
+            font-weight: 600;
+            align-self: flex-start;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+        }
+
+        .quiz-option {
+            margin-top: 10px;
+            background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+            border: none;
+            border-radius: 16px;
+            padding: 20px;
+            color: #442F1E;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .quiz-option::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .quiz-option:hover::before {
+            left: 0;
+        }
+
+        .quiz-option:hover::after {
+            right: 0;
+        }
+
+        .quiz-option span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quiz-next {
+            background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+            border: none;
+            width: 100%;
+            border-radius: 12px;
+            padding: 15px 30px;
+            color: #442F1E;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 0.5s ease, transform 1s ease;
+            visibility: hidden;
+        }
+
+        .quiz-next.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .quiz-next::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .quiz-next::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .quiz-next:hover::before {
+            left: 0;
+        }
+
+        .quiz-next:hover::after {
+            right: 0;
+        }
+
+        .quiz-next span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quiz-result {
+            color: #FFE26B;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin: 10px 0 0 0;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+        }
+
+        .quiz-description {
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            font-weight: 200;
+        }
+
+        .quiz-rules {
+            margin-top: 15px;
+            color: #FFE26B;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .quiz-modal-content {
+                width: 95%;
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .quiz-image {
+                position: absolute;
+                height: auto;
+                opacity: 0;
+                transition: opacity 1s ease;
+            }
+
+            .quiz-image.visible {
+                opacity: 1;
+            }
+
+            .quiz-image-1 {
+                width: 60%;
+                top: -80px;
+                left: 20%;
+            }
+
+            .quiz-image-2 {
+                width: 140%;
+                top: -220px;
+                left: 20%;
+            }
+
+            .quiz-image-3 {
+                width: 130%;
+                top: -200px;
+                left: 15%;
+            }
+
+            .quiz-image-4 {
+                width: 130%;
+                top: -165px;
+                left: 20%;
+            }
+
+            .quiz-image-5 {
+                width: 120%;
+                top: -175px;
+                left: 25%;
+            }
+
+            .quiz-image-6 {
+                width: 60%;
+                top: -40px;
+                left: 20%;
+            }
+
+            .quiz-image-7 {
+                width: 60%;
+                top: -80px;
+                left: 20%;
+            }
+
+            .quiz-text {
+                font-size: 20px;
+            }
+
+            .quiz-options {
+                gap: 0px;
+                width: 100%;
+            }
+
+            .quiz-option {
+                font-size: 20px;
+                padding: 20px 15px;
+            }
+
+            .quiz-result {
+                font-size: 32px;
+            }
+
+            .quiz-description {
+                font-size: 16px;
+            }
+
+            .quiz-next {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+
+            .quiz-rules {
+                margin-top: 20px;
+                font-size: 16px;
+            }
+        }
+
+        .quiz-modal-close {
+            position: absolute;
+            top: 0px;
+            right: -50px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        @media screen and (max-width: 768px) {
+            .quiz-modal-close {
+                top: 15px;
+                right: 15px;
+                width: 30px;
+                height: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2181,6 +2576,17 @@
         </div>
     </div>
 
+    <div class="quiz-modal">
+        <div class="quiz-modal-content">
+            <img src="images/quiz-1.webp" alt="Quiz" class="quiz-image quiz-image-1">
+            <div class="quiz-text">Пройдите сырный квиз, чтобы узнать больше о настоящих благородных сырах и принять участие в розыгрыше приза!</div>
+            <div class="quiz-options">
+                <button class="quiz-option start-quiz">Начать</button>
+                <button class="quiz-rules">Правила акции</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let isFirstLoad = true;
         const slateMobile = document.querySelector('.slate-mobile');
@@ -2204,6 +2610,194 @@
         const faqModalClose = document.querySelector('.faq-modal-close');
         const faqItems = document.querySelectorAll('.faq-item');
         const faqButtons = document.querySelectorAll('.nav-button:nth-child(2)');
+
+        const quizModal = document.querySelector('.quiz-modal');
+        const quizButtons = document.querySelectorAll('.quiz-button');
+        const startQuizButton = document.querySelector('.start-quiz');
+        const quizRulesButton = document.querySelector('.quiz-rules');
+        let currentStep = 0;
+
+        const quizData = [
+            {
+                image: 'quiz-1.webp',
+                text: 'Пройдите сырный квиз,</br> чтобы узнать больше о настоящих</br> благородных сырах и принять</br> участие в розыгрыше приза!',
+                options: ['Начать!', 'Правила акции'],
+                isStart: true
+            },
+            {
+                image: 'quiz-2.webp',
+                questionNumber: '1/5',
+                text: 'Какой температуры стоит</br> подавать настоящий Камамбер?',
+                options: ['Холодным', 'Горячим', 'Комнатной температуры'],
+                correctAnswer: 'Комнатной температуры',
+                description: 'Камамбер Président рекомендуется</br> продержать около получаса</br> при комнатной температуре. Именно</br> тогда его уникальные вкусовые качества</br> смогут раскрыться полностью.'
+            },
+            {
+                image: 'quiz-3.webp',
+                questionNumber: '2/5',
+                text: 'Каким ножом лучше нарезать</br> настоящий Бри?',
+                options: ['Ножом для чистки овощей', 'Ножом с перфорацией', 'Хлебным ножом'],
+                correctAnswer: 'Ножом с перфорацией',
+                description: 'для нарезки Бри Président идеально</br> подойдёт специальный нож</br> с перфорацией. Если вы нарезаете</br> сыр обычным ножом, то рекомендуется</br> смочить лезвие тёплой водой.'
+            },
+            {
+                image: 'quiz-4.webp',
+                questionNumber: '3/5',
+                text: 'Что придаёт настоящему</br> Камамберу особый пикантный</br> вкус?',
+                options: ['Культуры Geotrichum candidum', 'Особые специи', 'Penicillium candidum'],
+                correctAnswer: 'Культуры Geotrichum candidum',
+                description: 'Камамбер Président обладает пикантным,</br> слегка острым вкусом благодаря</br> большему количеству Geotrichum</br> candidum, используемых</br> при изготовлении.'
+            },
+            {
+                image: 'quiz-5.webp',
+                questionNumber: '4/5',
+                text: 'Какое из утверждений верно?',
+                options: [
+                    'Камамбер имеет более грибной вкус и тонкую корочку, а Бри более</br> сливочный вкус и мягкий внутри',
+                    'У Бри более толстая корочка,</br> чем у Камамбера.',
+                    'Камамбер не имеет корочки, в отличие</br> от Бри, который всегда имеет</br> выраженную корочку.'
+                ],
+                correctAnswer: 'Камамбер имеет более</br> грибной вкус и тонкую корочку, а Бри более</br> сливочный вкус и мягкий внутри',
+                description: 'Камамбер обычно имеет более</br> насыщенный грибной вкус и более</br> тонкую корочку, в то время</br> как Бри может быть более мягким</br> и сливочным.'
+            },
+            {
+                image: 'logo.webp',
+                questionNumber: '5/5',
+                text: 'В каком году начинается история</br> камамбера Président?',
+                options: ['2016', '1952', '1968'],
+                correctAnswer: '1968',
+                description: 'в 1968 компания Lactalis выпускает</br> камамбер под новой торговой маркой</br> Président, которая стала символом</br> традиций, мастерства и высокого</br> качества.'
+            },
+            {
+                image: 'quiz-1.webp',
+                text: 'Поздравляем, вы прошли квиз.</br> Примите участие в розыгрыше</br> специального приза — </br>Сертификат ЯндексGO на 500 ₽!',
+                options: ['Участвовать в розыгрыше'],
+                isFinal: true
+            }
+        ];
+
+        function updateQuizContent(step) {
+            const content = quizModal.querySelector('.quiz-modal-content');
+            const data = quizData[step];
+            
+            // Сначала скрываем текущие элементы
+            const currentImage = content.querySelector('.quiz-image');
+            const currentText = content.querySelector('.quiz-text');
+            if (currentImage) currentImage.classList.remove('visible');
+            if (currentText) currentText.classList.remove('visible');
+            
+            // Обновляем контент
+            content.innerHTML = `
+                <img src="images/close.webp" alt="Close" class="quiz-modal-close">
+                <img src="images/${data.image}" alt="Quiz" class="quiz-image quiz-image-${step + 1}">
+                ${data.questionNumber ? `<div class="quiz-question-number">${data.questionNumber}</div>` : ''}
+                <div class="quiz-text">${data.text}</div>
+                <div class="quiz-options">
+                    ${data.isStart ? `
+                        <button class="quiz-option"><span>${data.options[0]}</span></button>
+                        <button class="quiz-rules">${data.options[1]}</button>
+                    ` : data.options.map(option => `
+                        <button class="quiz-option"><span>${option}</span></button>
+                    `).join('')}
+                </div>
+            `;
+
+            // Добавляем обработчик для кнопки закрытия
+            const closeButton = content.querySelector('.quiz-modal-close');
+            if (closeButton) {
+                closeButton.addEventListener('click', closeQuizModal);
+            }
+
+            // Добавляем классы visible с небольшой задержкой для анимации
+            requestAnimationFrame(() => {
+                const newImage = content.querySelector('.quiz-image');
+                const newText = content.querySelector('.quiz-text');
+                const options = content.querySelector('.quiz-options');
+                
+                if (newImage) newImage.classList.add('visible');
+                if (newText) newText.classList.add('visible');
+                if (options) options.classList.add('visible');
+            });
+
+            if (data.isStart) {
+                const startButton = content.querySelector('.quiz-option');
+                const rulesButton = content.querySelector('.quiz-rules');
+                startButton.addEventListener('click', () => updateQuizContent(1));
+                rulesButton.addEventListener('click', () => {
+                    // Здесь можно добавить логику для показа правил акции
+                    alert('Правила акции будут добавлены позже');
+                });
+            } else if (data.isFinal) {
+                const participateButton = content.querySelector('.quiz-option');
+                participateButton.addEventListener('click', () => {
+                    // Здесь можно добавить логику для участия в розыгрыше
+                    alert('Спасибо за участие!');
+                    closeQuizModal();
+                });
+            } else {
+                const options = content.querySelectorAll('.quiz-option');
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const isCorrect = option.querySelector('span').textContent === data.correctAnswer;
+                        
+                        // Скрываем текущие элементы
+                        const currentImage = content.querySelector('.quiz-image');
+                        const currentText = content.querySelector('.quiz-text');
+                        if (currentImage) currentImage.classList.remove('visible');
+                        if (currentText) currentText.classList.remove('visible');
+                        
+                        content.innerHTML = `
+                            <img src="images/${data.image}" alt="Quiz" class="quiz-image quiz-image-${step + 1}">
+                            <div class="quiz-question-number">${data.questionNumber}</div>
+                            <div class="quiz-text">${data.text}</div>
+                            <div class="quiz-result">${isCorrect ? 'Правильно!' : 'Не правильно'}</div>
+                            <div class="quiz-description">${data.description}</div>
+                            <button class="quiz-next"><span>Далее</span></button>
+                        `;
+                        
+                        // Добавляем классы visible с небольшой задержкой для анимации
+                        requestAnimationFrame(() => {
+                            const newImage = content.querySelector('.quiz-image');
+                            const newText = content.querySelector('.quiz-text');
+                            const nextButton = content.querySelector('.quiz-next');
+                            
+                            if (newImage) newImage.classList.add('visible');
+                            if (newText) newText.classList.add('visible');
+                            if (nextButton) nextButton.classList.add('visible');
+                        });
+                        
+                        const nextButton = content.querySelector('.quiz-next');
+                        nextButton.addEventListener('click', () => {
+                            if (step < quizData.length - 1) {
+                                updateQuizContent(step + 1);
+                            }
+                        });
+                    });
+                });
+            }
+        }
+
+        function openQuizModal() {
+            quizModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            currentStep = 0;
+            updateQuizContent(currentStep);
+        }
+
+        function closeQuizModal() {
+            quizModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        quizButtons.forEach(button => {
+            button.addEventListener('click', openQuizModal);
+        });
+
+        quizModal.addEventListener('click', (e) => {
+            if (e.target === quizModal) {
+                closeQuizModal();
+            }
+        });
 
         // Функция для применения анимации
         function applyAnimation(element, animationName) {
@@ -2366,6 +2960,11 @@
 
         // Функция для показа карточек
         function showCards() {
+            // Проверяем, не открыто ли бургер-меню
+            if (burgerMenu.classList.contains('active')) {
+                return; // Если меню открыто, не показываем карточки
+            }
+            
             hideWords();
             setTimeout(() => {
                 overlay.classList.add('active');
@@ -2401,7 +3000,7 @@
                     showWords();
                     
                     // 4. Через 2 секунды показываем карточки
-                    setTimeout(showCards, 9000);
+                    setTimeout(showCards, 5000);
                 }, 1000);
             }, 5000);
         });
@@ -2415,18 +3014,13 @@
             if (this.classList.contains('active')) {
                 hideProducts();
                 hideWords();
+                hideCards(); // Скрываем карточки при открытии меню
                 applyAnimation(slateMobile, 'hideSlateMobile');
-                overlay.classList.remove('active');
-                cardsContainer.classList.remove('active');
-                discoverButton.classList.remove('active');
             } else {
                 showProducts();
-                hideWords();
                 applyAnimation(slateMobile, 'showSlateMobile');
                 setTimeout(() => {
-                    overlay.classList.add('active');
-                    cardsContainer.classList.add('active');
-                    discoverButton.classList.add('active');
+                    showCards(); // Показываем карточки при закрытии меню
                 }, 500);
             }
         })
