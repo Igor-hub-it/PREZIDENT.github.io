@@ -894,7 +894,7 @@
             .brie-box {
                 bottom: -100vh;
                 left: 30vw;
-                width: 130%;
+                width: 110%;
                 height: auto;
             }
     
@@ -905,7 +905,7 @@
             .camamber {
                 bottom: -100vh;
                 left: 45vw;
-                width: 130%;
+                width: 110%;
                 height: auto;
             }
     
@@ -1118,6 +1118,25 @@
                     right: -100vw;
                 }
             }
+
+            @media screen and (max-width: 415px) {
+                .mobile-menu .nav-button {
+                    font-size: 32px;
+                }
+
+                .word-drum-1 {
+                    top: 25%;
+                }
+
+                .word-drum-2 {
+                    top: 36%;
+                }
+
+                .word-drum-2 .word {
+                    font-size: 24px;
+                }
+
+            }
         }
 
         .content-wrapper {
@@ -1259,6 +1278,32 @@
         @keyframes showSlateMobile {
             from {
                 bottom: -35vh;
+                left: 160%;
+                opacity: 1;
+            }
+            to {
+                bottom: -25vh;
+                left: 130%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes hideSlateMobile {
+            from {
+                bottom: -25vh;
+                left: 130%;
+                opacity: 1;
+            }
+            to {
+                bottom: -35vh;
+                left: 160%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showSlateBigMobile {
+            from {
+                bottom: -35vh;
                 left: 190%;
                 opacity: 1;
             }
@@ -1269,9 +1314,8 @@
             }
         }
 
-        @keyframes hideSlateMobile {
+        @keyframes hideSlateBigMobile {
             from {
-                
                 bottom: -25vh;
                 left: 150%;
                 opacity: 1;
@@ -1295,6 +1339,18 @@
         }
 
         @keyframes firstShowSlateMobile {
+            from {
+                bottom: -200vh;
+                left: 150%;
+            }
+            to {
+                bottom: -25vh;
+                left: 130%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes firstShowSlateBigMobile {
             from {
                 bottom: -200vh;
                 left: 150%;
@@ -1404,7 +1460,7 @@
         .mobile-menu .nav-button:nth-child(4) { transition-delay: 0.4s; }
 
         .mobile-menu .quiz-button {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             margin-top: 120px;
             background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
@@ -1490,7 +1546,7 @@
 
         .card {
             width: 28%;
-            background: #CC0102CC;
+            background: rgba(204, 1, 2, 0.6);
             border-radius: 20px;
             transform: translateY(50px);
             opacity: 0;
@@ -1501,8 +1557,20 @@
             align-items: center;
             padding: 3% 5% 2% 5%;
             box-sizing: border-box;
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(204, 1, 2, 0.8);
+            border-radius: 20px;
+            z-index: -1;
         }
 
         .card-circle {
@@ -1568,6 +1636,28 @@
             visibility: visible;
         }
 
+        @keyframes slideInFromRight {
+            from {
+                transform: translate(100vw, -50%);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translate(-50%, 100vh);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .cards-container.active {
                 flex-direction: column;
@@ -1576,19 +1666,20 @@
                 height: auto;
                 top: 50%;
                 height: 75%;
+                animation: slideInFromRight 0.5s ease-out forwards;
             }
 
             .card {
                 width: 95%;
                 height: 30%;
-                padding: 40px 20px;
+                padding: 30px 20px;
                 border-radius: 18px;
             }
 
             .card-circle {
                 width: 30px;
                 height: 30px;
-                margin-bottom: 25px;
+                margin-bottom: 15px;
             }
 
             .card-circle span {
@@ -1596,13 +1687,14 @@
             }
 
             .card-text {
-                font-size: 20px;
+                font-size: 18px;
                 line-height: 1.2;
+                font-weight: 400;
             }
 
             .discover-button.active {
                 width: 95%;
-                font-size: 16px;
+                font-size: 15px;
                 font-weight: 700;
                 padding: 15px 22px;
                 min-height: fit-content;
@@ -1610,6 +1702,22 @@
                 top: calc(50% + 37.5% + 10px);
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            @media screen and (max-width: 415px) {
+                .mobile-menu .quiz-button {
+                    margin-top: 20px;
+                }
+
+                .mobile-menu .nav-button {
+                    font-size: 32px;
+                }
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .cards-container.active {
+                animation: slideInFromBottom 0.5s ease-out forwards;
             }
         }
 
@@ -1635,14 +1743,25 @@
             }
         }
 
-        @keyframes slideInFromRight {
+        @keyframes hideCards {
             from {
-                transform: translate(100vw, -50%);
-                opacity: 0;
+                opacity: 1;
+                transform: translateY(0);
             }
             to {
-                transform: translate(-50%, -50%);
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+
+        @keyframes showCards {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -1780,6 +1899,33 @@
             .cheese-description {
                 max-width: 80%;
                 font-size: 14px;
+            }
+
+            @media screen and (max-width: 415px) {
+                .cheese-modal-title {
+                    max-width: 80%;
+                    margin-top: 25%;
+                    font-size: 18px;
+                    top: 0;
+                }
+
+                .cheese-grid {
+                    padding: 0;
+                    margin-left: 40px;
+                }
+
+                .cheese-card {
+                    min-width: 280px;
+                    padding: 0;
+                }
+
+                .cheese-image {
+                    height: 200px;
+                }
+
+                .cheese-name {
+                    font-size: 18px;
+                }
             }
         }
 
@@ -1971,6 +2117,12 @@
 
             .faq-item:last-child {
                 border-radius: 0 0 12px 12px;
+            }
+
+            @media screen and (max-width: 415px) {
+                .faq-modal-content {
+                    padding: 30px 0;
+                }
             }
         }
 
@@ -2507,7 +2659,7 @@
         <div class="faq-modal-content">
             <h2 class="faq-modal-title">Часто задаваемые вопросы</h2>
             <div class="faq-container">
-                <div class="faq-item">
+                <div class="faq-item active">
                     <div class="faq-question">
                         <span>Можно ли есть корочку сыра с плесенью?</span>
                         <img src="images/arrow.webp" alt="Arrow" class="faq-arrow">
@@ -3015,10 +3167,18 @@
                 hideProducts();
                 hideWords();
                 hideCards(); // Скрываем карточки при открытии меню
-                applyAnimation(slateMobile, 'hideSlateMobile');
+                if (window.innerWidth <= 380) {
+                    applyAnimation(slateMobile, 'hideSlateMobile');
+                } else {
+                    applyAnimation(slateMobile, 'hideSlateBigMobile');
+                }
             } else {
                 showProducts();
-                applyAnimation(slateMobile, 'showSlateMobile');
+                if (window.innerWidth <= 380) {
+                    applyAnimation(slateMobile, 'showSlateMobile');
+                } else {
+                    applyAnimation(slateMobile, 'showSlateBigMobile');
+                }
                 setTimeout(() => {
                     showCards(); // Показываем карточки при закрытии меню
                 }, 500);
