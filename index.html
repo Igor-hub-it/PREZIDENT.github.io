@@ -159,6 +159,45 @@
             gap: 10px;
             box-sizing: border-box;
             line-height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .quiz-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .quiz-button:hover::before {
+            left: 0;
+        }
+
+        .quiz-button:hover::after {
+            right: 0;
+        }
+
+        .quiz-button span {
+            position: relative;
+            z-index: 2;
         }
 
         .enter-button {
@@ -1626,14 +1665,44 @@
             font-weight: 700;
             font-family: 'Circe Rounded', Arial, sans-serif;
             z-index: 46;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            overflow: hidden;
         }
 
-        .discover-button.active {
-            opacity: 1;
-            visibility: visible;
+        .discover-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .discover-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .discover-button:hover::before {
+            left: 0;
+        }
+
+        .discover-button:hover::after {
+            right: 0;
+        }
+
+        .discover-button span {
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes slideInFromRight {
@@ -2520,6 +2589,577 @@
                 height: 30px;
             }
         }
+
+        .auth-modal {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10vh;
+        }
+
+        .auth-modal.active {
+            bottom: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .auth-modal-content {
+            background: #E30613;
+            width: 90%;
+            max-width: 500px;
+            padding: 0 0 40px 0;
+            border-radius: 24px;
+            position: relative;
+            transform: translateY(100%);
+            transition: transform 1s ease, height 1s ease;
+            box-sizing: border-box;
+            overflow: visible;
+            margin-top: 0;
+        }
+
+        .auth-modal.active .auth-modal-content {
+            transform: translateY(30%);
+        }
+
+        .auth-form {
+            display: none;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .auth-tab span {
+            font-weight: 400;
+        }
+
+        .auth-form.active {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            opacity: 1;
+        }
+
+        .form-group {
+            width: 80%;
+            box-sizing: border-box;
+            margin: 0 auto;
+            position: relative;
+            transition: all 1.5s ease;
+            opacity: 1;
+            transform: translateY(0);
+            height: auto;
+            max-height: 100px;
+            overflow: visible;
+        }
+
+        .form-group.register-only {
+            opacity: 0;
+            transform: translateY(100px);
+            max-height: 0;
+            margin: 0 auto;
+            transition: all 1.5s ease;
+        }
+
+        .auth-form[data-form="register"] .form-group.register-only {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 100px;
+        }
+
+        .auth-form:not([data-form="register"]) .form-group.register-only {
+            opacity: 0;
+            transform: translateY(100px);
+            max-height: 0;
+            margin: 0 auto;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .form-group label {
+            display: block;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 10px;
+            opacity: 0.5;
+            height: 10px;
+            font-weight: 300;
+        }
+        
+        .form-group input[name="email"] {
+            border: 3px solid #FDE170 !important;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            background: #fff;
+            color: #000;
+            font-size: 18px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .form-group input[name="name"] {
+            border: 3px solid #FDE170;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #fff;
+            font-size: 20px;
+            width: 80%;
+            box-sizing: border-box;
+            margin: 10px auto;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #fff;
+            border-radius: 5px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .form-checkbox input[type="checkbox"]:checked {
+            background: #fff;
+        }
+
+        .form-checkbox input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: #E30613;
+            font-size: 24px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .form-checkbox label {
+            font-weight: 200;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+        }
+
+        .rules-link {
+            color: #FFE26B;
+            font-size: 20px;
+            margin-left: 4px;
+            font-weight: 200;
+            cursor: pointer;
+            text-decoration: underline;
+            font-family: 'Circe Rounded', Arial, sans-serif;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .rules-link:hover {
+            opacity: 0.8;
+        }
+
+        .auth-submit {
+            width: 80%;
+            box-sizing: border-box;
+            background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            color: #442F1E;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .auth-submit::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .auth-submit:hover::before {
+            left: 0;
+        }
+
+        .auth-submit:hover::after {
+            right: 0;
+        }
+
+        .auth-submit span {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media screen and (max-width: 768px) {
+            .auth-modal.active .auth-modal-content {
+                transform: translateY(10%);
+            }
+            .auth-modal-content {
+                width: 95%;
+                padding: 0 0 20px 0;
+            }
+
+            .auth-tab {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .form-group input {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .auth-submit {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .form-checkbox {
+                font-size: 14px;
+            }
+
+            .rules-link {
+                font-size: 14px;
+            }
+
+            .form-group {
+                width: 90%;
+            }
+
+            .form-checkbox {
+                width: 90%;
+            }
+
+            .auth-submit {
+                width: 90%;
+            }
+
+            .auth-tab[data-tab="login"] {
+                padding: 20px 0 20px 30px !important;
+            }
+
+            .auth-tab[data-tab="register"] {
+                padding-right: 30px !important;
+            }
+        }
+
+        .auth-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .auth-tab {
+            background: #B10000;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: all 1s ease;
+            border-radius: 23px 23px 0 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .auth-tab[data-tab="login"] {
+            width: 40%;
+            margin-right: -5%;
+            width: 40%;
+            margin-right: -5%;
+            text-align: start;
+            padding: 20px 0 20px 60px;
+        }
+
+        .auth-tab[data-tab="register"] {
+            width: 70%;
+            margin-left: -5%;
+            text-align: end;
+            padding-right: 60px;
+        }
+
+        .auth-tab.active {
+            background: #E30613;
+            z-index: 2;
+        }
+
+        .auth-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #E30613;
+            transition: all 1s ease;
+            z-index: 1;
+        }
+
+        .auth-tab::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #E30613;
+            transition: all 1s ease;
+            z-index: 1;
+        }
+
+        .auth-tab span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-tab.active::before {
+            left: 0;
+        }
+
+        .auth-tab.active::after {
+            right: 0;
+        }
+
+        .auth-tab:not(.active)::before {
+            left: -100%;
+        }
+
+        .auth-tab:not(.active)::after {
+            right: -100%;
+        }
+
+        .form-checkbox.login-only {
+            display: none;
+        }
+
+        .auth-form[data-form="login"] .form-checkbox.login-only {
+            display: flex;
+        }
+
+        .auth-form[data-form="login"] .form-checkbox.register-only {
+            display: none;
+        }
+
+        .error-message {
+            position: absolute;
+            background: #FDE170;
+            color: #442F1E;
+            padding: 3px 9px;
+            font-size: 14px;
+            top: calc(100% + 5px);
+            left: 0;
+            width: fit-content;
+            display: none;
+            box-sizing: border-box;
+            z-index: 1000;
+            white-space: nowrap;
+        }
+
+        .error-message::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #FDE170;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .auth-modal-content.success {
+            background: #CC0102;
+            width: 70%;
+            max-width: 400px;
+        }
+
+        .success-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px 0 20px;
+            text-align: center;
+        }
+
+        .success-content.active {
+            display: flex;
+        }
+
+        .success-sticker {
+            position: absolute;
+            top: -100px;
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .success-title {
+            color: #FFE26B;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .success-description {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .success-button {
+            background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+            border: none;
+            width: 80%;
+            border-radius: 16px;
+            padding: 15px 30px;
+            color: #442F1E;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .success-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .success-button:hover::before {
+            left: 0;
+        }
+
+        .success-button:hover::after {
+            right: 0;
+        }
+
+        .success-button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media screen and (max-width: 768px) {
+            .auth-modal-content.success {
+                width: 90%;
+                margin-top: 100px;
+            }
+
+            .success-sticker {
+                width: 150px;
+                top: -70px;
+            }
+
+            .success-title {
+                font-size: 30px;
+            }
+
+            .success-description {
+                font-size: 18px;
+            }
+
+            .success-button {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2552,7 +3192,9 @@
             <button class="nav-button">Частые вопросы</button>
         </div>
         <div class="right-buttons">
-            <button class="quiz-button">Пройти сырный квиз</button>
+            <button class="quiz-button">
+                <span>Пройти сырный квиз</span>
+            </button>
             <button class="enter-button">
                 <img src="images/enter.webp" alt="Enter">
                 <span>Вход</span>
@@ -2612,7 +3254,7 @@
                 <div class="card-text">Примите участие в сырном квизе и выиграйте изысканные призы!</div>
             </div>
         </div>
-        <button class="discover-button">ВПЕРЕД, К БЛАГОРОДНЫМ ОТКРЫТИЯМ!</button>
+        <button class="discover-button active"><span>ВПЕРЕД, К БЛАГОРОДНЫМ ОТКРЫТИЯМ!</span></button>
     </div>
 
     <div class="cheese-modal">
@@ -2736,6 +3378,54 @@
                 <button class="quiz-option start-quiz">Начать</button>
                 <button class="quiz-rules">Правила акции</button>
             </div>
+        </div>
+    </div>
+
+    <div class="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login"><span>ВХОД</span></button>
+                <button class="auth-tab" data-tab="register"><span>РЕГИСТРАЦИЯ</span></button>
+            </div>
+            
+            <form id="authForm" class="auth-form active">
+                <div class="form-group register-only">
+                    <label>Имя</label>
+                    <input type="text" name="name">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group register-only">
+                    <label>Фамилия</label>
+                    <input type="text" name="surname">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="text" name="email">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="text" name="password">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group register-only">
+                    <label>Телефон</label>
+                    <input type="text" name="phone">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-checkbox login-only">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Запомнить меня</label>
+                </div>
+                <div class="form-checkbox register-only">
+                    <input type="checkbox" id="authRules" required>
+                    <label for="authRules">
+                        Я соглашаюсь с <button type="button" class="rules-link">Правилами</button>
+                    </label>
+                </div>
+                <button type="submit" class="auth-submit"><span>Войти</span></button>
+            </form>
         </div>
     </div>
 
@@ -3262,6 +3952,213 @@
                 item.classList.toggle('active');
             });
         });
+
+        // Авторизация и регистрация
+        const authModal = document.querySelector('.auth-modal');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+        const enterButtons = document.querySelectorAll('.enter-button');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+
+        // Функция для открытия модального окна авторизации
+        function openAuthModal() {
+            authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Функция для закрытия модального окна авторизации
+        function closeAuthModal() {
+            authModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Обработчики для кнопок входа
+        enterButtons.forEach(button => {
+            button.addEventListener('click', openAuthModal);
+        });
+
+        // Закрытие по клику вне контента
+        authModal.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                closeAuthModal();
+            }
+        });
+
+        // Переключение между вкладками
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetForm = tab.dataset.tab;
+                
+                // Обновляем активные классы для вкладок
+                authTabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.style.backgroundColor = '#B10000';
+                });
+                tab.classList.add('active');
+                tab.style.backgroundColor = '#E30613';
+                
+                // Обновляем атрибут data-form для анимации высоты
+                const modalContent = document.querySelector('.auth-modal-content');
+                modalContent.setAttribute('data-form', targetForm);
+                
+                // Обновляем форму
+                const authForm = document.getElementById('authForm');
+                authForm.setAttribute('data-form', targetForm);
+                
+                // Обновляем текст кнопки
+                const submitButton = authForm.querySelector('.auth-submit');
+                submitButton.innerHTML = `<span>${targetForm === 'login' ? 'Войти' : 'Зарегистрироваться'}</span>`;
+                
+                // Обновляем required атрибуты
+                const registerFields = authForm.querySelectorAll('.register-only input');
+                registerFields.forEach(field => {
+                    field.required = targetForm === 'register';
+                });
+            });
+        });
+
+        // Валидация email
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Валидация телефона
+        function validatePhone(phone) {
+            const re = /^\+?[1-9]\d{10,14}$/;
+            return re.test(phone);
+        }
+
+        // Валидация имени и фамилии
+        function validateName(name) {
+            return name.length >= 1;
+        }
+
+        // Валидация пароля
+        function validatePassword(password) {
+            return password.length >= 1;
+        }
+
+        // Показать сообщение об ошибке
+        function showError(input, message) {
+            const errorDiv = input.nextElementSibling;
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+        }
+
+        // Скрыть сообщение об ошибке
+        function hideError(input) {
+            const errorDiv = input.nextElementSibling;
+            errorDiv.classList.remove('show');
+        }
+
+        // Обработка формы
+        const authForm = document.getElementById('authForm');
+        authForm.addEventListener('submit', async (e) => {
+            showSuccessScreen()
+            e.preventDefault();
+            
+            const formData = new FormData(authForm);
+            const data = Object.fromEntries(formData.entries());
+            const isLogin = authForm.getAttribute('data-form') === 'login';
+            let isValid = true;
+            
+            // Валидация email
+            if (!validateEmail(data.email)) {
+                showError(authForm.querySelector('[name="email"]'), 'Поле заполнено неправильно');
+                isValid = false;
+            } else {
+                hideError(authForm.querySelector('[name="email"]'));
+            }
+
+            // Валидация пароля
+            if (!validatePassword(data.password)) {
+                showError(authForm.querySelector('[name="password"]'), 'Поле заполнено неправильно');
+                isValid = false;
+            } else {
+                hideError(authForm.querySelector('[name="password"]'));
+            }
+
+            if (!isLogin) {
+                // Валидация имени
+                if (!validateName(data.name)) {
+                    showError(authForm.querySelector('[name="name"]'), 'Поле заполнено неправильно');
+                    isValid = false;
+                } else {
+                    hideError(authForm.querySelector('[name="name"]'));
+                }
+
+                // Валидация фамилии
+                if (!validateName(data.surname)) {
+                    showError(authForm.querySelector('[name="surname"]'), 'Поле заполнено неправильно');
+                    isValid = false;
+                } else {
+                    hideError(authForm.querySelector('[name="surname"]'));
+                }
+
+                // Валидация телефона
+                if (!validatePhone(data.phone)) {
+                    showError(authForm.querySelector('[name="phone"]'), 'Поле заполнено неправильно');
+                    isValid = false;
+                } else {
+                    hideError(authForm.querySelector('[name="phone"]'));
+                }
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            try {
+                const endpoint = isLogin ? '/api/login' : '/api/register';
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    closeAuthModal();
+                } else {
+                    alert(isLogin ? 'Ошибка входа. Проверьте email и пароль.' : 'Ошибка регистрации. Возможно, email уже используется.');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert(`Произошла ошибка при попытке ${isLogin ? 'входа' : 'регистрации'}`);
+            }
+        });
+
+        // Обработка клика по ссылке "Правила"
+        const rulesLink = document.querySelector('.rules-link');
+        rulesLink.addEventListener('click', () => {
+            // Здесь можно добавить логику для показа правил акции
+            alert('Правила акции будут добавлены позже');
+        });
+
+        function showSuccessScreen() {
+            const modalContent = document.querySelector('.auth-modal-content');
+            const authTabs = document.querySelector('.auth-tabs');
+            const authForm = document.getElementById('authForm');
+            
+            modalContent.classList.add('success');
+            authTabs.style.display = 'none';
+            authForm.style.display = 'none';
+            
+            const successContent = document.createElement('div');
+            successContent.className = 'success-content active';
+            successContent.innerHTML = `
+                <img src="images/sticker.webp" alt="Sticker" class="success-sticker">
+                <h2 class="success-title">Спасибо за регистрацию! 🎉</h2>
+                <p class="success-description">Добавьте благородного вкуса в общение с нашим сырным стикерпаком в Telegram!</p>
+                <a href="#" class="success-button"><span>Скачать стикеры</span></a>
+            `;
+            
+            modalContent.appendChild(successContent);
+        }
     </script>
 </body>
 </html>
