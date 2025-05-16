@@ -231,6 +231,28 @@
     }
 }
 
+@keyframes hideLeftCardsMobile {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-100vw, 0);
+    }
+}
+
+@keyframes hideLeftButtonMobile {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-100vw, 0);
+    }
+}
+
 @media screen and (max-width: 768px) {
     .cards-container.active {
         flex-direction: column;
@@ -275,6 +297,14 @@
         top: calc(50% + 37.5% + 10px);
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .cards-container.hiding {
+        animation: hideLeftCardsMobile 1s ease-out forwards;
+    }
+
+    .discover-button.hiding {
+        animation: hideLeftButtonMobile 1s ease-out forwards;
     }
 }
 

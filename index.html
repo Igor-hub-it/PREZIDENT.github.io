@@ -85,7 +85,7 @@
 
     <div class="content-wrapper">
         <img src="images/slate.webp" alt="Slate" class="slate-desktop">
-        <img src="images/slate.png" alt="Slate" class="slate-mobile">
+        <img src="images/slate-mobile.webp" alt="Slate" class="slate-mobile">
         <img src="images/honey.webp" alt="Honey" class="product honey">
         <img src="images/brie_.webp" alt="Brie" class="product brie">
         <img src="images/brie-mobile.webp" alt="Brie" class="product brie-mobile">
@@ -294,22 +294,51 @@
         </div>
     </div>
 
-    <!-- <div class="choose-cheese-container">
+    <div class="choose-cheese-container">
         <button class="cheese-choice-button"><span>PRÉSIDENT БРИ</span></button>
         <button class="cheese-choice-button"><span>PRÉSIDENT КАМАМБЕР</span></button>
         <button class="cheese-choice-button"><span>PRÉSIDENT ROUAL BLEU</span></button>
         <button class="cheese-choice-button"><span>PRÉSIDENT EXTRA FOUNDANT</span></button>
     </div>
 
+    <div class="mobile-slider">
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="images/petite.webp" alt="Petite" class="slide-image petite-slider">
+                    <button class="slide-button"><span>PRÉSIDENT БРИ</span></button>
+                </div>
+                <div class="slide">
+                    <img src="images/camamber-box-shadow.webp" alt="Camamber" class="slide-image camamber-box-slider">
+                    <button class="slide-button"><span>PRÉSIDENT КАМАМБЕР</span></button>
+                </div>
+                <div class="slide">
+                    <img src="images/bleu-shadow.webp" alt="Blue" class="slide-image blue-slider">
+                    <button class="slide-button"><span>PRÉSIDENT ROUAL BLEU</span></button>
+                </div>
+                <div class="slide">
+                    <img src="images/fondant.webp" alt="Fondant" class="slide-image fondant-slider">
+                    <button class="slide-button"><span>PRÉSIDENT EXTRA FOUNDANT</span></button>
+                </div>
+            </div>
+        </div>
+        <button class="slider-arrow slider-arrow-left">
+            <img src="images/arrow-left.webp" alt="Previous">
+        </button>
+        <button class="slider-arrow slider-arrow-right">
+            <img src="images/arrow-right.webp" alt="Next">
+        </button>
+    </div>
+
     <div class="cheese-text-container">
-        <h2 class="cheese-title">Раскройте все грани</br> благородного вкуса с Président!</h2>
+        <h2 class="cheese-title">Раскройте все грани благородного вкуса с Président!</h2>
         <p class="cheese-subtitle">Выберите сыр, о котором хотите узнать больше</p>
     </div>
 
     <img src="images/petite.webp" alt="Petite" class="cheese-image petite">
     <img src="images/camamber-box-shadow.webp" alt="camamber" class="cheese-image camamber-box">
     <img src="images/bleu-shadow.webp" alt="blue" class="cheese-image blue">
-    <img src="images/fondant.webp" alt="fondant" class="cheese-image fondant"> -->
+    <img src="images/fondant.webp" alt="fondant" class="cheese-image fondant">
 
     <script>
         let isFirstLoad = true;
@@ -586,25 +615,23 @@
         }
 
         // Функция для скрытия продуктов
-        function hideProducts() {
+        function hideProducts(context = 'discover') {
             products.forEach(product => {
                 if (!product) return;
                 
                 if (window.innerWidth <= 768) {
-                    if (product.classList.contains('slate-mobile')) {
-                        applyAnimation(product, 'hideSlateMobile');
-                    } else if (product.classList.contains('brie-mobile')) {
-                        applyAnimation(product, 'hideBrieMobile');
+                    if (product.classList.contains('brie-mobile')) {
+                        applyAnimation(product, context === 'burger' ? 'hideBrieMobile' : 'hideSideBrieMobile');
                     } else if (product.classList.contains('camambert-mobile')) {
-                        applyAnimation(product, 'hideCamambertMobile');
+                        applyAnimation(product, context === 'burger' ? 'hideCamambertMobile' : 'hideSideCamambertMobile');
                     } else if (product.classList.contains('brush-mobile')) {
-                        applyAnimation(product, 'hideBrushMobile');
+                        applyAnimation(product, context === 'burger' ? 'hideBrushMobile' : 'hideSideBrushMobile');
                     } else if (product.classList.contains('grape')) {
-                        applyAnimation(product, 'hideGrapeMobile');
+                        applyAnimation(product, context === 'burger' ? 'hideGrapeMobile' : 'hideSideGrapeMobile');
                     } else if (product.classList.contains('camamber')) {
-                        applyAnimation(product, 'hideCamamberMobile');
+                        applyAnimation(product, context === 'burger' ? 'hideCamamberMobile' : 'hideSideCamamberMobile');
                     } else if (product.classList.contains('brie-box')) {
-                        applyAnimation(product, 'hideBrieBox');
+                        applyAnimation(product, context === 'burger' ? 'hideBrieBox' : 'hideSideBrieBox');
                     }
                 } else {
                     if (product.classList.contains('honey')) {
@@ -627,12 +654,12 @@
 
             if (window.innerWidth <= 768) {
                 if (slateMobile) {
-                    slateMobile.classList.remove('active');
-                    slateMobile.style.animation = 'none';
-                    slateMobile.offsetHeight;
-                    slateMobile.style.bottom = '-200vh';
-                    slateMobile.style.left = '150%';
-                    slateMobile.style.opacity = '0';
+                    // slateMobile.classList.remove('active');
+                    // slateMobile.style.animation = 'none';
+                    // slateMobile.offsetHeight;
+                    // slateMobile.style.bottom = '-200vh';
+                    // slateMobile.style.left = '150%';
+                    // slateMobile.style.opacity = '0';
                 }
             } else {
                 if (slateDesktop) {
@@ -683,9 +710,14 @@
         }
 
         function hideCards() {
+            // Проверяем, не открыто ли бургер-меню
+            if (burgerMenu.classList.contains('active')) {
+                return; // Если меню открыто, не показываем элементы выбора сыра
+            }
+
             cardsContainer.classList.add('hiding');
             discoverButton.classList.add('hiding');
-            hideProducts();
+            hideProducts('discover');
             
             setTimeout(() => {
                 overlay.classList.remove('active');
@@ -763,23 +795,36 @@
             mobileMenu.classList.toggle('active');
             
             if (this.classList.contains('active')) {
-                hideProducts();
+                hideProducts('burger');
                 hideWords();
-                hideCards(); // Скрываем карточки при открытии меню
-                if (window.innerWidth <= 380) {
-                    applyAnimation(slateMobile, 'hideSlateMobile');
-                } else {
-                    applyAnimation(slateMobile, 'hideSlateBigMobile');
-                }
+                
+                // Скрываем overlay и карточки
+                overlay.classList.remove('active');
+                cardsContainer.classList.remove('active');
+                discoverButton.classList.remove('active');
+                
+                // Скрываем элементы выбора сыра
+                const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
+                const cheeseTextContainer = document.querySelector('.cheese-text-container');
+                const cheeseImages = document.querySelectorAll('.cheese-image');
+                
+                if (chooseCheeseContainer) chooseCheeseContainer.classList.remove('active');
+                if (cheeseTextContainer) cheeseTextContainer.classList.remove('active');
+                
+                // Скрываем все изображения сыров
+                cheeseImages.forEach(image => {
+                    image.classList.remove('active');
+                    image.style.animation = 'none';
+                    image.offsetHeight; // Форсируем перерисовку
+                });
+                
+                applyAnimation(slateMobile, 'hideSlateMobile');
             } else {
                 showProducts();
-                if (window.innerWidth <= 380) {
-                    applyAnimation(slateMobile, 'showSlateMobile');
-                } else {
-                    applyAnimation(slateMobile, 'showSlateBigMobile');
-                }
+                applyAnimation(slateMobile, 'showSlateMobile');
+
                 setTimeout(() => {
-                    showCards(); // Показываем карточки при закрытии меню
+                    showCards();
                 }, 500);
             }
         })
@@ -927,41 +972,6 @@
             });
         });
 
-        // // Валидация email
-        // function validateEmail(email) {
-        //     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        //     return re.test(email);
-        // }
-
-        // // Валидация телефона
-        // function validatePhone(phone) {
-        //     const re = /^\+?[1-9]\d{10,14}$/;
-        //     return re.test(phone);
-        // }
-
-        // // Валидация имени и фамилии
-        // function validateName(name) {
-        //     return name.length >= 1;
-        // }
-
-        // // Валидация пароля
-        // function validatePassword(password) {
-        //     return password.length >= 1;
-        // }
-
-        // // Показать сообщение об ошибке
-        // function showError(input, message) {
-        //     const errorDiv = input.nextElementSibling;
-        //     errorDiv.textContent = message;
-        //     errorDiv.classList.add('show');
-        // }
-
-        // // Скрыть сообщение об ошибке
-        // function hideError(input) {
-        //     const errorDiv = input.nextElementSibling;
-        //     errorDiv.classList.remove('show');
-        // }
-
         // Обработка формы
         const authForm = document.getElementById('authForm');
         authForm.addEventListener('submit', async (e) => {
@@ -970,54 +980,7 @@
             const formData = new FormData(authForm);
             const data = Object.fromEntries(formData.entries());
             const isLogin = authForm.getAttribute('data-form') === 'login';
-            // let isValid = true;
             
-            // // Валидация email
-            // if (!validateEmail(data.email)) {
-            //     showError(authForm.querySelector('[name="email"]'), 'Поле заполнено неправильно');
-            //     isValid = false;
-            // } else {
-            //     hideError(authForm.querySelector('[name="email"]'));
-            // }
-
-            // // Валидация пароля
-            // if (!validatePassword(data.password)) {
-            //     showError(authForm.querySelector('[name="password"]'), 'Поле заполнено неправильно');
-            //     isValid = false;
-            // } else {
-            //     hideError(authForm.querySelector('[name="password"]'));
-            // }
-
-            // if (!isLogin) {
-            //     // Валидация имени
-            //     if (!validateName(data.name)) {
-            //         showError(authForm.querySelector('[name="name"]'), 'Поле заполнено неправильно');
-            //         isValid = false;
-            //     } else {
-            //         hideError(authForm.querySelector('[name="name"]'));
-            //     }
-
-            //     // Валидация фамилии
-            //     if (!validateName(data.surname)) {
-            //         showError(authForm.querySelector('[name="surname"]'), 'Поле заполнено неправильно');
-            //         isValid = false;
-            //     } else {
-            //         hideError(authForm.querySelector('[name="surname"]'));
-            //     }
-
-            //     // Валидация телефона
-            //     if (!validatePhone(data.phone)) {
-            //         showError(authForm.querySelector('[name="phone"]'), 'Поле заполнено неправильно');
-            //         isValid = false;
-            //     } else {
-            //         hideError(authForm.querySelector('[name="phone"]'));
-            //     }
-            // }
-
-            // if (!isValid) {
-            //     return;
-            // }
-
             try {
                 if(isLogin) {
                     showSuccessScreen();
@@ -1073,6 +1036,55 @@
             
             modalContent.appendChild(successContent);
         }
+
+        // Слайдер для мобильной версии
+        const mobileSlider = document.querySelector('.mobile-slider');
+        const sliderTrack = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.slider-arrow-left');
+        const nextButton = document.querySelector('.slider-arrow-right');
+        let currentSlide = 0;
+
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function showSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        // Добавляем обработчики событий для кнопок
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', prevSlide);
+            nextButton.addEventListener('click', nextSlide);
+        }
+
+        // Показываем слайдер при клике на кнопку "discover"
+        discoverButton.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    mobileSlider.classList.add('active');
+                }, 1000);
+            }
+        });
+
+        // Скрываем слайдер при открытии бургер-меню
+        burgerMenu.addEventListener('click', () => {
+            if (burgerMenu.classList.contains('active')) {
+                mobileSlider.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

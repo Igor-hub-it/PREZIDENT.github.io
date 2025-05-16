@@ -10,10 +10,8 @@
     display: none;
     position: fixed;
     bottom: -200vh;
-    left: 150%;
-    transform: translateX(-50%);
-    width: 450%;
-    height: 158%;
+    left: 0%;
+    width: 130%;
     object-fit: contain;
     opacity: 0;
 }
@@ -726,31 +724,35 @@
 
 @keyframes showSlateMobile {
     from {
-        bottom: -35vh;
-        left: 160%;
+        top: 5%;
+        left: 0%;
+        width: 130%;
         opacity: 1;
     }
     to {
-        bottom: -25vh;
-        left: 130%;
+        top: -5%;
+        left: -25%;
+        width: 130%;
         opacity: 1;
     }
 }
 
 @keyframes hideSlateMobile {
     from {
-        bottom: -25vh;
-        left: 130%;
+        top: -5%;
+        left: -25%;
+        width: 130%;
         opacity: 1;
     }
     to {
-        bottom: -35vh;
-        left: 160%;
+        top: 5%;
+        left: 0%;
+        width: 130%;
         opacity: 1;
     }
 }
 
-@keyframes showSlateBigMobile {
+/* @keyframes showSlateBigMobile {
     from {
         bottom: -35vh;
         left: 190%;
@@ -774,7 +776,7 @@
         left: 190%;
         opacity: 1;
     }
-}
+} */
 
 @keyframes firstShowSlateDesktop {
     from {
@@ -790,23 +792,12 @@
 @keyframes firstShowSlateMobile {
     from {
         bottom: -200vh;
-        left: 150%;
+        left: 0%;
     }
     to {
-        bottom: -25vh;
-        left: 130%;
-        opacity: 1;
-    }
-}
-
-@keyframes firstShowSlateBigMobile {
-    from {
-        bottom: -200vh;
-        left: 150%;
-    }
-    to {
-        bottom: -30vh;
-        left: 100%;
+        top: -5%;
+        left: -25%;
+        width: 130%;
         opacity: 1;
     }
 }
@@ -903,5 +894,165 @@
         bottom: -7%;
         left: -12%;
         opacity: 1;
+    }
+}
+
+@keyframes hideSideBrieMobile {
+    from {
+        bottom: 25%;
+        right: 0%;
+    }
+    to {
+        bottom: -100vh;
+        right: -100vw;
+    }
+}
+
+@keyframes hideSideCamambertMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideSideBrushMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideSideGrapeMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideSideCamamberMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideSideBrieBox {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+.content-wrapper.discover-active .brie-mobile {
+    animation: hideBrieMobile 1s ease-in-out forwards;
+}
+
+.content-wrapper.discover-active .camambert-mobile {
+    animation: hideCamambertMobile 1s ease-in-out forwards;
+}
+
+.content-wrapper.discover-active .camamber {
+    animation: hideCamamber 1s ease-in-out forwards;
+}
+
+.content-wrapper.discover-active .brie-box {
+    animation: hideBrieBox 1s ease-in-out forwards;
+}
+
+.content-wrapper.discover-active .grape {
+    animation: hideGrape 1s ease-in-out forwards;
+}
+
+.content-wrapper.discover-active .slate-mobile {
+    animation: hideSlate 1s ease-in-out forwards;
+}
+
+.content-wrapper.discover-active .brush-mobile {
+    animation: hideBrushMobile 1s ease-in-out forwards;
+}
+
+@keyframes hideBrieMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideCamambertMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideCamamber {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideBrieBox {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideGrape {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes hideBrushMobile {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
     }
 }

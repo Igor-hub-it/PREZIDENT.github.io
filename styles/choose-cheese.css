@@ -218,6 +218,9 @@
     position: fixed;
     top: -100px;
     left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transform: translateX(-50%);
     text-align: center;
     opacity: 0;
@@ -230,6 +233,7 @@
 }
 
 .cheese-title {
+    max-width: 75%;
     font-family: 'Circe Rounded', Arial, sans-serif;
     font-size: 3.5vh;
     text-transform: uppercase;
@@ -245,26 +249,142 @@
 
 @media screen and (max-width: 768px) {
     .choose-cheese-container {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 0 10px;
+        display: none !important;
+    }
+    
+    .cheese-image {
+        display: none !important;
     }
 
-    .cheese-choice-button {
-        width: calc(50% - 5px);
+    .mobile-slider {
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+    }
+
+    .mobile-slider.active {
+        opacity: 1;
+    }
+
+    .slider-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slider-track {
+        display: flex;
+        transition: transform 0.5s ease-out;
+        height: 100%;
+    }
+
+    .slide {
+        min-width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide-image {
+        width: auto;
+        height: 70%;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+
+    .petite-slider {
+        position: absolute;
+        left: 10%;
+        height: 80%;
+        object-fit: contain;
+    }
+
+    .camamber-box-slider {
+        position: absolute;
+        left: 110%;
+        height: 80%;
+        object-fit: contain;
+    }
+
+    .blue-slider {
+        position: absolute;
+        left: 210%;
+        height: 80%;
+        object-fit: contain;
+    }
+
+    .fondant-slider {
+        position: absolute;
+        left: 310%;
+        height: 65%;
+        object-fit: contain;
+    }
+
+    .slide-button {
+        position: absolute;
+        bottom: 0%;
+        background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+        border: none;
+        border-radius: 16px;
+        padding: 15px 10px;
+        cursor: pointer;
+        color: #442F1E;
+        font-weight: 600;
         font-size: 18px;
-        padding: 8px 16px;
+        text-align: center;
+        font-family: 'Circe Rounded', Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: 60%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 2;
+    }
+
+    .slider-arrow img {
+        width: 20px;
+        height: 35px;
+    }
+
+    .slider-arrow-left {
+        left: 10px;
+    }
+
+    .slider-arrow-right {
+        right: 10px;
     }
 
     .cheese-text-container.active {
-        top: 30px;
+        width: 100%;
+        top: 11%;
     }
 
     .cheese-title {
         font-size: 24px;
     }
-
+    
     .cheese-subtitle {
+        width: 60%;
         font-size: 16px;
     }
 } 
