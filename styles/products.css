@@ -1,0 +1,907 @@
+.slate-desktop {
+    position: fixed;
+    bottom: -165%;
+    left: 55%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.slate-mobile {
+    display: none;
+    position: fixed;
+    bottom: -200vh;
+    left: 150%;
+    transform: translateX(-50%);
+    width: 450%;
+    height: 158%;
+    object-fit: contain;
+    opacity: 0;
+}
+
+.product {
+    position: fixed;
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product.active {
+    visibility: visible;
+}
+
+.honey {
+    bottom: -100vh;
+    right: 5vw;
+    width: 15%;
+    height: auto;
+}
+
+.brie {
+    bottom: -100vh;
+    width: 50%;
+    height: auto;
+}
+
+.brie-mobile {
+    display: none;
+    bottom: -100vh;
+    width: 50%;
+    height: auto;
+}
+
+.brie-box {
+    bottom: -100vh;
+    left: 30vw;
+    width: 45%;
+    height: auto;
+}
+
+.camamber {
+    bottom: -100vh;
+    left: 45vw;
+    width: 45%;
+    height: auto;
+}
+
+.brush-desktop {
+    position: fixed;
+    bottom: -100vh;
+    left: 50%;
+    width: 24%;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.brush-mobile {
+    display: none;
+    position: fixed;
+    bottom: -100vh;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.camambert {
+    top: -100vh;
+    right: 5vw;
+    width: 30%;
+    height: auto;
+}
+
+.camambert-mobile {
+    display: none;
+    top: -100vh;
+    right: 5vw;
+    width: 45%;
+    height: auto;
+}
+
+.grape {
+    top: -100vh;
+    right: 20vw;
+    width: 45%;
+    height: auto;
+}
+
+@keyframes showHoney {
+    from {
+        bottom: -100vh;
+        right: 5vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 0vh;
+        right: 0vw;
+        opacity: 1;
+    }
+}
+
+@keyframes showBrie {
+    from {
+        bottom: -100vh;
+        right: 20vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 0;
+        right: 1%;
+        opacity: 1;
+    }
+}
+
+@keyframes showBrieBox {
+    from {
+        bottom: -100vh;
+        left: 30vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 13%;
+        left: 2%;
+        opacity: 1;
+    }
+}
+
+@keyframes showCamamber {
+    from {
+        bottom: -100vh;
+        left: 45vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 0;
+        left: 19%;
+        opacity: 1;
+    }
+}
+
+@keyframes showBrushDesktop {
+    from {
+        bottom: -100vh;
+        left: 50%;
+        opacity: 0;
+    }
+    to {
+        bottom: 30%;
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes showBrushMobile {
+    from {
+        bottom: -100vh;
+        left: 50%;
+        opacity: 0;
+    }
+    to {
+        bottom: 56%;
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes showCamambert {
+   from {
+        top: -100vh;
+        right: 5vw;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes showCamambertMobile {
+    from {
+        top: -100vh;
+        right: -20%;
+        opacity: 0;
+    }
+    to {
+        top: -5%;
+        right: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes showGrape {
+    from {
+        top: -100vh;
+        right: 20vw;
+        opacity: 0;
+    }
+    to {
+        top: 0%;
+        right: 8%;
+        opacity: 1;
+    }
+}
+
+@keyframes showSlateDesktop {
+    from {
+        bottom: -100%;
+        left: 150vh;
+    }
+    to {
+        bottom: 0;
+        left: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes showSlate {
+    from {
+        bottom: -200vh;
+        left: 150%;
+        opacity: 0;
+    }
+    to {
+        bottom: -30vh;
+        left: 100%;
+        opacity: 1;
+    }
+}
+
+.burger-menu.active ~ .brie-mobile {
+    animation: hideBrieMobile 0.5s ease-in-out forwards;
+}
+
+.burger-menu.active ~ .camamber {
+    animation: hideCamamber 0.5s ease-in-out forwards;
+}
+
+.burger-menu.active ~ .brie-box {
+    animation: hideBrieBox 0.5s ease-in-out forwards;
+}
+
+.burger-menu.active ~ .grape {
+    animation: hideGrape 0.5s ease-in-out forwards;
+}
+
+.burger-menu.active ~ .slate-mobile {
+    animation: hideSlate 1s ease-in-out forwards;
+}
+
+@keyframes hideBrieMobile {
+    from {
+        bottom: 25%;
+        right: 0%;
+    }
+    to {
+        bottom: -100vh;
+        right: 100vw;
+    }
+}
+
+@keyframes hideCamamber {
+    from {
+        bottom: 0;
+        left: 19%;
+        opacity: 1;
+    }
+    to {
+        bottom: -100vh;
+        left: 19%;
+        opacity: 1;
+    }
+}
+
+@keyframes hideBrieBox {
+    from {
+        bottom: 13%;
+        left: 2%;
+        opacity: 1;
+    }
+    to {
+        bottom: -100vh;
+        left: -15vw;
+        opacity: 1;
+    }
+}
+
+@keyframes hideGrape {
+    from {
+        top: 0%;
+        right: 8%;
+        opacity: 1;
+    }
+    to {
+        top: -100vh;
+        right: -10vw;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slate-desktop {
+        display: none;
+    }
+
+    .slate-mobile {
+        display: block;
+    }
+
+    .slate-mobile.active {
+        animation: showSlateMobile 1s ease-in-out forwards;
+    }
+
+    .brush-desktop {
+        display: none;
+    }
+
+    .brush-mobile {
+        display: block;
+        animation: showBrushMobile 1s ease-in-out forwards;
+    }
+
+    .honey {
+        display: none;
+    }
+
+    .brie {
+        display: none;
+        bottom: -100vh;
+        width: 100%;
+        height: auto;
+    }
+
+    .brie-mobile {
+        display: block;
+        bottom: -100vh;
+        width: 50%;
+        height: auto;
+        animation: showBrieMobile 1s ease-in-out forwards;
+    }
+
+    .brie-box {
+        bottom: -100vh;
+        left: 30vw;
+        width: 110%;
+        height: auto;
+    }
+
+    .brie-box.active {
+        animation: showBrieBox 1s ease-in-out forwards;
+    }
+
+    .camamber {
+        bottom: -100vh;
+        left: 45vw;
+        width: 110%;
+        height: auto;
+    }
+
+    .camambert {
+        display: none;
+        top: -100vh;
+        right: 5vw;
+        width: 65%;
+        height: auto;
+    }
+
+    .camambert-mobile {
+        display: block;
+        top: -100vh;
+        right: 5vw;
+        width: 45%;
+        height: auto;
+        animation: showCamambertMobile 1s ease-in-out forwards;
+    }
+
+    .camambert-mobile.active {
+        animation: showCamambertMobile 1s ease-in-out forwards;
+    }
+
+    .grape {
+        top: -100vh;
+        right: 20vw;
+        width: 130%;
+        height: auto;
+    }
+
+    .grape.active {
+        animation: showGrapeMobile 1s ease-in-out forwards;
+    }
+
+    @keyframes showSlate {
+        from {
+            bottom: -35vh;
+            left: 185%;
+        }
+        to {
+            bottom: -20vh;
+            left: 150%;
+        }
+    }
+
+    @keyframes hideSlate {
+        from {
+            bottom: -20vh;
+            left: 150%;
+        }
+        to {
+            bottom: -35vh;
+            left: 185%;
+        }
+    }
+
+    @keyframes showBrushMobile {
+        from {
+            bottom: -100vh;
+            left: 50%;
+        }
+        to {
+            bottom: 56%;
+            left: 50%;
+        }
+    }
+
+    @keyframes showBrieBox {
+        from {
+            bottom: -100vh;
+            left: 30vw;
+        }
+        to {
+            bottom: 4%;
+            left: -15%;
+        }
+    }
+
+    @keyframes showCamamber {
+        from {
+            bottom: -100vh;
+            left: 45vw;
+        }
+        to {
+            bottom: 0;
+            left: 35%;
+        }
+    }
+
+    @keyframes showBrie {
+        from {
+            bottom: -100vh;
+            right: 20vw;
+        }
+        to {
+            bottom: 30%;
+            right: -50%;
+        }
+    }
+
+    @keyframes showGrapeMobile {
+        from {
+            top: -100vh;
+            right: -100vh;
+        }
+        to {
+            top: -2%;
+            left: -15%;
+        }
+    }
+
+    @keyframes showCamambert {
+        from {
+            top: -100vh;
+            right: 5vw;
+        }
+        to {
+            top: 5%;
+            right: 0%;
+        }
+    }
+
+    @keyframes showCamambertMobile {
+        from {
+            top: -100vh;
+            right: -20%;
+        }
+        to {
+            top: -5%;
+            right: 0%;
+        }
+    }
+
+    .burger-menu.active ~ .brie-mobile {
+        animation: hideBrieMobile 0.5s ease-in-out forwards;
+    }
+
+    .burger-menu.active ~ .camamber {
+        animation: hideCamamber 0.5s ease-in-out forwards;
+    }
+
+    .burger-menu.active ~ .brie-box {
+        animation: hideBrieBox 0.5s ease-in-out forwards;
+    }
+
+    .burger-menu.active ~ .grape {
+        animation: hideGrape 0.5s ease-in-out forwards;
+    }
+
+    .burger-menu.active ~ .slate-mobile:not(.first-load) {
+        animation: hideSlate 1s ease-in-out forwards;
+    }
+
+    .burger-menu:not(.active) ~ .slate-mobile:not(.first-load) {
+        animation: showSlate 1s ease-in-out forwards;
+    }
+
+    @keyframes hideBrieMobile {
+        from {
+            bottom: 25%;
+            right: 0%;
+        }
+        to {
+            bottom: -100vh;
+            right: -100vw;
+        }
+    }
+
+    @keyframes hideCamambertMobile {
+        from {
+            top: -5%;
+            right: 0%;
+        }
+        to {
+            bottom: -100vh;
+            right: -100vw;
+        }
+    }
+
+    @keyframes hideCamamberMobile {
+        from {
+            bottom: 0;
+            left: 35%;
+        }
+        to {
+            bottom: -100vh;
+            left: 35%;
+        }
+    }
+
+    @keyframes hideBrieBoxMobile {
+        from {
+            bottom: 4%;
+            left: -15%;
+        }
+        to {
+            bottom: -100vh;
+            left: -100vw;
+        }
+    }
+
+    @keyframes hideGrapeMobile {
+        from {
+            top: -2%;
+            left: -15%;
+        }
+        to {
+            top: -100vh;
+            right: -100vw;
+        }
+    }
+}
+
+.content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.content-wrapper.menu-active .brie-mobile {
+    animation: hideBrieMobile 1s ease-in-out forwards;
+}
+
+.content-wrapper.menu-active .camambert-mobile {
+    animation: hideCamambertMobile 1s ease-in-out forwards;
+}
+
+.content-wrapper.menu-active .camamber {
+    animation: hideCamamber 1s ease-in-out forwards;
+}
+
+.content-wrapper.menu-active .brie-box {
+    animation: hideBrieBox 1s ease-in-out forwards;
+}
+
+.content-wrapper.menu-active .grape {
+    animation: hideGrape 1s ease-in-out forwards;
+}
+
+.content-wrapper.menu-active .slate-mobile {
+    animation: hideSlate 1s ease-in-out forwards;
+}
+
+.content-wrapper:not(.menu-active) .brie-mobile {
+    animation: showBrieMobile 1s ease-in-out forwards;
+}
+
+.content-wrapper:not(.menu-active) .camamber {
+    animation: showCamamber 1s ease-in-out forwards;
+}
+
+.content-wrapper:not(.menu-active) .brie-box {
+    animation: showBrieBox 1s ease-in-out forwards;
+}
+
+.content-wrapper:not(.menu-active) .grape {
+    animation: showGrape 1s ease-in-out forwards;
+}
+
+.content-wrapper:not(.menu-active) .slate-mobile {
+    animation: showSlate 1s ease-in-out forwards;
+}
+
+.content-wrapper.menu-active .slate-mobile {
+    animation: hideSlate 1s ease-in-out forwards;
+}
+
+.content-wrapper:not(.menu-active) .slate-mobile {
+    animation: showSlate 1s ease-in-out forwards;
+}
+
+@keyframes showBrieMobile {
+    from {
+        bottom: -100vh;
+        right: -100vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 25%;
+        right: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes showCamambertMobile {
+    from {
+        top: -100vh;
+        right: -20%;
+        opacity: 0;
+    }
+    to {
+        top: -5%;
+        right: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes showBrushMobile {
+    from {
+        bottom: -100vh;
+        left: 50%;
+        opacity: 0;
+    }
+    to {
+        bottom: 56%;
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes showGrapeMobile {
+    from {
+        top: -100vh;
+        right: -100vh;
+        opacity: 0;
+    }
+    to {
+        top: -2%;
+        left: -15%;
+        opacity: 1;
+    }
+}
+
+@keyframes showCamamberMobile {
+    from {
+        bottom: -100vh;
+        left: 45vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 0;
+        left: 35%;
+        opacity: 1;
+    }
+}
+
+@keyframes showBrieBoxMobile {
+    from {
+        bottom: -100vh;
+        left: 30vw;
+        opacity: 0;
+    }
+    to {
+        bottom: 4%;
+        left: -15%;
+        opacity: 1;
+    }
+}
+
+@keyframes showSlateMobile {
+    from {
+        bottom: -35vh;
+        left: 160%;
+        opacity: 1;
+    }
+    to {
+        bottom: -25vh;
+        left: 130%;
+        opacity: 1;
+    }
+}
+
+@keyframes hideSlateMobile {
+    from {
+        bottom: -25vh;
+        left: 130%;
+        opacity: 1;
+    }
+    to {
+        bottom: -35vh;
+        left: 160%;
+        opacity: 1;
+    }
+}
+
+@keyframes showSlateBigMobile {
+    from {
+        bottom: -35vh;
+        left: 190%;
+        opacity: 1;
+    }
+    to {
+        bottom: -25vh;
+        left: 150%;
+        opacity: 1;
+    }
+}
+
+@keyframes hideSlateBigMobile {
+    from {
+        bottom: -25vh;
+        left: 150%;
+        opacity: 1;
+    }
+    to {
+        bottom: -35vh;
+        left: 190%;
+        opacity: 1;
+    }
+}
+
+@keyframes firstShowSlateDesktop {
+    from {
+        bottom: -100%;
+        left: 150vh;
+    }
+    to {
+        bottom: -55vh;
+        left: 55%;
+    }
+}
+
+@keyframes firstShowSlateMobile {
+    from {
+        bottom: -200vh;
+        left: 150%;
+    }
+    to {
+        bottom: -25vh;
+        left: 130%;
+        opacity: 1;
+    }
+}
+
+@keyframes firstShowSlateBigMobile {
+    from {
+        bottom: -200vh;
+        left: 150%;
+    }
+    to {
+        bottom: -30vh;
+        left: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes hideBrushDesktop {
+    from {
+        bottom: 30%;
+        left: 50%;
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    to {
+        bottom: 30vh;
+        left: 50%;
+        transform: translateX(-50%) scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes showBrushDesktop {
+    from {
+        bottom: 30vh;
+        left: 50%;
+        transform: translateX(-50%) scale(3);
+        opacity: 0;
+    }
+    to {
+        bottom: 30%;
+        left: 50%;
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes hideBrush {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes hideHoney {
+    from {
+        bottom: 0vh;
+        right: 0vw;
+        opacity: 1;
+    }
+    to {
+        bottom: -50vh;
+        right: -25vw;
+        opacity: 1;
+    }
+}
+
+@keyframes hideBrie {
+    from {
+        bottom: 0;
+        right: 1%;
+        opacity: 1;
+    }
+    to {
+        bottom: -50vh;
+        right: -20vw;
+        opacity: 0;
+    }
+}
+
+@keyframes hideCamambert {
+    from {
+        top: 0;
+        right: 0;
+        opacity: 1;
+    }
+    to {
+        top: -100vh;
+        right: -50vw;
+        opacity: 0;
+    }
+}
+
+@keyframes scaleUpSlateDesktop {
+    from {
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+    }
+    to {
+        height: 120%;
+        bottom: -7%;
+        left: -12%;
+        opacity: 1;
+    }
+}

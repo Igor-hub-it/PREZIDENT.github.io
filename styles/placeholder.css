@@ -1,0 +1,91 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.placeholder-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    z-index: 100;
+}
+
+.placeholder {
+    width: 356px;
+    height: 76px;
+    background-image: url('../images/preloader.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.placeholder-shadow {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 356px;
+    height: 76px;
+    background-image: url('../images/preloader.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(10000%) hue-rotate(0deg);
+    clip-path: inset(0 100% 0 0);
+}
+
+.placeholder-shadow.active {
+    animation: reveal 4s ease-in-out forwards;
+}
+
+@keyframes reveal {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes hidePlaceholder {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -200vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .placeholder {
+        width: 230px;
+        height: 46px;
+        background-image: url('../images/preloader.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .placeholder-shadow {
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: 230px;
+        height: 46px;
+        background-image: url('../images/preloader.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(10000%) hue-rotate(0deg);
+        clip-path: inset(0 100% 0 0);
+    }
+} 
