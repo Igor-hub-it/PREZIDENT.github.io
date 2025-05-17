@@ -249,17 +249,16 @@
 
 .selected-cheese {
     position: fixed;
-    top: 20px;
-    right: -100px;
-    width: 80px;
-    height: 80px;
+    bottom: 22%;
+    left: 6%;
+    width: fit-content;
+    height: 23vh;
     opacity: 0;
     transition: all 0.5s ease-out;
     z-index: 54;
 }
 
 .selected-cheese.active {
-    right: 20px;
     opacity: 1;
 }
 
@@ -270,6 +269,7 @@
 }
 
 .cheese-info-card {
+    display: none;
     position: fixed;
     top: -100px;
     left: 50%;
@@ -294,7 +294,7 @@
 
 .cheese-info-name {
     font-family: 'Circe Rounded', Arial, sans-serif;
-    font-size: 24px;
+    font-size: 3.5vh;
     font-weight: 600;
     margin: 0 0 6px 0;
     text-align: left;
@@ -311,7 +311,7 @@
 .cheese-info-maturation,
 .cheese-info-fat {
     font-family: 'Circe Rounded', Arial, sans-serif;
-    font-size: 18px;
+    font-size: 2.4vh;
     margin: 0;
     text-align: left;
 }
@@ -322,6 +322,7 @@
 }
 
 .header-back-arrow {
+    display: none;
     position: absolute;
     left: 20px;
     top: 35%;
@@ -339,6 +340,7 @@
 }
 
 .selected-cheese-text {
+    display: none;
     position: fixed;
     bottom: -100px;
     left: 50%;
@@ -367,16 +369,16 @@
     position: fixed;
     left: -100%;
     bottom: 80px;
-    width: 40vh;
-    height: 40vh;
+    width: 70vh;
+    height: 70vh;
     opacity: 0;
-    transition: left 0.5s ease-out, opacity 0.5s ease-out;
+    transition: right 0.5s ease-out, opacity 0.5s ease-out;
     z-index: 100;
 }
 
 .cheese-images-grid.active {
     left: 50%;
-    top: 50%;
+    top: 17%;
     transform: translateX(-50%);
     opacity: 1;
 }
@@ -595,10 +597,10 @@
 .knife-image {
     position: fixed;
     right: -200%;
-    top: 50%;
+    top: 65%;
     transform: translateY(-50%);
     width: auto;
-    height: 60vh;
+    height: 90vh;
     opacity: 0;
     transition: all 1s ease-in-out;
     z-index: -1;
@@ -606,9 +608,9 @@
 }
 
 .knife-image.active {
-    right: 5%;
+    right: 11%;
     opacity: 1;
-    transform: translateY(-50%) rotate(30deg);
+    transform: translateY(-50%) rotate(-30deg);
     z-index: 100;
     pointer-events: auto;
 }
@@ -616,10 +618,10 @@
 .paw-image {
     position: fixed;
     right: -100%;
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
     width: auto;
-    height: 20vh;
+    height: 12vh;
     opacity: 0;
     transition: right 0.5s ease-out, opacity 0.5s ease-out;
     z-index: 101;
@@ -1047,23 +1049,38 @@
     }
 
     .selected-cheese {
-        /* top: 15px;
-        width: 60px;
-        height: 60px; */
+        position: fixed;
+        top: 20px;
+        right: -100px;
+        left: auto;
+        width: 80px;
+        height: 80px;
+        opacity: 0;
+        transition: all 0.5s ease-out;
+        z-index: 54;
     }
 
     .selected-cheese.active {
         right: -20%;
         top: 3%;
+        bottom: auto;
         width: auto;
         height: 20%;
+        opacity: 1;
     }
 
     .selected-cheese.active[data-cheese="fondant"] {
         right: -5%;
     }
+    
+    .selected-cheese-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
     .cheese-info-card {
+        display: block;
         width: 70%;
         padding: 15px;
     }
@@ -1083,12 +1100,14 @@
     }
 
     .header-back-arrow {
+        display: block;
         left: 5%;
         width: 4%;
         height: 35%;
     }
 
     .selected-cheese-text {
+        display: block;
         font-size: 2.4vh;
     }
     
@@ -1106,6 +1125,7 @@
     }
     
     .cheese-images-grid.active {
+        transition: left 0.5s ease-out, opacity 0.5s ease-out;
         left: 43%;
         top: 40%;
         transform: translateX(-50%);
@@ -1130,6 +1150,27 @@
     }
 
     .knife-image {
+        position: fixed;
+        right: -200%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        height: 60vh;
+        opacity: 0;
+        transition: all 1s ease-in-out;
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    .knife-image.active {
+        right: 5%;
+        opacity: 1;
+        transform: translateY(-50%) rotate(30deg);
+        z-index: 100;
+        pointer-events: auto;
+    }
+
+    .knife-image {
         right: -200%;
         height: 70vh;
         z-index: -1;
@@ -1145,12 +1186,70 @@
     }
 
     .paw-image {
+        position: fixed;
+        right: -100%;
         top: 90%;
+        transform: translateY(-50%);
+        width: auto;
         height: 10vh;
+        opacity: 0;
+        transition: right 0.5s ease-out, opacity 0.5s ease-out;
+        z-index: 101;
+        animation: pawFloat 2s ease-in-out infinite;
     }
-
+    
     .paw-image.active {
+        opacity: 1;
         right: 1%;
         top: 90%;
     }
-} 
+}
+
+.cheese-info-card-desktop {
+    position: fixed;
+    bottom: 10%;
+    left: 6%;
+    padding: 20px;
+    background: #CC0102;
+    transform: translateY(100%);
+    opacity: 0;
+    border-radius: 16px;
+    border-left: 8px solid #FFE26B;
+    color: #fff;
+    text-align: left;
+    transition: all 0.5s ease-out;
+    z-index: 53;
+    min-width: 25%;
+    max-width: 30%;
+}
+
+.cheese-info-card-desktop.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.selected-cheese-text-desktop {
+    width: 25%;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    color: #fff;
+    font-size: 2.5vh;
+    text-align: left;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: 100;
+}
+
+.selected-cheese-text-desktop.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .cheese-info-card-desktop,
+    .selected-cheese-text-desktop {
+        display: none;
+    }
+}

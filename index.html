@@ -348,7 +348,19 @@
         </div>
     </div>
 
+    <div class="cheese-info-card-desktop">
+        <h3 class="cheese-info-name"></h3>
+        <div class="cheese-info-details">
+            <p class="cheese-info-maturation"></p>
+            <p class="cheese-info-fat"></p>
+        </div>
+    </div>
+
     <div class="selected-cheese-text">
+        <p>Разрежьте, чтобы узнать больше о настоящем <span class="selected-cheese-name"></span>!</p>
+    </div>
+
+    <div class="selected-cheese-text-desktop">
         <p>Разрежьте, чтобы узнать больше о настоящем <span class="selected-cheese-name"></span>!</p>
     </div>
 
@@ -1128,12 +1140,18 @@
                 const selectedCheese = document.querySelector('.selected-cheese');
                 const selectedCheeseImage = selectedCheese.querySelector('.selected-cheese-image');
                 const cheeseInfoCard = document.querySelector('.cheese-info-card');
+                const cheeseInfoCardDesktop = document.querySelector('.cheese-info-card-desktop');
                 const cheeseInfoName = cheeseInfoCard.querySelector('.cheese-info-name');
+                const cheeseInfoNameDesktop = cheeseInfoCardDesktop.querySelector('.cheese-info-name');
                 const cheeseInfoMaturation = cheeseInfoCard.querySelector('.cheese-info-maturation');
+                const cheeseInfoMaturationDesktop = cheeseInfoCardDesktop.querySelector('.cheese-info-maturation');
                 const cheeseInfoFat = cheeseInfoCard.querySelector('.cheese-info-fat');
+                const cheeseInfoFatDesktop = cheeseInfoCardDesktop.querySelector('.cheese-info-fat');
                 const headerBackArrow = document.querySelector('.header-back-arrow');
                 const selectedCheeseText = document.querySelector('.selected-cheese-text');
+                const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
                 const selectedCheeseName = selectedCheeseText.querySelector('.selected-cheese-name');
+                const selectedCheeseNameDesktop = selectedCheeseTextDesktop.querySelector('.selected-cheese-name');
                 const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
                 const gridImages = cheeseImagesGrid.querySelectorAll('.cheese-grid-image');
                 
@@ -1145,10 +1163,13 @@
                     case 'petite':
                         selectedCheeseImage.src = 'images/petite.webp';
                         cheeseInfoName.textContent = 'Président Бри';
+                        cheeseInfoNameDesktop.textContent = 'Président Бри';
                         selectedCheeseName.textContent = 'Président Бри';
+                        selectedCheeseNameDesktop.textContent = 'Président Бри';
                         cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>8 дней</span>';
+                        cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>8 дней</span>';
                         cheeseInfoFat.innerHTML = 'Жирность: <span>60%</span>';
-                        // Устанавливаем изображения для Бри
+                        cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>60%</span>';
                         gridImages.forEach((img, index) => {
                             img.src = `images/b_${String(index + 1).padStart(2, '0')}.webp`;
                         });
@@ -1156,10 +1177,13 @@
                     case 'camamber':
                         selectedCheeseImage.src = 'images/camamber-box-shadow.webp';
                         cheeseInfoName.textContent = 'Président Камамбер';
+                        cheeseInfoNameDesktop.textContent = 'Président Камамбер';
                         selectedCheeseName.textContent = 'Président Камамбер';
+                        selectedCheeseNameDesktop.textContent = 'Président Камамбер';
                         cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>8 дней</span>';
+                        cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>8 дней</span>';
                         cheeseInfoFat.innerHTML = 'Жирность: <span>45%</span>';
-                        // Устанавливаем изображения для Камамбера
+                        cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>45%</span>';
                         gridImages.forEach((img, index) => {
                             img.src = `images/c_${String(index + 1).padStart(2, '0')}.webp`;
                         });
@@ -1167,10 +1191,13 @@
                     case 'blue':
                         selectedCheeseImage.src = 'images/bleu-shadow.webp';
                         cheeseInfoName.textContent = 'Président Royal Bleu';
+                        cheeseInfoNameDesktop.textContent = 'Président Royal Bleu';
                         selectedCheeseName.textContent = 'Président Royal Bleu';
+                        selectedCheeseNameDesktop.textContent = 'Président Royal Bleu';
                         cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>80 дней</span>';
+                        cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>80 дней</span>';
                         cheeseInfoFat.innerHTML = 'Жирность: <span>55%</span>';
-                        // Устанавливаем изображения для Блю
+                        cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>55%</span>';
                         gridImages.forEach((img, index) => {
                             img.src = `images/blue_${String(index + 1).padStart(2, '0')}.webp`;
                         });
@@ -1178,10 +1205,13 @@
                     case 'fondant':
                         selectedCheeseImage.src = 'images/fondant.webp';
                         cheeseInfoName.textContent = 'LE CREMIOT EXTRA FONDANT';
+                        cheeseInfoNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
                         selectedCheeseName.textContent = 'LE CREMIOT EXTRA FONDANT';
+                        selectedCheeseNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
                         cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
+                        cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
                         cheeseInfoFat.innerHTML = 'Жирность: <span>60%</span>';
-                        // Устанавливаем изображения для Фонданта
+                        cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>60%</span>';
                         gridImages.forEach((img, index) => {
                             img.src = `images/f_${String(index + 1).padStart(2, '0')}.webp`;
                         });
@@ -1191,16 +1221,14 @@
                 selectedCheese.classList.add('active');
                 selectedCheese.setAttribute('data-cheese', cheeseType);
                 cheeseInfoCard.classList.add('active');
+                cheeseInfoCardDesktop.classList.add('active');
                 selectedCheeseText.classList.add('active');
+                selectedCheeseTextDesktop.classList.add('active');
                 cheeseImagesGrid.classList.add('active');
                 headerBackArrow.classList.add('active');
-                
-                // Добавляем задержку перед активацией ножа
-                setTimeout(() => {
-                    document.querySelector('.knife-image').classList.add('active');
-                    document.querySelector('.paw-image').classList.add('active');
-                }, 100);
-            }, 500);
+                document.querySelector('.knife-image').classList.add('active');
+                document.querySelector('.paw-image').classList.add('active');
+            }, 1000);
         }
 
         // Добавляем обработчики событий для кнопок навигации
@@ -1349,6 +1377,140 @@
                 // Сбрасываем флаг
                 knifeImage.dataset.moved = 'false';
             }
+        });
+
+        // Добавляем обработчики для кнопок выбора сыра в десктопной версии
+        const cheeseChoiceButtons = document.querySelectorAll('.cheese-choice-button');
+        cheeseChoiceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Скрываем кнопки выбора сыра
+                const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
+                chooseCheeseContainer.classList.remove('active');
+                
+                // Скрываем изображения сыров с анимацией
+                const cheeseImages = document.querySelectorAll('.cheese-image');
+                cheeseImages.forEach(image => {
+                    if (image.classList.contains('petite')) {
+                        image.style.animation = 'hidePetite 1s ease-out forwards';
+                    } else if (image.classList.contains('camamber-box')) {
+                        image.style.animation = 'hideCamamberBox 1s ease-out forwards';
+                    } else if (image.classList.contains('blue')) {
+                        image.style.animation = 'hideBlue 1s ease-out forwards';
+                    } else if (image.classList.contains('fondant')) {
+                        image.style.animation = 'hideFondant 1s ease-out forwards';
+                    }
+                });
+                
+                // Скрываем текстовый блок
+                const cheeseTextContainer = document.querySelector('.cheese-text-container');
+                cheeseTextContainer.classList.remove('active');
+                cheeseTextContainer.style.opacity = '0';
+                
+                // Определяем тип выбранного сыра
+                const cheeseType = button.textContent.trim().toLowerCase().includes('бри') ? 'petite' :
+                                  button.textContent.trim().toLowerCase().includes('камамбер') ? 'camamber' :
+                                  button.textContent.trim().toLowerCase().includes('bleu') ? 'blue' :
+                                  'fondant';
+                
+                // Показываем выбранный сыр и информацию
+                setTimeout(() => {
+                    const selectedCheese = document.querySelector('.selected-cheese');
+                    const selectedCheeseImage = selectedCheese.querySelector('.selected-cheese-image');
+                    const cheeseInfoCard = document.querySelector('.cheese-info-card');
+                    const cheeseInfoCardDesktop = document.querySelector('.cheese-info-card-desktop');
+                    const cheeseInfoName = cheeseInfoCard.querySelector('.cheese-info-name');
+                    const cheeseInfoNameDesktop = cheeseInfoCardDesktop.querySelector('.cheese-info-name');
+                    const cheeseInfoMaturation = cheeseInfoCard.querySelector('.cheese-info-maturation');
+                    const cheeseInfoMaturationDesktop = cheeseInfoCardDesktop.querySelector('.cheese-info-maturation');
+                    const cheeseInfoFat = cheeseInfoCard.querySelector('.cheese-info-fat');
+                    const cheeseInfoFatDesktop = cheeseInfoCardDesktop.querySelector('.cheese-info-fat');
+                    const headerBackArrow = document.querySelector('.header-back-arrow');
+                    const selectedCheeseText = document.querySelector('.selected-cheese-text');
+                    const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+                    const selectedCheeseName = selectedCheeseText.querySelector('.selected-cheese-name');
+                    const selectedCheeseNameDesktop = selectedCheeseTextDesktop.querySelector('.selected-cheese-name');
+                    const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+                    const gridImages = cheeseImagesGrid.querySelectorAll('.cheese-grid-image');
+                    
+                    // Устанавливаем атрибут data-cheese для сетки изображений
+                    cheeseImagesGrid.setAttribute('data-cheese', cheeseType);
+                    
+                    // Устанавливаем соответствующее изображение и информацию
+                    switch(cheeseType) {
+                        case 'petite':
+                            selectedCheeseImage.src = 'images/petite.webp';
+                            cheeseInfoName.textContent = 'Président Бри';
+                            cheeseInfoNameDesktop.textContent = 'Président Бри';
+                            selectedCheeseName.textContent = 'Président Бри';
+                            selectedCheeseNameDesktop.textContent = 'Président Бри';
+                            cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>8 дней</span>';
+                            cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>8 дней</span>';
+                            cheeseInfoFat.innerHTML = 'Жирность: <span>60%</span>';
+                            cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>60%</span>';
+                            gridImages.forEach((img, index) => {
+                                img.src = `images/b_${String(index + 1).padStart(2, '0')}.webp`;
+                            });
+                            break;
+                        case 'camamber':
+                            selectedCheeseImage.src = 'images/camamber-box-shadow.webp';
+                            cheeseInfoName.textContent = 'Président Камамбер';
+                            cheeseInfoNameDesktop.textContent = 'Président Камамбер';
+                            selectedCheeseName.textContent = 'Président Камамбер';
+                            selectedCheeseNameDesktop.textContent = 'Président Камамбер';
+                            cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>8 дней</span>';
+                            cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>8 дней</span>';
+                            cheeseInfoFat.innerHTML = 'Жирность: <span>45%</span>';
+                            cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>45%</span>';
+                            gridImages.forEach((img, index) => {
+                                img.src = `images/c_${String(index + 1).padStart(2, '0')}.webp`;
+                            });
+                            break;
+                        case 'blue':
+                            selectedCheeseImage.src = 'images/bleu-shadow.webp';
+                            cheeseInfoName.textContent = 'Président Royal Bleu';
+                            cheeseInfoNameDesktop.textContent = 'Président Royal Bleu';
+                            selectedCheeseName.textContent = 'Président Royal Bleu';
+                            selectedCheeseNameDesktop.textContent = 'Président Royal Bleu';
+                            cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>80 дней</span>';
+                            cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>80 дней</span>';
+                            cheeseInfoFat.innerHTML = 'Жирность: <span>55%</span>';
+                            cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>55%</span>';
+                            gridImages.forEach((img, index) => {
+                                img.src = `images/blue_${String(index + 1).padStart(2, '0')}.webp`;
+                            });
+                            break;
+                        case 'fondant':
+                            if (window.innerWidth > 768) {
+                                selectedCheeseImage.src = 'images/fondant-shadow.webp';
+                            } else {
+                                selectedCheeseImage.src = 'images/fondant.webp';
+                            }
+                            cheeseInfoName.textContent = 'LE CREMIOT EXTRA FONDANT';
+                            cheeseInfoNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
+                            selectedCheeseName.textContent = 'LE CREMIOT EXTRA FONDANT';
+                            selectedCheeseNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
+                            cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
+                            cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
+                            cheeseInfoFat.innerHTML = 'Жирность: <span>60%</span>';
+                            cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>60%</span>';
+                            gridImages.forEach((img, index) => {
+                                img.src = `images/f_${String(index + 1).padStart(2, '0')}.webp`;
+                            });
+                            break;
+                    }
+                    
+                    selectedCheese.classList.add('active');
+                    selectedCheese.setAttribute('data-cheese', cheeseType);
+                    cheeseInfoCard.classList.add('active');
+                    cheeseInfoCardDesktop.classList.add('active');
+                    selectedCheeseText.classList.add('active');
+                    selectedCheeseTextDesktop.classList.add('active');
+                    cheeseImagesGrid.classList.add('active');
+                    headerBackArrow.classList.add('active');
+                    document.querySelector('.knife-image').classList.add('active');
+                    document.querySelector('.paw-image').classList.add('active');
+                }, 1000);
+            });
         });
     </script>
 </body>
