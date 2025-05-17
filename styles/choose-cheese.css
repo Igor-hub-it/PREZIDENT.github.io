@@ -247,6 +247,395 @@
     color: #fff;
 }
 
+.selected-cheese {
+    position: fixed;
+    top: 20px;
+    right: -100px;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    z-index: 54;
+}
+
+.selected-cheese.active {
+    right: 20px;
+    opacity: 1;
+}
+
+.selected-cheese-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cheese-info-card {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #CC0102;
+    border-radius: 16px;
+    border-left: 8px solid #FFE26B;
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    z-index: 53;
+    width: 70%;
+    max-width: 400px;
+}
+
+.cheese-info-card.active {
+    top: 80%;
+    opacity: 1;
+}
+
+.cheese-info-name {
+    font-family: 'Circe Rounded', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.cheese-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: left;
+}
+
+.cheese-info-maturation,
+.cheese-info-fat {
+    font-family: 'Circe Rounded', Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+}
+
+.cheese-info-maturation span,
+.cheese-info-fat span {
+    color: #FFE26B;
+}
+
+.header-back-arrow {
+    position: absolute;
+    left: 20px;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 35px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    cursor: pointer;
+    z-index: 56;
+}
+
+.header-back-arrow.active {
+    opacity: 1;
+}
+
+.selected-cheese-text {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    opacity: 0;
+    transition: bottom 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: 100;
+    width: 65%;
+    max-width: 400px;
+}
+
+.selected-cheese-text.active {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.selected-cheese-text p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.cheese-images-grid {
+    position: fixed;
+    left: -100%;
+    bottom: 80px;
+    width: 40vh;
+    height: 40vh;
+    opacity: 0;
+    transition: left 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: 100;
+}
+
+.cheese-images-grid.active {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+}
+
+.cheese-grid-image {
+    position: absolute;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Стили для изображений Бри */
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(1) {
+    bottom: 50%;
+    left: 50%;
+    height: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(2) {
+    bottom: 50%;
+    left: 49%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(3) {
+    top: 49%;
+    left: 49%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(4) {
+    top: 49%;
+    left: 50%;
+    height: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(5) {
+    top: 49%;
+    right: 49%;
+    height: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(6) {
+    top: 49%;
+    right: 48%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(7) {
+    bottom: 50%;
+    right: 48%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(8) {
+    bottom: 50%;
+    right: 49%;
+    height: 50%;
+}
+
+/* Стили для изображений Камамбера */
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(1) {
+    bottom: 50%;
+    left: 50%;
+    height: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(2) {
+    bottom: 50%;
+    left: 50%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(3) {
+    top: 49%;
+    left: 50%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(4) {
+    top: 49%;
+    left: 50%;
+    height: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(5) {
+    top: 49%;
+    right: 49%;
+    height: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(6) {
+    top: 49%;
+    right: 49%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(7) {
+    bottom: 50%;
+    right: 49%;
+    width: 50%;
+}
+
+.cheese-images-grid[data-cheese="camamber"] .cheese-grid-image:nth-child(8) {
+    bottom: 50%;
+    right: 49%;
+    height: 50%;
+}
+
+/* Стили для изображений Блю */
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(1) {
+    top: 0%;
+    left: 10%;
+    width: 40%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(2) {
+    top: 0%;
+    right: 9%;
+    width: 42%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(3) {
+    top: 21%;
+    left: 10%;
+    width: 40%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(4) {
+    top: 21%;
+    right: 10%;
+    width: 41%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(5) {
+    top: 42%;
+    left: 10%;
+    width: 40%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(6) {
+    top: 42%;
+    right: 10%;
+    width: 40%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(7) {
+    top: 63%;
+    left: 10%;
+    width: 40%;
+}
+
+.cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(8) {
+    top: 63%;
+    right: 10%;
+    width: 40%;
+}
+
+/* Стили для изображений Фонданта */
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(1) {
+    top: 0;
+    left: 50%;
+    width: 40%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(2) {
+    top: 40%;
+    left: 0;
+    height: 20%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(3) {
+    top: 40%;
+    right: 0;
+    height: 20%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(4) {
+    top: 50%;
+    left: 50%;
+    height: 20%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(5) {
+    bottom: 0;
+    left: 0;
+    height: 20%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(6) {
+    bottom: 0;
+    right: 0;
+    height: 20%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(7) {
+    top: 20%;
+    left: 20%;
+    height: 20%;
+}
+
+.cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(8) {
+    top: 20%;
+    right: 20%;
+    height: 20%;
+}
+
+.knife-image {
+    position: fixed;
+    right: -200%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: 60vh;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.knife-image.active {
+    right: 5%;
+    opacity: 1;
+    transform: translateY(-50%) rotate(30deg);
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.paw-image {
+    position: fixed;
+    right: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: 20vh;
+    opacity: 0;
+    transition: right 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: 101;
+    animation: pawFloat 2s ease-in-out infinite;
+}
+
+.paw-image.active {
+    right: 5%;
+    opacity: 1;
+}
+
+@keyframes pawFloat {
+    0% {
+        transform: translateY(-50%) translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(-10px) translateY(-10px);
+    }
+    100% {
+        transform: translateY(-50%) translateX(0) translateY(0);
+    }
+}
+
 @media screen and (max-width: 768px) {
     .choose-cheese-container {
         display: none !important;
@@ -359,12 +748,13 @@
         border: none;
         cursor: pointer;
         padding: 10px;
-        z-index: 2;
+        z-index: 5;
     }
 
     .slider-arrow img {
         width: 20px;
         height: 35px;
+        z-index: 5;
     }
 
     .slider-arrow-left {
@@ -387,5 +777,106 @@
     .cheese-subtitle {
         width: 60%;
         font-size: 16px;
+    }
+
+    .selected-cheese {
+        /* top: 15px;
+        width: 60px;
+        height: 60px; */
+    }
+
+    .selected-cheese.active {
+        right: -20%;
+        top: 3%;
+        width: auto;
+        height: 20%;
+    }
+
+    .selected-cheese.active[data-cheese="fondant"] {
+        right: -5%;
+    }
+
+    .cheese-info-card {
+        width: 70%;
+        padding: 15px;
+    }
+
+    .cheese-info-name {
+        font-size: 2.9vh;
+        margin: 0 0 6px 0;
+    }
+
+    .cheese-info-maturation,
+    .cheese-info-fat {
+        font-size: 2.6vh;
+    }
+
+    .cheese-info-card.active {
+        top: 20%;
+    }
+
+    .header-back-arrow {
+        left: 5%;
+        width: 4%;
+        height: 35%;
+    }
+
+    .selected-cheese-text {
+        font-size: 2.4vh;
+    }
+    
+    .selected-cheese-text.active {
+        bottom: 15px;
+    }
+
+    .cheese-images-grid {
+        width: 85vw;
+        height: 85vw;
+        max-width: 50vh;
+        max-height: 50vh;
+        left: -200%;
+        z-index: 3;
+    }
+    
+    .cheese-images-grid.active {
+        left: 43%;
+        top: 40%;
+        transform: translateX(-50%);
+    }
+
+    .cheese-images-grid.active[data-cheese="blue"] {
+        top: 48%;
+        width: 38vh;
+        height: 38vh;
+        transform: translateX(-50%) rotate(50deg);
+    }
+
+    .cheese-grid-image {
+        border-radius: 4px;
+    }
+
+    .knife-image {
+        right: -200%;
+        height: 70vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .knife-image.active {
+        right: 3%;
+        top: 70%;
+        transform: translateY(-50%) rotate(3deg);
+        z-index: 100;
+        pointer-events: auto;
+    }
+
+    .paw-image {
+        top: 90%;
+        height: 10vh;
+    }
+
+    .paw-image.active {
+        right: 1%;
+        top: 90%;
     }
 } 
