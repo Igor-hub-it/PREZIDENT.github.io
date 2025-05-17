@@ -854,7 +854,10 @@
                 if (cheeseInfoCard) cheeseInfoCard.classList.remove('active');
                 if (selectedCheese) selectedCheese.classList.remove('active');
                 if (headerBackArrow) headerBackArrow.classList.remove('active');
-                if (cheeseImagesGrid) cheeseImagesGrid.classList.remove('active');
+                if (cheeseImagesGrid) {
+                    cheeseImagesGrid.classList.remove('active');
+                    cheeseImagesGrid.classList.remove('cutting');
+                }
                 if (knifeImage) knifeImage.classList.remove('active');
                 if (pawImage) pawImage.classList.remove('active');
                 if (selectedCheeseText) selectedCheeseText.classList.remove('active');
@@ -1248,9 +1251,10 @@
             const selectedCheeseText = document.querySelector('.selected-cheese-text');
             selectedCheeseText.classList.remove('active');
             
-            // Скрываем сетку изображений
+            // Скрываем сетку изображений и возвращаем изображения на место
             const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
             cheeseImagesGrid.classList.remove('active');
+            cheeseImagesGrid.classList.remove('cutting');
             
             // Скрываем нож и лапу
             const knifeImage = document.querySelector('.knife-image');
@@ -1334,6 +1338,12 @@
                         knifeImage.style.right = '-100%';
                         knifeImage.style.top = '150%';
                         knifeImage.style.transform = 'translateY(-50%) rotate(-40deg)';
+                        // Добавляем класс cutting для анимации изображений
+                        const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+                    
+                        if (cheeseImagesGrid) {
+                            cheeseImagesGrid.classList.add('cutting');
+                        }
                     }, 1000);
                 }
                 // Сбрасываем флаг

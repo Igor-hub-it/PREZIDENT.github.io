@@ -381,6 +381,13 @@
     opacity: 1;
 }
 
+.cheese-images-grid.active[data-cheese="blue"] {
+    top: 0%;
+    width: 38vh;
+    height: 38vh;
+    transform: translateX(-35%) rotate(-41deg);
+}
+
 .cheese-grid-image {
     position: absolute;
     width: auto;
@@ -540,49 +547,49 @@
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(1) {
     top: 0;
     left: 50%;
-    width: 40%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(2) {
-    top: 40%;
-    left: 0;
-    height: 20%;
+    top: 12.5%;
+    left: 44%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(3) {
-    top: 40%;
-    right: 0;
-    height: 20%;
+    top: 25%;
+    left: 41%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(4) {
-    top: 50%;
-    left: 50%;
-    height: 20%;
+    top: 37.5%;
+    left: 40%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(5) {
-    bottom: 0;
-    left: 0;
-    height: 20%;
+    top: 50%;
+    left: 40%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(6) {
-    bottom: 0;
-    right: 0;
-    height: 20%;
+    top: 62.5%;
+    left: 41%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(7) {
-    top: 20%;
-    left: 20%;
-    height: 20%;
+    top: 75%;
+    left: 44.5%;
+    height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(8) {
-    top: 20%;
-    right: 20%;
-    height: 20%;
+    top: 87.5%;
+    left: 51%;
+    height: 11.6%;
 }
 
 .knife-image {
@@ -634,6 +641,266 @@
     100% {
         transform: translateY(-50%) translateX(0) translateY(0);
     }
+}
+
+/* Стили для изображений Бри при движении ножа */
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(1) {
+    bottom: 130%;
+    left: 10%;
+    height: 40%;
+    transform: rotate(-115deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(2) {
+    bottom: 133%;
+    left: 60%;
+    width: 40%;
+    transform: rotate(-20deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(3) {
+    top: 30%;
+    left: 68%;
+    width: 40%;
+    transform: rotate(-11deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(4) {
+    top: 36%;
+    left: 23%;
+    height: 40%;
+    transform: rotate(77deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(5) {
+    top: 72%;
+    right: 1%;
+    height: 40%;
+    transform: rotate(-62deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(6) {
+    top: 95%;
+    right: 29%;
+    width: 40%;
+    transform: rotate(-8deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(7) {
+    bottom: 93%;
+    right: 29%;
+    width: 40%;
+    transform: rotate(18deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(8) {
+    bottom: 74%;
+    right: -2%;
+    height: 40%;
+    transform: rotate(85deg);
+    transition: all 1s ease-in-out;
+}
+
+/* Стили для изображений камамбера при движении ножа */
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(1) {
+    bottom: 130%;
+    left: 10%;
+    height: 40%;
+    transform: rotate(-115deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(2) {
+    bottom: 133%;
+    left: 60%;
+    width: 40%;
+    transform: rotate(-20deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(3) {
+    top: 30%;
+    left: 68%;
+    width: 40%;
+    transform: rotate(-11deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(4) {
+    top: 36%;
+    left: 23%;
+    height: 40%;
+    transform: rotate(77deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(5) {
+    top: 72%;
+    right: 1%;
+    height: 40%;
+    transform: rotate(-62deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(6) {
+    top: 95%;
+    right: 29%;
+    width: 40%;
+    transform: rotate(-8deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(7) {
+    bottom: 93%;
+    right: 29%;
+    width: 40%;
+    transform: rotate(18deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(8) {
+    bottom: 74%;
+    right: -2%;
+    height: 40%;
+    transform: rotate(85deg);
+    transition: all 1s ease-in-out;
+}
+
+/* Стили для изображений BLUE при движении ножа */
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(1) {
+    top: -79%;
+    left: -31%;
+    width: 42%;
+    transform: rotate(-90deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(2) {
+    top: -53%;
+    right: 51%;
+    width: 42%;
+    transform: rotate(-19deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(3) {
+    top: -31%;
+    left: -69%;
+    width: 40%;
+    transform: rotate(-11deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(4) {
+    top: -16%;
+    right: 16%;
+    width: 41%;
+    transform: rotate(-63deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(5) {
+    top: 27%;
+    left: -13%;
+    width: 40%;
+    transform: rotate(-25deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(6) {
+    top: 18%;
+    right: -31%;
+    width: 40%;
+    transform: rotate(13deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(7) {
+    top: 50%;
+    left: 38%;
+    width: 40%;
+    transform: rotate(77deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(8) {
+    top: 84%;
+    right: -15%;
+    width: 40%;
+    transform: rotate(-76deg);
+    transition: all 1s ease-in-out;
+}
+
+/* Стили для изображений fondant при движении ножа */
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(1) {
+    top: -162px;
+    left: 0%;
+    height: 12.5%;
+    transform: rotate(66deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(2) {
+    top: -16.5%;
+    left: 31%;
+    height: 12.5%;
+    transform: rotate(87deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(3) {
+    top: 22%;
+    left: -42%;
+    height: 12.5%;
+    transform: rotate(0deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(4) {
+    top: -28.5%;
+    left: -66%;
+    height: 12.5%;
+    transform: rotate(23deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(5) {
+    top: 4%;
+    left: 68%;
+    height: 12.5%;
+    transform: rotate(-66deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(6) {
+    top: 95.5%;
+    left: 52%;
+    height: 12.5%;
+    transform: rotate(83deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(7) {
+    top: 56%;
+    left: 109.5%;
+    height: 12.5%;
+    transform: rotate(24deg);
+    transition: all 1s ease-in-out;
+}
+
+.cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(8) {
+    top: 79.5%;
+    left: 22%;
+    height: 11.6%;
+    transform: rotate(75deg);
+    transition: all 1s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -850,6 +1117,13 @@
         height: 38vh;
         transform: translateX(-50%) rotate(50deg);
     }
+
+    .cheese-images-grid.active[data-cheese="fondant"] {
+        top: 38%;
+        width: 38vh;
+        height: 38vh;
+        transform: translateX(-52%) rotate(45deg);
+    }    
 
     .cheese-grid-image {
         border-radius: 4px;
