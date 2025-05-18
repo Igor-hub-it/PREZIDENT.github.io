@@ -1349,12 +1349,9 @@
                 knifeImage.style.top = '70%';
                 knifeImage.style.transform = 'translateY(-50%) rotate(3deg)';
             } else {
-                knifeImage.style.right = '-200%';
-                knifeImage.style.top = '65%';
-                knifeImage.style.transform = 'translateY(-50%)';
-                knifeImage.style.opacity = '0';
-                knifeImage.style.zIndex = '-1';
-                knifeImage.style.pointerEvents = 'none';
+                knifeImage.style.right = '5%';
+                knifeImage.style.top = '50%';
+                knifeImage.style.transform = 'translateY(-50%) rotate(30deg)';
             }
             
             // Скрываем стрелку
@@ -1422,6 +1419,7 @@
                 // Если свайп влево на 10% или больше
                 if (swipePercentage <= -10) {
                     knifeImage.style.right = '45%';
+                    knifeImage.style.top = '65%';
                     knifeImage.style.transform = 'translateY(-50%) rotate(-40deg)';
                     // Добавляем флаг, что нож был перемещен
                     knifeImage.dataset.moved = 'true';
@@ -1592,10 +1590,22 @@
                     headerBackArrow.classList.add('active');
                     document.querySelector('.knife-image').classList.add('active');
                     document.querySelector('.paw-image').classList.add('active');
+                    console.log('Добавлен класс active для paw-image');
                     
                     // Активируем десктопную стрелку
                     if (window.innerWidth > 768) {
                         desktopBackArrow.classList.add('active');
+                        // показываем лапу и текст
+                        const pawImage = document.querySelector('.paw-image');
+                        const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+                        if (pawImage) {
+                            pawImage.style.transition = 'opacity 0.5s ease-out';
+                            pawImage.style.opacity = '1';
+                        }
+                        if (selectedCheeseTextDesktop) {
+                            selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
+                            selectedCheeseTextDesktop.style.opacity = '1';
+                        }
                     }
                 }, 1000);
             });
@@ -1638,6 +1648,17 @@
             const deltaX = startX - e.clientX;
 
             if (!isFixed) {
+                    // Скрываем лапу и текст
+                const pawImage = document.querySelector('.paw-image');
+                const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+                if (pawImage) {
+                    pawImage.style.transition = 'opacity 0.5s ease-out';
+                    pawImage.style.opacity = '0';
+                }
+                if (selectedCheeseTextDesktop) {
+                    selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
+                    selectedCheeseTextDesktop.style.opacity = '0';
+                }
                 // Первое перетаскивание вправо, фиксируем на 40%
                 let newRight = startRight + deltaX;
                 if (newRight > maxRightPx) {
@@ -1729,17 +1750,17 @@
                 }
             }
 
-            // Скрываем лапу и текст
-            const pawImage = document.querySelector('.paw-image');
-            const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
-            if (pawImage) {
-                pawImage.style.transition = 'opacity 0.5s ease-out';
-                pawImage.style.opacity = '0';
-            }
-            if (selectedCheeseTextDesktop) {
-                selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
-                selectedCheeseTextDesktop.style.opacity = '0';
-            }
+            // // Скрываем лапу и текст
+            // const pawImage = document.querySelector('.paw-image');
+            // const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+            // if (pawImage) {
+            //     pawImage.style.transition = 'opacity 0.5s ease-out';
+            //     pawImage.style.opacity = '0';
+            // }
+            // if (selectedCheeseTextDesktop) {
+            //     selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
+            //     selectedCheeseTextDesktop.style.opacity = '0';
+            // }
 
             knifeImage.style.transition = 'top 0.5s ease-out, opacity 0.5s ease-out';
             knifeImage.style.top = (windowHeight + 200) + 'px';
@@ -1797,11 +1818,10 @@
                 knifeImage.style.top = '70%';
                 knifeImage.style.transform = 'translateY(-50%) rotate(3deg)';
             } else {
-                knifeImage.style.right = '-200%';
-                knifeImage.style.top = '65%';
-                knifeImage.style.transform = 'translateY(-50%)';
-                knifeImage.style.zIndex = '-1';
-                knifeImage.style.pointerEvents = 'none';
+                knifeImage.style.top = 65 + '%';
+                knifeImage.style.opacity = '1';
+                knifeImage.style.right = '11%';
+                knifeImage.style.transform = 'translateY(-50%) rotate(-30deg)';
             }
             
             // Скрываем стрелку
