@@ -429,7 +429,7 @@
     top: 7%;
     left: 31%;
     right: auto;
-    /* transform: rotate(149deg); */
+    z-index: 52;
 }
 
 .cheese-grid-image {
@@ -1314,9 +1314,18 @@
     }
     
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(8) {
-
+        
+    }
+    
+    .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(7) {
+        top: 78%;
+        left: 20%;
     }
 
+    .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(4) {
+        left: 150%;
+    }
+    
     .cheese-grid-image {
         border-radius: 4px;
     }
