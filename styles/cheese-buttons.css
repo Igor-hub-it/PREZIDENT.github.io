@@ -1,0 +1,556 @@
+.cheese-buttons-grid {
+    position: fixed;
+    left: -100%;            
+    width: 70vh;
+    height: 70vh;
+    opacity: 0;
+    transition-delay: 1.5s;
+    transition: opacity 0.5s ease-out;
+    z-index: 50;
+}
+
+.cheese-buttons-grid.cutting {
+    left: 50%;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cheese-buttons-grid.cutting[data-cheese="petite"] {
+    left: 40%;
+    top: 21%;
+    width: 70vh;
+    height: 70vh;
+    transform: rotate(-86deg);
+}
+
+.cheese-buttons-grid.cutting[data-cheese="camamber"] {
+    left: 40%;
+    top: 21%;
+    width: 70vh;
+    height: 70vh;
+    transform: rotate(-86deg);
+}
+
+.cheese-buttons-grid.cutting[data-cheese="blue"] {
+    left: 50%;
+    top: 26%;
+    right: auto;
+    width: 36%;
+    transform: rotate(-40deg);
+}
+
+.cheese-buttons-grid.cutting[data-cheese="fondant"] {
+    top: 7%;
+    left: 31%;
+    right: auto;
+}
+
+.cheese-button {
+    position: absolute;
+    background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
+    border: none;
+    width: auto;
+    border-radius: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+    color: #442F1E;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Circe Rounded', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    line-height: 100%;
+    overflow: hidden;
+    transition: transform 0.2s ease-out;
+}
+
+.cheese-button.cutting[data-cheese="petite"] {
+    transform: rotate(86deg);
+}
+
+.cheese-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.cheese-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.cheese-button:hover::before {
+    left: 0;
+}
+
+.cheese-button:hover::after {
+    right: 0;
+}
+
+.cheese-button span {
+    position: relative;
+    z-index: 2;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
+    top: 24%;
+    left: 62%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
+    left: 115%;
+    top: 17%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
+    top: 78%;
+    left: 95%;
+    width: max-content; 
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
+    left: 78%;
+    top: 49%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
+    top: 83%;
+    left: 35%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
+    left: -5%;
+    top: 55%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
+    top: 22%;
+    right: 129%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
+    right: 68.5%;
+    top: 23%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
+    top: 24%;
+    left: 62%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
+    left: 115%;
+    top: 17%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
+    top: 78%;
+    left: 95%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
+    left: 78%;
+    top: 49%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(5) {
+    top: 83%;
+    left: 35%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
+    left: -5%;
+    top: 55%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
+    top: 22%;
+    right: 129%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(8) {
+    right: 68.5%;
+    top: 23%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(1) {
+    top: 24%;
+    left: 62%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(2) {
+    left: 115%;
+    top: 17%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(3) {
+    top: 78%;
+    left: 95%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(4) {
+    left: 78%;
+    top: 49%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(5) {
+    top: 83%;
+    left: 35%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
+    left: -5%;
+    top: 55%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(7) {
+    top: 22%;
+    right: 129%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
+    right: 68.5%;
+    top: 23%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(1) {
+    top: 24%;
+    left: 62%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(2) {
+    left: 115%;
+    top: 17%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(3) {
+    top: 78%;
+    left: 95%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(4) {
+    left: 78%;
+    top: 49%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(5) {
+    top: 83%;
+    left: 35%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(6) {
+    left: -5%;
+    top: 55%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(7) {
+    top: 22%;
+    right: 129%;
+    width: max-content;
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(8) {
+    right: 68.5%;
+    top: 23%;
+    width: max-content;
+}
+
+@media (max-width: 768px) {
+    .desktop-back-arrow {
+        display: none;
+    }
+
+    .cheese-buttons-grid {
+        position: fixed;
+        left: -100%;
+        width: 85vw;
+        height: 85vw;
+        max-width: 50vh;
+        max-height: 50vh;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        transition-delay: 1.5s;
+        z-index: 2;
+    }
+
+    .cheese-button {
+        padding: 12px;
+        font-weight: 400;
+        left: 50%;
+        font-size: 4vw;
+    }
+
+    .cheese-buttons-grid.cutting {
+        opacity: 1;
+        pointer-events: auto;
+        left: 43%;
+        top: 40%;
+    }
+
+    .cheese-buttons-grid.cutting[data-cheese="petite"] {
+        left: 5%;
+        top: 40%;
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="camamber"] {
+        left: 5%;
+        top: 40%;
+    }
+
+    .cheese-buttons-grid.cutting[data-cheese="blue"] {
+        left: 39%;
+        top: 45%;
+    }
+
+    .cheese-buttons-grid.cutting[data-cheese="fondant"] {
+        left: 5%;
+        top: 48%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
+        top: auto;
+        bottom: -12%;
+        left: auto;
+        right: -11%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
+        left: 11%;
+        bottom: auto;
+        top: 67%;
+        right: auto;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
+        top: 50%;
+        left: auto;
+        right: 0%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
+        left: 20%;
+        top: 32%;
+        right: auto;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
+        top: 6%;
+        left: auto;
+        right: 10%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
+        left: auto;
+        top: auto;
+        right: 31%;
+        bottom: 100%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
+        top: -39%;
+        bottom: auto;
+        right: auto;
+        left: 43%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
+        bottom: 149%;
+        right: auto;
+        left: 17%;
+        top: auto;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
+        top: auto;
+        bottom: -12%;
+        left: auto;
+        right: -11%;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
+        left: 11%;
+        bottom: auto;
+        top: 67%;
+        right: auto;
+    }
+    
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
+        top: 50%;
+        left: auto;
+        right: 0%;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
+        left: 20%;
+        top: 32%;
+        right: auto;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(5) {
+        top: 6%;
+        left: auto;
+        right: 10%;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
+        left: auto;
+        top: auto;
+        right: 31%;
+        bottom: 100%;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
+        top: -39%;
+        bottom: auto;
+        right: auto;
+        left: 43%;
+    }
+
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(8) {
+        bottom: 149%;
+        right: auto;
+        left: 17%;
+        top: auto;
+    }
+
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(1) {
+        top: 24%;
+        left: 62%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(2) {
+        left: 115%;
+        top: 17%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(3) {
+        top: 78%;
+        left: 95%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(4) {
+        left: 78%;
+        top: 49%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(5) {
+        top: 83%;
+        left: 35%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
+        left: -5%;
+        top: 55%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(7) {
+        top: 22%;
+        right: 129%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
+        right: 68.5%;
+        top: 23%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(1) {
+        top: 24%;
+        left: 62%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(2) {
+        left: 115%;
+        top: 17%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(3) {
+        top: 78%;
+        left: 95%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(4) {
+        left: 78%;
+        top: 49%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(5) {
+        top: 83%;
+        left: 35%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(6) {
+        left: -5%;
+        top: 55%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(7) {
+        top: 22%;
+        right: 129%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(8) {
+        right: 68.5%;
+        top: 23%;
+        width: max-content;
+    }
+}

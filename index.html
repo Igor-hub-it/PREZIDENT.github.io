@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/placeholder.css">
     <link rel="stylesheet" href="styles/products.css">
     <link rel="stylesheet" href="styles/choose-cheese.css">
+    <link rel="stylesheet" href="styles/cheese-buttons.css">
     <style>
         body, html {
             margin: 0;
@@ -57,12 +58,6 @@
             opacity: 1;
             pointer-events: auto;
             animation: arrowAnimation 1.8s ease-in-out infinite;
-        }
-
-        @media (max-width: 768px) {
-            .desktop-back-arrow {
-            display: none;
-            }
         }
     </style>
 </head>
@@ -415,6 +410,51 @@
         <img src="images/b_07.webp" class="cheese-grid-image" alt="Cheese 7">
         <img src="images/b_08.webp" class="cheese-grid-image" alt="Cheese 8">
     </div>
+
+    <div class="cheese-buttons-grid" data-cheese="petite">
+        <button class="cheese-button"><span>Как отличить</br> настоящий сыр бри?</span></button>
+        <button class="cheese-button"><span>Бри – сыр королей</span></button>
+        <button class="cheese-button"><span>Ассортимент</span></button>
+        <button class="cheese-button"><span>Культура плесени</span></button>
+        <button class="cheese-button"><span>С чем сочетать</br> Бри President?</span></button>
+        <button class="cheese-button"><span>Настоящий вкус!</span></button>
+        <button class="cheese-button"><span>Органолептика</span></button>
+        <button class="cheese-button"><span>Общая информация</span></button>
+    </div>
+
+    <div class="cheese-buttons-grid" data-cheese="camamber">
+        <button class="cheese-button"><span>Когда появился камабер? </span></button>
+        <button class="cheese-button"><span>Настоящая легенда!</span></button>
+        <button class="cheese-button"><span>Ассортимент</span></button>
+        <button class="cheese-button"><span>Культура плесени</span></button>
+        <button class="cheese-button"><span>С чем сочетать</br>Камамбер?</span></button>
+        <button class="cheese-button"><span>Отличительная</br>особенность</span></button>
+        <button class="cheese-button"><span>Органолептика</span></button>
+        <button class="cheese-button"><span>Общая информация</span></button>
+    </div>
+
+    <div class="cheese-buttons-grid" data-cheese="blue">
+        <button class="cheese-button"><span>Богатая история</span></button>
+        <button class="cheese-button"><span>Настоящий вкус!</span></button>
+        <button class="cheese-button"><span>С чем сочетать?</span></button>
+        <button class="cheese-button"><span>Культура плесени</span></button>
+        <button class="cheese-button"><span>Цвет настоящей</br>благородной плесени</span></button>
+        <button class="cheese-button"><span>Мраморный рисунок</span></button>
+        <button class="cheese-button"><span>Общая информация</span></button>
+        <button class="cheese-button"><span>Органолептика</span></button>
+    </div>
+
+    <div class="cheese-buttons-grid" data-cheese="fondant">
+        <button class="cheese-button"><span>Текстура</span></button>
+        <button class="cheese-button"><span>Настоящее</br>удовольствие</span></button>
+        <button class="cheese-button"><span>С чем сочетать?</span></button>
+        <button class="cheese-button"><span>Культура плесени</span></button>
+        <button class="cheese-button"><span>Что такое Extra Fondant?</span></button>
+        <button class="cheese-button"><span>Рецепт</span></button>
+        <button class="cheese-button"><span>Органолептика</span></button>
+        <button class="cheese-button"><span>Общая информация</span></button>
+    </div>
+
     <img src="images/knife.webp" class="knife-image" alt="Knife">
     <img src="images/paw.webp" class="paw-image" alt="Paw">
 
@@ -1337,6 +1377,16 @@
             cheeseImagesGrid.style.left = '';
             cheeseImagesGrid.style.top = '';
             
+            // Скрываем все блоки с кнопками
+            const buttonsGrids = document.querySelectorAll('.cheese-buttons-grid');
+            buttonsGrids.forEach(grid => {
+                grid.classList.remove('cutting');
+                grid.style.left = '';
+                grid.style.top = '';
+                grid.style.width = '';
+                grid.style.height = '';
+            });
+            
             // Скрываем нож и лапу
             const knifeImage = document.querySelector('.knife-image');
             const pawImage = document.querySelector('.paw-image');
@@ -1434,6 +1484,20 @@
                     selectedCheeseText.classList.remove('active');
                     cheeseInfoCard.classList.remove('active');
                     selectedCheese.classList.remove('active');
+
+                    // Показываем соответствующий блок с кнопками
+                    const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+                    const cheeseType = cheeseImagesGrid.getAttribute('data-cheese');
+                    const buttonsGrid = document.querySelector(`.cheese-buttons-grid[data-cheese="${cheeseType}"]`);
+                    if (buttonsGrid) {
+                        // Копируем стили позиционирования с cheeseImagesGrid
+                        const gridStyles = window.getComputedStyle(cheeseImagesGrid);
+                        // buttonsGrid.style.left = gridStyles.left;
+                        // buttonsGrid.style.top = gridStyles.top;
+                        // buttonsGrid.style.width = gridStyles.width;
+                        // buttonsGrid.style.height = gridStyles.height;
+                        buttonsGrid.classList.add('cutting');
+                    }
                 }
             }
         });
@@ -1648,7 +1712,7 @@
             const deltaX = startX - e.clientX;
 
             if (!isFixed) {
-                    // Скрываем лапу и текст
+                // Скрываем лапу и текст
                 const pawImage = document.querySelector('.paw-image');
                 const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
                 if (pawImage) {
@@ -1748,20 +1812,20 @@
                     cheeseImagesGrid.style.left = '40%';
                     cheeseImagesGrid.style.top = '21%';
                 }
+
+                // Показываем соответствующий блок с кнопками
+                const buttonsGrid = document.querySelector(`.cheese-buttons-grid[data-cheese="${cheeseType}"]`);
+                if (buttonsGrid) {
+                    // Копируем стили позиционирования с cheeseImagesGrid
+                    const gridStyles = window.getComputedStyle(cheeseImagesGrid);
+                    // buttonsGrid.style.left = gridStyles.left;
+                    // buttonsGrid.style.top = gridStyles.top;
+                    // buttonsGrid.style.width = gridStyles.width;
+                    // buttonsGrid.style.height = gridStyles.height;
+                    buttonsGrid.classList.add('cutting');
+                }
             }
-
-            // // Скрываем лапу и текст
-            // const pawImage = document.querySelector('.paw-image');
-            // const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
-            // if (pawImage) {
-            //     pawImage.style.transition = 'opacity 0.5s ease-out';
-            //     pawImage.style.opacity = '0';
-            // }
-            // if (selectedCheeseTextDesktop) {
-            //     selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
-            //     selectedCheeseTextDesktop.style.opacity = '0';
-            // }
-
+            
             knifeImage.style.transition = 'top 0.5s ease-out, opacity 0.5s ease-out';
             knifeImage.style.top = (windowHeight + 200) + 'px';
             knifeImage.style.opacity = '0';
@@ -1805,6 +1869,16 @@
             cheeseImagesGrid.classList.remove('cutting');
             cheeseImagesGrid.style.left = '';
             cheeseImagesGrid.style.top = '';
+            
+            // Скрываем все блоки с кнопками
+            const buttonsGrids = document.querySelectorAll('.cheese-buttons-grid');
+            buttonsGrids.forEach(grid => {
+                grid.classList.remove('cutting');
+                grid.style.left = '';
+                grid.style.top = '';
+                grid.style.width = '';
+                grid.style.height = '';
+            });
             
             // Скрываем нож и лапу
             const knifeImage = document.querySelector('.knife-image');

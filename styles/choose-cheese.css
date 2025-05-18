@@ -374,6 +374,7 @@
     opacity: 0;
     transition: right 0.5s ease-out, opacity 0.5s ease-out;
     z-index: 52;
+    pointer-events: none;
 }
 
 .cheese-images-grid.active {
@@ -763,18 +764,18 @@
 
 /* Стили для изображений камамбера при движении ножа */
 .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(1) {
-    bottom: 130%;
-    left: 10%;
+    bottom: 119%;
+    left: 24%;
     height: 40%;
-    transform: rotate(-115deg);
+    transform: rotate(-68deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(2) {
     bottom: 133%;
-    left: 60%;
+    left: 68%;
     width: 40%;
-    transform: rotate(-20deg);
+    transform: rotate(133deg);
     transition: all 1s ease-in-out;
 }
 
@@ -790,37 +791,37 @@
     top: 36%;
     left: 23%;
     height: 40%;
-    transform: rotate(77deg);
+    transform: rotate(218deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(5) {
-    top: 72%;
-    right: 1%;
+    top: 64%;
+    right: -17%;
     height: 40%;
-    transform: rotate(-62deg);
+    transform: rotate(121deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(6) {
-    top: 95%;
-    right: 29%;
+    top: 98%;
+    right: 38%;
     width: 40%;
     transform: rotate(-8deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(7) {
-    bottom: 93%;
-    right: 29%;
+    bottom: 78%;
+    right: 51%;
     width: 40%;
     transform: rotate(18deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(8) {
-    bottom: 74%;
-    right: -2%;
+    bottom: 86%;
+    right: -6%;
     height: 40%;
     transform: rotate(85deg);
     transition: all 1s ease-in-out;
@@ -1036,7 +1037,7 @@
     .fondant-slider {
         position: absolute;
         left: 310%;
-        height: 65%;
+        width: 90%;
         object-fit: contain;
     }
 
@@ -1246,6 +1247,73 @@
         100% {
             left: 13%;
         }
+    }
+
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(1) {
+        left: 7%;
+        bottom: 119%;
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(2) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(3) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(4) {
+        left: -9%;
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(5) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(6) {
+        top: 80%;
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(7) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(8) {
+
+    }
+
+
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(1) {
+        left: 7%;
+        bottom: 119%;
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(2) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(3) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(4) {
+        left: -9%;
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(5) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(6) {
+        top: 80%;
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(7) {
+
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(8) {
+
     }
 
     .cheese-grid-image {
