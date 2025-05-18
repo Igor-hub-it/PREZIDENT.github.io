@@ -25,6 +25,45 @@
             overflow: hidden;
             font-family: 'Circe Rounded', Arial, sans-serif;
         }
+
+        @keyframes arrowAnimation {
+            0% {
+                transform: translateX(0) scaleY(1);
+            }
+            50% {
+                transform: translateX(-10px) scaleY(0.6);
+            }
+            100% {
+                transform: translateX(0) scaleY(1);
+            }
+        }
+
+        .desktop-back-arrow {
+            position: fixed;
+            left: 6%;
+            top: 15%;
+            width: 35px;
+                height: 40px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-out;
+            z-index: 1000;
+            display: block;
+            transform-origin: center;
+        }
+
+        .desktop-back-arrow.active {
+            opacity: 1;
+            pointer-events: auto;
+            animation: arrowAnimation 1.8s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-back-arrow {
+            display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -50,20 +89,20 @@
         <img src="images/header-red.webp" alt="Header Red" class="header-red">
         <img src="images/header-yellow.webp" alt="Header Yellow" class="header-yellow">
         <div class="logo-background"></div>
-        <img src="images/logo.webp" alt="Logo" class="logo">
+            <img src="images/logo.webp" alt="Logo" class="logo">
         <div class="header-container">
-            <div class="nav-buttons">
-                <button class="nav-button">Благородные сыры</button>
-                <button class="nav-button">Частые вопросы</button>
-            </div>
-            <div class="right-buttons">
-                <button class="quiz-button">
-                    <span>Пройти сырный квиз</span>
-                </button>
-                <button class="enter-button">
-                    <img src="images/enter.webp" alt="Enter">
-                    <span>Вход</span>
-                </button>
+        <div class="nav-buttons">
+            <button class="nav-button">Благородные сыры</button>
+            <button class="nav-button">Частые вопросы</button>
+        </div>
+        <div class="right-buttons">
+            <button class="quiz-button">
+                <span>Пройти сырный квиз</span>
+            </button>
+            <button class="enter-button">
+                <img src="images/enter.webp" alt="Enter">
+                <span>Вход</span>
+            </button>
             </div>
         </div>
         <div class="burger-menu">
@@ -73,6 +112,8 @@
         </div>
         <img src="images/arrow-left.webp" alt="Back" class="header-back-arrow">
     </header>
+
+    <img src="images/arrow-left.webp" alt="Back" class="desktop-back-arrow">
 
     <div class="mobile-menu">
         <button class="nav-button">Благородные сыры</button>
@@ -881,10 +922,10 @@
                     image.offsetHeight; // Форсируем перерисовку
                 });
                 
-                applyAnimation(slateMobile, 'hideSlateMobile');
+                    applyAnimation(slateMobile, 'hideSlateMobile');
             } else {
                 showProducts();
-                applyAnimation(slateMobile, 'showSlateMobile');
+                    applyAnimation(slateMobile, 'showSlateMobile');
 
                 setTimeout(() => {
                     showCards();
@@ -1040,7 +1081,7 @@
             try {
                 if(isLogin) {
                     showSuccessScreen();
-                } else {
+            } else {
                     showSuccessScreen();
                 }
 
@@ -1228,6 +1269,10 @@
                 headerBackArrow.classList.add('active');
                 document.querySelector('.knife-image').classList.add('active');
                 document.querySelector('.paw-image').classList.add('active');
+                const desktopBackArrow = document.querySelector('.desktop-back-arrow');
+                if (window.innerWidth > 768) {
+                    desktopBackArrow.classList.add('active');
+                }
             }, 1000);
         }
 
@@ -1269,7 +1314,9 @@
         headerBackArrow.addEventListener('click', () => {
             // Скрываем карточку с информацией
             const cheeseInfoCard = document.querySelector('.cheese-info-card');
+            const cheeseInfoCardDesktop = document.querySelector('.cheese-info-card-desktop');
             cheeseInfoCard.classList.remove('active');
+            cheeseInfoCardDesktop.classList.remove('active');
             
             // Скрываем выбранный сыр
             const selectedCheese = document.querySelector('.selected-cheese');
@@ -1277,12 +1324,18 @@
             
             // Скрываем текст о выбранном сыре
             const selectedCheeseText = document.querySelector('.selected-cheese-text');
+            const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
             selectedCheeseText.classList.remove('active');
+            selectedCheeseTextDesktop.classList.remove('active');
+            selectedCheeseTextDesktop.style.opacity = '0';
+            selectedCheeseTextDesktop.style.transform = '';
             
             // Скрываем сетку изображений и возвращаем изображения на место
             const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
             cheeseImagesGrid.classList.remove('active');
             cheeseImagesGrid.classList.remove('cutting');
+            cheeseImagesGrid.style.left = '';
+            cheeseImagesGrid.style.top = '';
             
             // Скрываем нож и лапу
             const knifeImage = document.querySelector('.knife-image');
@@ -1296,21 +1349,50 @@
                 knifeImage.style.top = '70%';
                 knifeImage.style.transform = 'translateY(-50%) rotate(3deg)';
             } else {
-                knifeImage.style.right = '5%';
-                knifeImage.style.top = '50%';
-                knifeImage.style.transform = 'translateY(-50%) rotate(30deg)';
+                knifeImage.style.right = '-200%';
+                knifeImage.style.top = '65%';
+                knifeImage.style.transform = 'translateY(-50%)';
+                knifeImage.style.opacity = '0';
+                knifeImage.style.zIndex = '-1';
+                knifeImage.style.pointerEvents = 'none';
             }
             
             // Скрываем стрелку
             headerBackArrow.classList.remove('active');
             
-            // Показываем слайдер и текст
-            setTimeout(() => {
+            // Показываем слайдер и текст для мобильной версии
+            if (window.innerWidth <= 768) {
+                const mobileSlider = document.querySelector('.mobile-slider');
+                const cheeseTextContainer = document.querySelector('.cheese-text-container');
+                
                 mobileSlider.classList.add('active');
                 mobileSlider.style.opacity = '1';
                 cheeseTextContainer.classList.add('active');
                 cheeseTextContainer.style.opacity = '1';
-            }, 500);
+            } else {
+                // Показываем контейнер с выбором сыра и текст для десктопной версии
+                const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
+                const cheeseTextContainer = document.querySelector('.cheese-text-container');
+                
+                // Показываем изображения сыров
+                const cheeseImages = document.querySelectorAll('.cheese-image');
+                cheeseImages.forEach(image => {
+                    image.classList.add('active');
+                    if (image.classList.contains('petite')) {
+                        image.style.animation = 'showPetite 1s ease-out forwards';
+                    } else if (image.classList.contains('camamber-box')) {
+                        image.style.animation = 'showCamamberBox 1s ease-out forwards';
+                    } else if (image.classList.contains('blue')) {
+                        image.style.animation = 'showBlue 1.5s ease-out forwards';
+                    } else if (image.classList.contains('fondant')) {
+                        image.style.animation = 'showFondant 1s ease-out forwards';
+                    }
+                });
+
+                chooseCheeseContainer.classList.add('active');
+                cheeseTextContainer.classList.add('active');
+                cheeseTextContainer.style.opacity = '1';
+            }
         });
 
         function showSliderAndText() {
@@ -1379,7 +1461,7 @@
             }
         });
 
-        // Добавляем обработчики для кнопок выбора сыра в десктопной версии
+        // Добавляем обработчик для кнопок выбора сыра в десктопной версии
         const cheeseChoiceButtons = document.querySelectorAll('.cheese-choice-button');
         cheeseChoiceButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -1431,6 +1513,7 @@
                     const selectedCheeseNameDesktop = selectedCheeseTextDesktop.querySelector('.selected-cheese-name');
                     const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
                     const gridImages = cheeseImagesGrid.querySelectorAll('.cheese-grid-image');
+                    const desktopBackArrow = document.querySelector('.desktop-back-arrow');
                     
                     // Устанавливаем атрибут data-cheese для сетки изображений
                     cheeseImagesGrid.setAttribute('data-cheese', cheeseType);
@@ -1509,8 +1592,244 @@
                     headerBackArrow.classList.add('active');
                     document.querySelector('.knife-image').classList.add('active');
                     document.querySelector('.paw-image').classList.add('active');
+                    
+                    // Активируем десктопную стрелку
+                    if (window.innerWidth > 768) {
+                        desktopBackArrow.classList.add('active');
+                    }
                 }, 1000);
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const knifeImage = document.querySelector('.knife-image');
+    let isDragging = false;
+    let isFixed = false;
+    let startX;
+    let startRight;
+    let startTop;
+
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    const maxRightPx = windowWidth * 0.4;  // 40% - первая фиксация
+    const animRightPx = windowWidth * 0.1; // 10% - максимальное смещение при втором перетаскивании
+    const animStartThresholdPx = windowWidth * 0.04; // 4% - минимальное смещение для запуска анимации
+
+    knifeImage.setAttribute('draggable', 'false');
+    knifeImage.ondragstart = () => false;
+    knifeImage.addEventListener('dragstart', e => e.preventDefault());
+
+    if (windowWidth > 768) {
+        knifeImage.addEventListener('mousedown', function(e) {
+            if (!knifeImage.classList.contains('active')) return;
+
+            isDragging = true;
+            startX = e.clientX;
+            startRight = parseFloat(window.getComputedStyle(knifeImage).right);
+            startTop = parseFloat(window.getComputedStyle(knifeImage).top);
+
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+
+            const deltaX = startX - e.clientX;
+
+            if (!isFixed) {
+                // Первое перетаскивание вправо, фиксируем на 40%
+                let newRight = startRight + deltaX;
+                if (newRight > maxRightPx) {
+                    newRight = maxRightPx;
+                    isFixed = true;
+                    isDragging = false;
+                    knifeImage.style.right = newRight + 'px';
+                    knifeImage.style.top = startTop + 'px';
+                    return;
+                }
+                if (newRight < 0) newRight = 0;
+
+                knifeImage.style.right = newRight + 'px';
+                knifeImage.style.top = startTop + 'px';
+            } else {
+                // Второе перетаскивание - сдвигаем нож влево, максимум до 10%
+                let newRight = startRight + deltaX;
+                if (newRight < animRightPx) newRight = animRightPx;  // нельзя сдвинуть левее 10%
+                if (newRight > maxRightPx) newRight = maxRightPx;    // нельзя сдвинуть правее 40%
+
+                // По вертикали двигаем по диагонали вниз
+                let deltaFromMax = maxRightPx - newRight;
+                let newTop = startTop + deltaFromMax * 1.5;
+
+                knifeImage.style.right = newRight + 'px';
+                knifeImage.style.top = newTop + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            if (!isDragging) return;
+            isDragging = false;
+
+            if (!isFixed) {
+                // Если не зафиксирован, возвращаем назад на 11%
+                knifeImage.style.transition = 'right 0.3s ease-out, top 0.3s ease-out';
+                knifeImage.style.right = '11%';
+                knifeImage.style.top = startTop + 'px';
+                setTimeout(() => {
+                    knifeImage.style.transition = '';
+                }, 300);
+            } else {
+                // Второе отпущение после фиксации
+                let currentRight = parseFloat(window.getComputedStyle(knifeImage).right);
+
+                if (currentRight > animRightPx) {
+                    // Если нож сдвинут меньше чем на 10%, но больше 4% - считаем анимацию завершённой
+                    if (currentRight <= maxRightPx && currentRight >= animStartThresholdPx) {
+                        startCuttingAnimation();
+                    } else {
+                        // Если нож сдвинут слишком мало (меньше 4%) - докатать до 10%
+                        autoMoveTo(animRightPx, startTop, () => {
+                            startCuttingAnimation();
+                        });
+                    }
+                } else {
+                    // Если уже меньше или равен 10% - запускаем анимацию
+                    startCuttingAnimation();
+                }
+            }
+        });
+
+        function autoMoveTo(targetRightPx, startTop, callback) {
+            knifeImage.style.transition = 'right 0.3s ease-out, top 0.3s ease-out';
+
+            // Двигаем нож к targetRightPx по горизонтали и по диагонали вниз
+            knifeImage.style.right = targetRightPx + 'px';
+            let deltaFromMax = maxRightPx - targetRightPx;
+            let targetTop = startTop + deltaFromMax * 1.5;
+            knifeImage.style.top = targetTop + 'px';
+
+            setTimeout(() => {
+                knifeImage.style.transition = '';
+                if (callback) callback();
+            }, 300);
+        }
+
+        function startCuttingAnimation() {
+            const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+            if (cheeseImagesGrid && !cheeseImagesGrid.classList.contains('cutting')) {
+                cheeseImagesGrid.classList.add('cutting');
+                
+                // Добавляем изменение позиции для определенных типов сыров
+                const cheeseType = cheeseImagesGrid.getAttribute('data-cheese');
+                if (cheeseType === 'petite' || cheeseType === 'camamber') {
+                    cheeseImagesGrid.style.transition = 'left 0.5s ease-out, top 0.5s ease-out';
+                    cheeseImagesGrid.style.left = '40%';
+                    cheeseImagesGrid.style.top = '21%';
+                }
+            }
+
+            // Скрываем лапу и текст
+            const pawImage = document.querySelector('.paw-image');
+            const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+            if (pawImage) {
+                pawImage.style.transition = 'opacity 0.5s ease-out';
+                pawImage.style.opacity = '0';
+            }
+            if (selectedCheeseTextDesktop) {
+                selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
+                selectedCheeseTextDesktop.style.opacity = '0';
+            }
+
+            knifeImage.style.transition = 'top 0.5s ease-out, opacity 0.5s ease-out';
+            knifeImage.style.top = (windowHeight + 200) + 'px';
+            knifeImage.style.opacity = '0';
+
+            setTimeout(() => {
+                knifeImage.classList.remove('active');
+                knifeImage.style.transition = '';
+                knifeImage.style.top = startTop + 'px';
+                knifeImage.style.opacity = '1';
+                knifeImage.style.right = '11%';
+                isFixed = false;
+            }, 600);
+        }
+    }
+});
+
+        // Добавляем обработчик для десктопной стрелки
+        const desktopBackArrow = document.querySelector('.desktop-back-arrow');
+        desktopBackArrow.addEventListener('click', () => {
+            // Скрываем карточку с информацией
+            const cheeseInfoCard = document.querySelector('.cheese-info-card');
+            const cheeseInfoCardDesktop = document.querySelector('.cheese-info-card-desktop');
+            cheeseInfoCard.classList.remove('active');
+            cheeseInfoCardDesktop.classList.remove('active');
+            
+            // Скрываем выбранный сыр
+            const selectedCheese = document.querySelector('.selected-cheese');
+            selectedCheese.classList.remove('active');
+            
+            // Скрываем текст о выбранном сыре
+            const selectedCheeseText = document.querySelector('.selected-cheese-text');
+            const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+            selectedCheeseText.classList.remove('active');
+            selectedCheeseTextDesktop.classList.remove('active');
+            selectedCheeseTextDesktop.style.opacity = '0';
+            selectedCheeseTextDesktop.style.transform = '';
+            
+            // Скрываем сетку изображений и возвращаем изображения на место
+            const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+            cheeseImagesGrid.classList.remove('active');
+            cheeseImagesGrid.classList.remove('cutting');
+            cheeseImagesGrid.style.left = '';
+            cheeseImagesGrid.style.top = '';
+            
+            // Скрываем нож и лапу
+            const knifeImage = document.querySelector('.knife-image');
+            const pawImage = document.querySelector('.paw-image');
+            knifeImage.classList.remove('active');
+            pawImage.classList.remove('active');
+            
+            // Сбрасываем позицию ножа
+            if (window.innerWidth <= 768) {
+                knifeImage.style.right = '3%';
+                knifeImage.style.top = '70%';
+                knifeImage.style.transform = 'translateY(-50%) rotate(3deg)';
+            } else {
+                knifeImage.style.right = '-200%';
+                knifeImage.style.top = '65%';
+                knifeImage.style.transform = 'translateY(-50%)';
+                knifeImage.style.zIndex = '-1';
+                knifeImage.style.pointerEvents = 'none';
+            }
+            
+            // Скрываем стрелку
+            desktopBackArrow.classList.remove('active');
+            
+            // Показываем контейнер с выбором сыра и текст
+            const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
+            const cheeseTextContainer = document.querySelector('.cheese-text-container');
+            
+            // Показываем изображения сыров
+            const cheeseImages = document.querySelectorAll('.cheese-image');
+            cheeseImages.forEach(image => {
+                image.classList.add('active');
+                if (image.classList.contains('petite')) {
+                    image.style.animation = 'showPetite 1s ease-out forwards';
+                } else if (image.classList.contains('camamber-box')) {
+                    image.style.animation = 'showCamamberBox 1s ease-out forwards';
+                } else if (image.classList.contains('blue')) {
+                    image.style.animation = 'showBlue 1.5s ease-out forwards';
+                } else if (image.classList.contains('fondant')) {
+                    image.style.animation = 'showFondant 1s ease-out forwards';
+                }
+            });
+
+            // Показываем контейнер с выбором сыра и текст
+            chooseCheeseContainer.classList.add('active');
+            cheeseTextContainer.classList.add('active');
+            cheeseTextContainer.style.opacity = '1';
         });
     </script>
 </body>
