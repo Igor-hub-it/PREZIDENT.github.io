@@ -67,8 +67,16 @@
     transition: transform 0.2s ease-out;
 }
 
-.cheese-button.cutting[data-cheese="petite"] {
+.cheese-buttons-grid[data-cheese="petite"] .cheese-button {
     transform: rotate(86deg);
+}
+
+.cheese-buttons-grid[data-cheese="camamber"] .cheese-button {
+    transform: rotate(86deg);
+}
+
+.cheese-buttons-grid[data-cheese="blue"] .cheese-button {
+    transform: rotate(40deg);
 }
 
 .cheese-button::before {
@@ -109,146 +117,146 @@
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
-    top: 24%;
-    left: 62%;
+    top: 52%;
+    left: 56%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
-    left: 115%;
-    top: 17%;
+    left: 68%;
+    top: 104%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
-    top: 78%;
-    left: 95%;
+    top: 86%;
+    left: 11%;
     width: max-content; 
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
-    left: 78%;
-    top: 49%;
+    left: 38%;
+    top: 71%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
-    top: 83%;
-    left: 35%;
+    top: 25%;
+    left: 0%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
-    left: -5%;
-    top: 55%;
+    left: 24%;
+    top: -13%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
-    top: 22%;
-    right: 129%;
+    top: -8%;
+    right: 13%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
-    right: 68.5%;
-    top: 23%;
+    right: 10%;
+    top: -72%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
-    top: 24%;
-    left: 62%;
+    top: 55%;
+    left: 54%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
-    left: 115%;
-    top: 17%;
+    left: 68%;
+    top: 104%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
-    top: 78%;
-    left: 95%;
-    width: max-content;
+    top: 86%;
+    left: 11%;
+    width: max-content; 
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
-    left: 78%;
-    top: 49%;
+    left: 38%;
+    top: 71%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(5) {
-    top: 83%;
-    left: 35%;
+    top: 25%;
+    left: 0%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
-    left: -5%;
-    top: 55%;
+    left: 24%;
+    top: -13%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
-    top: 22%;
-    right: 129%;
+    top: -8%;
+    right: 13%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(8) {
-    right: 68.5%;
-    top: 23%;
+    right: 10%;
+    top: -72%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(1) {
-    top: 24%;
-    left: 62%;
+    top: 14%;
+    left: 52%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(2) {
-    left: 115%;
-    top: 17%;
+    left: 103%;
+    top: 45%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(3) {
-    top: 78%;
-    left: 95%;
+    top: 91%;
+    left: 55%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(4) {
-    left: 78%;
-    top: 49%;
+    left: 63%;
+    top: 56%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(5) {
-    top: 83%;
-    left: 35%;
+    top: 53%;
+    left: -6%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
-    left: -5%;
-    top: 55%;
+    left: -41%;
+    top: 5%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(7) {
-    top: 22%;
-    right: 129%;
+    top: -76%;
+    right: 113%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
-    right: 68.5%;
-    top: 23%;
+    right: 73.5%;
+    top: -35%;
     width: max-content;
 }
 
@@ -318,6 +326,22 @@
         z-index: 2;
     }
 
+    .cheese-buttons-grid.cutting[data-cheese="petite"] {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="camamber"] {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="blue"] {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="fondant"] {
+
+    }
+
     .cheese-button {
         padding: 12px;
         font-weight: 400;
@@ -352,29 +376,41 @@
         top: 48%;
     }
 
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button {
+        transform: rotate(0deg);
+    }
+
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
         top: auto;
-        bottom: -12%;
+        bottom: -4%;
         left: auto;
-        right: -11%;
+        right: 4%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
-        left: 11%;
+        left: 14%;
         bottom: auto;
-        top: 67%;
+        top: 60%;
         right: auto;
     }
     
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
-        top: 50%;
+        top: 46%;
         left: auto;
-        right: 0%;
+        right: 11%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
-        left: 20%;
-        top: 32%;
+        left: 14%;
+        top: 29%;
         right: auto;
     }
 
@@ -387,19 +423,19 @@
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
         left: auto;
         top: auto;
-        right: 31%;
+        right: 36%;
         bottom: 100%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
-        top: -39%;
+        top: -31%;
         bottom: auto;
         right: auto;
-        left: 43%;
+        left: 49%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
-        bottom: 149%;
+        bottom: 144%;
         right: auto;
         left: 17%;
         top: auto;
@@ -407,27 +443,27 @@
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
         top: auto;
-        bottom: -12%;
+        bottom: -4%;
         left: auto;
-        right: -11%;
+        right: 4%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
-        left: 11%;
+        left: 14%;
         bottom: auto;
-        top: 67%;
+        top: 60%;
         right: auto;
     }
     
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
-        top: 50%;
+        top: 46%;
         left: auto;
-        right: 0%;
+        right: 11%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
-        left: 20%;
-        top: 32%;
+        left: 14%;
+        top: 29%;
         right: auto;
     }
 
@@ -440,19 +476,19 @@
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
         left: auto;
         top: auto;
-        right: 31%;
+        right: 36%;
         bottom: 100%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
-        top: -39%;
+        top: -31%;
         bottom: auto;
         right: auto;
-        left: 43%;
+        left: 49%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(8) {
-        bottom: 149%;
+        bottom: 144%;
         right: auto;
         left: 17%;
         top: auto;
