@@ -568,3 +568,155 @@
         padding: 12px 24px;
     }
 }
+
+
+.auth-modal-content.successAuth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #00000000;
+}
+
+.success-blocks {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    width: 100%;
+    justify-content: center;
+}
+
+.user-info-block {
+    background: #FFFFFF;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 25px;
+    width: 60%;
+}
+
+.user-name {
+    color: #CC0102;
+    text-align: left;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 4vh;
+    font-weight: 900;
+}
+
+.user-email, .user-phone {
+    color: #1D1D1B;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 2.6vh;
+    font-weight: 600;
+}
+
+.user-phone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-phone span {
+    margin-bottom: 10px;
+}
+
+.user-phone img {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.phone-icon {
+    width: 32px;
+    height: 24px;
+}
+
+.winner-block {
+    background: #CC0102;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFFFFF;
+    border-radius: 25px;
+    height: 31vh;
+    min-width: 60%;
+}
+
+.winner-block h3 {
+    text-align: left;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 4vh;
+    font-weight: 900;
+}
+
+.winner-message {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.winner-message p {
+    font-size: 3.5vh;
+    text-align: left;
+    width: 75%;
+    margin: 0;
+}
+
+.certificate-icon {
+    width: 22%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .success-blocks {
+        flex-direction: column;
+        gap: 5%;
+        width: 100%;
+        top: 75%;
+        position: absolute;
+        gap: 10px;
+    }
+
+    .user-info-block {
+        width: 91%;
+        padding: 15px;
+        gap: 70px;
+    }
+
+    .user-name {
+        font-size: 2.8vh;
+    }
+
+    .user-email, .user-phone {
+        font-size: 2vh;
+    }
+
+    .winner-block {
+        padding: 15px;
+        height: auto;
+    }
+    
+    .winner-block h3 {
+        width: 54%;
+        font-size: 2.8vh;
+    }
+    
+    .winner-message {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .winner-message p {
+        width: 100%;
+        font-size: 2.7vh;
+    }
+
+    .certificate-icon {
+        width: 30%;
+        height: auto;
+    }
+}

@@ -289,9 +289,9 @@
 
     .discover-button.active {
         width: 95%;
-        font-size: 15px;
+        font-size: 1.9vh;
         font-weight: 700;
-        padding: 15px 22px;
+        padding: 12px 22px;
         min-height: fit-content;
         position: absolute;
         top: calc(50% + 37.5% + 10px);

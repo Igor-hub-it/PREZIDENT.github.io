@@ -60,13 +60,14 @@
 
 .mobile-menu.active .quiz-button {
     padding: 24px 30px;
-    min-height: 88px;
+    min-height: 68px;
     transform: translateY(0);
     opacity: 1;
+    font-size: 3.5vh;
 }
 
 .mobile-menu .enter-button {
-    font-size: 32px;
+    font-size: 3.5vh;
     margin-bottom: 40px;
     cursor: pointer;
     color: #FDE170;
@@ -84,7 +85,7 @@
 }
 
 .mobile-menu .enter-button img {
-    height: 36px;
+    height: 32px;
     width: auto;
 }
 

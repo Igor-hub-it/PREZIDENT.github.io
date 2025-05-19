@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/products.css">
     <link rel="stylesheet" href="styles/choose-cheese.css">
     <link rel="stylesheet" href="styles/cheese-buttons.css">
+    <link rel="stylesheet" href="styles/cheese-button-modal.css">
     <style>
         body, html {
             margin: 0;
@@ -25,488 +26,6 @@
             height: 100%;
             overflow: hidden;
             font-family: 'Circe Rounded', Arial, sans-serif;
-        }
-
-        /* Стили для модальных окон */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-            z-index: 1000;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            position: fixed;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 375px;
-            background: #CC0102;
-            border-radius: 20px;
-            padding: 30px;
-            opacity: 0;
-            visibility: hidden;
-            transition: top 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
-            z-index: 1001;
-        }
-
-        .modal.active {
-            top: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        @keyframes slideIn {
-            from {
-                top: 200%;
-                opacity: 1;
-            }
-            to {
-                top: 50%;
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOut {
-            from {
-                top: 50%;
-                opacity: 1;
-            }
-            to {
-                top: 200%;
-                opacity: 1;
-            }
-        }
-
-        .modal.active {
-            animation: slideIn 1.5s ease-out forwards;
-        }
-
-        .modal.closing {
-            animation: slideOut 1.5s ease-out forwards;
-        }
-
-        .modal-content {
-            position: relative;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            z-index: 1002;
-        }
-
-        /* Стили для модального окна с изображениями */
-        .modal-images-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .modal-image-1 {
-            position: absolute;
-            top: 25%;
-            left: 26%;
-            width: 55%;
-        }
-
-        .modal-image-2 {
-            position: absolute;
-            top: 47%;
-            left: 17%;
-            width: 12%;
-        }
-
-        .modal-image-3 {
-            position: absolute;
-            top: 16%;
-            left: 0;
-            width: 30%;
-        }
-
-        .modal-image-4 {
-            position: absolute;
-            top: 80px;
-            right: 0px;
-            width: 30%;
-        }
-
-        .modal-text-blocks {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            height: 350px;
-        }
-
-        .modal-text-block {
-            position: absolute;
-            color: #fff;
-            font-size: 2.2vh;
-            line-height: 1.3;
-            text-align: center;
-        }
-
-        .modal-text-block-1 {
-            top: 25%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .modal-text-block-2 {
-            top: 47%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .modal-text-block-3 {
-            top: 69%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Стили для модального окна с характеристиками */
-        .characteristics-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;            width: 100%;
-        }
-
-        .characteristic-block {
-            text-align: center;
-        }
-
-        .characteristic-block h3 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .characteristic-block p {
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        .characteristic-images {
-            display: flex;
-            justify-content: center;
-            gap: 2px;
-            width: 50%;
-            margin-left: 25%;
-        }
-
-        .char-image {
-            width: 18%;
-            height: auto;
-        }
-
-        .char-image-1 {
-            /* position: absolute;
-            top: 0;
-            left: 0; */
-        }
-        
-        .char-image-2 {
-            /* position: absolute; */
-            transform: rotate(180deg);
-            /* top: 0;
-            left: 0; */
-        }
-        
-        .char-image-3 {
-            /* position: absolute;
-            top: 0;
-            left: 0; */
-        }
-        
-        .char-image-4 {
-            /* position: absolute; */
-            transform: rotate(180deg);
-            /* top: 0;
-            left: 0; */
-        }
-
-        .char-image-5 {
-            /* position: absolute;
-            top: 0;
-            left: 0; */
-        }
-
-        /* Стили для модального окна культуры плесени */
-        .modal-cheese-image {
-            top: -160px;
-            left: 20%;
-            position: absolute;
-            width: 100%;
-            max-height: 320px;
-            object-fit: contain;
-        }
-
-        .modal-title {
-            color: #fff;
-            text-align: center;
-        }
-
-        .modal-subtitle {
-            color: #FFE26B;
-            text-align: center;
-            font-size: 3.5vh;
-            margin-top: 120px;
-            margin-bottom: 0;
-        }
-
-        /* Стили для модального окна с описанием */
-        .modal-text {
-            color: #fff;
-            margin-top: 20px;
-            text-align: center;
-            width: 100%;
-            font-size: 2.2vh;
-            line-height: 1.3;
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .modal {
-                width: 440px;
-                padding: 20px;
-            }
-
-            .modal-images-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .characteristic-images {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .char-image {
-                width: 30%;
-            }
-        }
-
-        @keyframes arrowAnimation {
-            0% {
-                transform: translateX(0) scaleY(1);
-            }
-            50% {
-                transform: translateX(-10px) scaleY(0.6);
-            }
-            100% {
-                transform: translateX(0) scaleY(1);
-            }
-        }
-
-        .desktop-back-arrow {
-            position: fixed;
-            left: 6%;
-            top: 15%;
-            width: 35px;
-                height: 40px;
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease-out;
-            z-index: 1000;
-            display: block;
-            transform-origin: center;
-        }
-
-        .desktop-back-arrow.active {
-            opacity: 1;
-            pointer-events: auto;
-            animation: arrowAnimation 1.8s ease-in-out infinite;
-        }
-
-        /* Стили для кнопки "Понятно" */
-        .modal-understand-button {
-            position: relative;
-            background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
-            border: none;
-            width: 90%;
-            border-radius: 16px;
-            padding: 18px 24px;
-            cursor: pointer;
-            color: #442F1E;
-            font-weight: 400;
-            font-size: 24px;
-            text-align: center;
-            font-family: 'Circe Rounded', Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-            line-height: 100%;
-            overflow: hidden;
-            margin-top: 30px;
-        }
-
-        .modal-understand-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        .modal-understand-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        .modal-understand-button:hover::before {
-            left: 0;
-        }
-
-        .modal-understand-button:hover::after {
-            right: 0;
-        }
-
-        .modal-understand-button span {
-            position: relative;
-            z-index: 2;
-            color: #442F1E;
-            font-weight: 400;
-            font-size: 24px;
-        }
-
-        .modal-understand-button:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            .modal-understand-button {
-                width: 90%;
-                padding: 12px 24px;
-                margin-top: 20px;
-            }
-
-            .modal-understand-button span {
-                font-size: 20px;
-            }
-
-            .modal.active {
-                width: 85%;
-            }
-        }
-
-        .auth-modal-content.successAuth {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #00000000;
-            width: ;
-        }
-
-        .success-blocks {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .user-info-block {
-            background: #FFFFFF;
-            padding: 30px;
-            flex: 1;
-            border-radius: 25px;
-            height: 40vh;
-        }
-
-        .user-name {
-            color: #CC0102;
-            text-align: left;
-            margin: 0;
-        }
-
-        .user-email, .user-phone {
-            color: #1D1D1B;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        .user-phone {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .phone-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .winner-block {
-            background: #CC0102;
-            padding: 30px;
-            flex: 1;
-            color: #FFFFFF;
-            border-radius: 25px;
-            height: 40vh;
-            width: 62vw;
-        }
-
-        .winner-block h3 {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-
-        .winner-message {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .certificate-icon {
-            width: 48px;
-            height: 48px;
-        }
-
-        @media (max-width: 768px) {
-            .success-blocks {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -944,21 +463,21 @@
                 <h3>Мягкость текстуры</h3>
                 <p>(в середине срока годности)</p>
                 <div class="characteristic-images">
-                            <img src="" alt="Char 1" class="char-image char-image-1">
-                            <img src="" alt="Char 2" class="char-image char-image-2">
-                            <img src="" alt="Char 3" class="char-image char-image-3">
-                            <img src="" alt="Char 4" class="char-image char-image-4">
-                            <img src="" alt="Char 5" class="char-image char-image-5">
+                    <img src="" alt="Char 1" class="char-image char-image-1">
+                    <img src="" alt="Char 2" class="char-image char-image-2">
+                    <img src="" alt="Char 3" class="char-image char-image-3">
+                    <img src="" alt="Char 4" class="char-image char-image-4">
+                    <img src="" alt="Char 5" class="char-image char-image-5">
                 </div>
             </div>
             <div class="characteristic-block">
                 <h3>Интенсивность аромата</h3>
                 <div class="characteristic-images">
-                            <img src="" alt="Char 1" class="char-image char-image-1">
-                            <img src="" alt="Char 2" class="char-image char-image-2">
-                            <img src="" alt="Char 3" class="char-image char-image-3">
-                            <img src="" alt="Char 4" class="char-image char-image-4">
-                            <img src="" alt="Char 5" class="char-image char-image-5">
+                    <img src="" alt="Char 1" class="char-image char-image-1">
+                    <img src="" alt="Char 2" class="char-image char-image-2">
+                    <img src="" alt="Char 3" class="char-image char-image-3">
+                    <img src="" alt="Char 4" class="char-image char-image-4">
+                    <img src="" alt="Char 5" class="char-image char-image-5">
                 </div>
             </div>
             <div class="characteristic-block">
@@ -1733,13 +1252,17 @@
             successContent.innerHTML = `
                 <div class="success-blocks">
                     <div class="user-info-block">
-                        <h2 class="user-name">Константинопольский</h2>
-                        <h2 class="user-name">Пантелеймон</h2>
-                        <h2 class="user-name">Александрович</h2>
-                        <p class="user-email">E-mail: panteleymon@gmail.ru</p>
-                        <div class="user-phone">
-                            <span>Телефон: +7 900 900 00</span>
-                            <img src="images/link.webp" alt="Phone" class="phone-icon">
+                        <div class="user-name-block">
+                            <h2 class="user-name">Константинопольский</h2>
+                            <h2 class="user-name">Пантелеймон</h2>
+                            <h2 class="user-name">Александрович</h2>
+                        </div>
+                        <div class="user-contact-block">
+                            <p class="user-email">E-mail: panteleymon@gmail.ru</p>
+                            <div class="user-phone">
+                                <span>Телефон: +7 900 900 00</span>
+                                <img src="images/link.webp" alt="Phone" class="phone-icon">
+                            </div>
                         </div>
                     </div>
                     <div class="winner-block">
@@ -2537,9 +2060,10 @@
 
                 case 'characteristics':
                     // Заполняем характеристики
-                    const textureImages = modal.querySelectorAll('.characteristic-block:nth-child(1) .char-image');
-                    const aromaImages = modal.querySelectorAll('.characteristic-block:nth-child(2) .char-image');
-                    const tasteImages = modal.querySelectorAll('.characteristic-block:nth-child(3) .char-image');
+                    const textureImages = modal.querySelector('.characteristic-block:nth-of-type(1) .characteristic-images').querySelectorAll('.char-image');
+                    const aromaImages = modal.querySelector('.characteristic-block:nth-of-type(2) .characteristic-images').querySelectorAll('.char-image');
+                    const tasteImages = modal.querySelector('.characteristic-block:nth-of-type(3) .characteristic-images').querySelectorAll('.char-image');
+
                     
                     // Заполняем изображения для текстуры
                     data.characteristics.texture.images.forEach((src, index) => {
@@ -2721,7 +2245,7 @@
                         text: "Для образования благородной белой плесени, согласно традиционной французской рецептуре, используется культура плесени Penicillium Candidum и Geotrichum Candidum."
                     },
                     "Как отличить настоящий сыр бри?": {
-                        title: "Общая информация",
+                        title: "Как отличить настоящий сыр бри?",
                         text: "Бри President имеет бархатистую корочку, сливочную сердцевину и нежный вкус."
                     }
                 }
