@@ -130,8 +130,14 @@
     }
 
     .cheese-description {
+        min-height: 0px;
         max-width: 80%;
         font-size: 14px;
+    }
+
+    .cheese-grid {
+        padding: 15% 0 0 0;
+        margin-left: 0;
     }
 
     @media screen and (max-width: 415px) {
@@ -140,11 +146,6 @@
             margin-top: 25%;
             font-size: 18px;
             top: 0;
-        }
-
-        .cheese-grid {
-            padding: 0;
-            margin-left: 40px;
         }
 
         .cheese-card {

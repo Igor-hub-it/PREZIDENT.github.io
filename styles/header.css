@@ -72,7 +72,7 @@
     cursor: pointer;
     font-family: 'Circe Rounded', Arial, sans-serif;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 2.4vh;
     line-height: 100%;
     letter-spacing: 0%;
     text-align: center;
@@ -91,13 +91,12 @@
     background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
     border: none;
     width: auto;
-    height: 50px;
     border-radius: 16px;
-    padding: 12px 24px;
+    padding: 1.2vh 1.8vw;
     cursor: pointer;
     color: #442F1E;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 2.4vh;
     text-align: center;
     font-family: 'Circe Rounded', Arial, sans-serif;
     display: flex;
@@ -155,14 +154,14 @@
     border: none;
     cursor: pointer;
     color: #FDE170;
-    font-size: 24px;
+    font-size: 2.4vh;
     font-family: 'Circe Rounded', Arial, sans-serif;
     font-weight: 400;
     line-height: 100%;
 }
 
 .enter-button img {
-    height: 35px;
+    height: 3.6vh;
     width: auto;
 }
 
@@ -213,6 +212,16 @@
     width: 22px;
     position: relative;
     top: 6px;
+}
+
+@media screen and (max-width: 1200px) {
+    .header-container {
+        padding: 0.6% 6% 0.6% 20%;
+    }
+
+    .quiz-button {
+        padding: 1vh 1.8vw;
+    }
 }
 
 @media screen and (max-width: 768px) {

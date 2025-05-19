@@ -35,8 +35,12 @@
     margin-top: 0;
 }
 
+.auth-modal-content.success {
+    transform: translateY(70%) !important;
+}
+
 .auth-modal.active .auth-modal-content {
-    transform: translateY(30%);
+    transform: translateY(65%);
 }
 
 .auth-form {
@@ -267,7 +271,7 @@
 
 @media screen and (max-width: 768px) {
     .auth-modal.active .auth-modal-content {
-        transform: translateY(10%);
+        transform: translateY(30%);
     }
     .auth-modal-content {
         width: 95%;
@@ -281,7 +285,7 @@
 
     .form-group input {
         font-size: 16px;
-        padding: 12px;
+        padding: 6px;
     }
 
     .auth-submit {
@@ -291,6 +295,7 @@
 
     .form-checkbox {
         font-size: 14px;
+        margin: 0 auto;
     }
 
     .rules-link {
@@ -455,6 +460,7 @@
     background: #CC0102;
     width: 70%;
     max-width: 400px;
+    transform: translateY(-50%);
 }
 
 .success-content {
@@ -672,11 +678,19 @@
 }
 
 @media (max-width: 768px) {
+    .success-content {
+        padding: 55px 20px 0 20px;
+    }
+
+    .auth-modal-content.success {
+        transform: translateY(20%) !important;
+    }
+
     .success-blocks {
         flex-direction: column;
         gap: 5%;
         width: 100%;
-        top: 75%;
+        top: 70%;
         position: absolute;
         gap: 10px;
     }
@@ -696,6 +710,7 @@
     }
 
     .winner-block {
+        width: 91%;
         padding: 15px;
         height: auto;
     }
@@ -719,4 +734,38 @@
         width: 30%;
         height: auto;
     }
+}
+
+.header.profile-active {
+    z-index: 1000;
+}
+
+.auth-modal {
+    z-index: 999;
+}
+
+.auth-modal-close {
+    position: absolute;
+    right: -12%;
+    top: 3%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.auth-modal-close img {
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .auth-modal-close {
+        right: -3%;
+        top: -5%;
+    }
+
+
 }

@@ -253,6 +253,9 @@
 
     <div class="auth-modal">
         <div class="auth-modal-content">
+            <button class="auth-modal-close">
+                <img src="images/close.webp" alt="Close">
+            </button>
             <div class="auth-tabs">
                 <button class="auth-tab active" data-tab="login"><span>ВХОД</span></button>
                 <button class="auth-tab" data-tab="register"><span>РЕГИСТРАЦИЯ</span></button>
@@ -955,13 +958,25 @@
                 }
                 
                 // 3. Через 1 секунду показываем продукты и слова
-                setTimeout(() => {
-                    showProducts();
-                    showWords();
+                if(window.innerWidth>768) {
+                    setTimeout(() => {
+                        showWords();
+                    }, 1000);
+                } else {
+                    setTimeout(() => {
+                        showWords();
+                    }, 700);
+                }
+                
+                showProducts();
                     
-                    // 4. Через 2 секунды показываем карточки
-                    setTimeout(showCards, 5000);
-                }, 1000);
+                // 4. Через 2 секунды показываем карточки
+
+                if(window.innerWidth>768) {
+                    setTimeout(showCards, 4500);
+                } else {
+                    setTimeout(showCards, 5200);
+                }
             }, 5000);
         });
 
@@ -979,6 +994,13 @@
                 overlay.classList.remove('active');
                 cardsContainer.classList.remove('active');
                 discoverButton.classList.remove('active');
+
+                // Закрываем профиль
+                const authModal = document.querySelector('.auth-modal');
+                if (authModal.classList.contains('active')) {
+                    closeAuthModal();
+                    header.classList.remove('profile-active');
+                }
                 
                 // Скрываем элементы выбора сыра
                 const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
@@ -1118,12 +1140,45 @@
         function openAuthModal() {
             authModal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            header.classList.add('profile-active');
+            
+            // Показываем кнопку закрытия при закрытом профиле
+            const authModalClose = document.querySelector('.auth-modal-close');
+            authModalClose.style.display = 'block';
+            
+            // Закрываем бургер-меню если оно открыто
+            if (burgerMenu.classList.contains('active')) {
+                burgerMenu.classList.remove('active');
+                document.querySelector('.content-wrapper').classList.remove('menu-active');
+                mobileMenu.classList.remove('active');
+                showProducts();
+                applyAnimation(slateMobile, 'showSlateMobile');
+            }
         }
 
         // Функция для закрытия модального окна авторизации
         function closeAuthModal() {
             authModal.classList.remove('active');
             document.body.style.overflow = '';
+            header.classList.remove('profile-active');
+            
+            // Сбрасываем состояние модального окна
+            const modalContent = document.querySelector('.auth-modal-content');
+            const authTabs = document.querySelector('.auth-tabs');
+            const authForm = document.getElementById('authForm');
+            const successContent = document.querySelector('.success-content');
+            
+            // Удаляем классы success и successAuth
+            modalContent.classList.remove('success', 'successAuth');
+            
+            // Показываем форму и табы
+            authTabs.style.display = 'flex';
+            authForm.style.display = 'flex';
+            
+            // Удаляем контент успешной авторизации/регистрации
+            if (successContent) {
+                successContent.remove();
+            }
         }
 
         // Обработчики для кнопок входа
@@ -1164,11 +1219,21 @@
                 const submitButton = authForm.querySelector('.auth-submit');
                 submitButton.innerHTML = `<span>${targetForm === 'login' ? 'Войти' : 'Зарегистрироваться'}</span>`;
                 
-                // Обновляем required атрибуты
-                // const registerFields = authForm.querySelectorAll('.register-only input');
-                // registerFields.forEach(field => {
-                //     field.required = targetForm === 'register';
-                // });
+                // Управляем трансформацией
+                const authModalContent = document.querySelector('.auth-modal-content');
+                if (targetForm === 'login') {
+                    if(window.innerWidth<768) {
+                        authModalContent.style.transform = 'translateY(37%)';
+                    } else {
+                        authModalContent.style.transform = 'translateY(65%)';
+                    }
+                } else {
+                    if(window.innerWidth<768) {
+                        authModalContent.style.transform = 'translateY(21%)';
+                    } else {
+                        authModalContent.style.transform = 'translateY(30%)';
+                    }
+                }
             });
         });
 
@@ -1179,6 +1244,7 @@
             
             const formData = new FormData(authForm);
             const data = Object.fromEntries(formData.entries());
+            const authModalClose = document.querySelector('.auth-modal-close');
             // const isLogin = authForm.getAttribute('data-form') === 'login';
 
             console.log(isLogin);
@@ -1186,6 +1252,7 @@
             try {
                 if(isLogin) {
                     showSuccessAuthScreen();
+                    authModalClose.style.display = 'none';
                 } else {
                     showSuccessRegScreen();
                 }
@@ -1242,10 +1309,12 @@
             const modalContent = document.querySelector('.auth-modal-content');
             const authTabs = document.querySelector('.auth-tabs');
             const authForm = document.getElementById('authForm');
+            const header = document.querySelector('.header');
             
             modalContent.classList.add('successAuth');
             authTabs.style.display = 'none';
             authForm.style.display = 'none';
+            header.classList.add('profile-active');
             
             const successContent = document.createElement('div');
             successContent.className = 'success-content active';
@@ -2478,6 +2547,27 @@
                 }
             }
         };
+
+        // Добавляем обработчик закрытия модального окна
+        document.addEventListener('DOMContentLoaded', function() {
+            const authModal = document.querySelector('.auth-modal');
+            const header = document.querySelector('.header');
+            
+            // Находим все элементы, которые могут закрыть модальное окно
+            const closeButtons = document.querySelectorAll('.auth-modal-close, .auth-modal');
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (e.target === button) {
+                        header.classList.remove('profile-active');
+                    }
+                });
+            });
+        });
+
+        // Добавляем обработчик для кнопки закрытия
+        const authModalClose = document.querySelector('.auth-modal-close');
+        authModalClose.addEventListener('click', closeAuthModal);
     </script>
 </body>
 </html>
