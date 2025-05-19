@@ -27,6 +27,72 @@
             overflow: hidden;
             font-family: 'Circe Rounded', Arial, sans-serif;
         }
+
+        .characteristics-top-image {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: auto;
+            z-index: 1;
+        }
+
+        .characteristics-top-image-petite {
+            width: 220px;
+            top: -89px;
+            transform: translateX(-50%);
+        }
+
+        .characteristics-top-image-camamber {
+            width: 220px;
+            top: -102px;
+            transform: translateX(-50%);
+        }
+
+        .characteristics-top-image-blue {
+            width: 200px;
+            top: -69px;
+            left: 57%;
+            transform: translateX(-50%);
+        }
+
+        .characteristics-top-image-fondant {
+            width: 240px;
+            top: -53px;
+            transform: translateX(-50%);
+        }
+
+        /* @media (max-width: 768px) {
+            .characteristics-top-image {
+                width: 150px;
+                top: -20px;
+            }
+
+            .characteristics-top-image-petite {
+                width: 130px;
+                top: -18px;
+            }
+
+            .characteristics-top-image-camamber {
+                width: 160px;
+                top: -25px;
+            }
+
+            .characteristics-top-image-blue {
+                width: 140px;
+                top: -22px;
+            }
+
+            .characteristics-top-image-fondant {
+                width: 135px;
+                top: -20px;
+            }
+        } */
+
+        .modal-characteristics .modal-content {
+            padding-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -383,47 +449,47 @@
     </div>
 
     <div class="cheese-buttons-grid" data-cheese="petite">
-        <button class="cheese-button"><span>Как отличить</br> настоящий сыр бри?</span></button>
-        <button class="cheese-button"><span>Бри – сыр королей</span></button>
-        <button class="cheese-button"><span>Ассортимент</span></button>
-        <button class="cheese-button"><span>Культура плесени</span></button>
-        <button class="cheese-button"><span>С чем сочетать</br> Бри President?</span></button>
-        <button class="cheese-button"><span>Настоящий вкус!</span></button>
-        <button class="cheese-button"><span>Органолептика</span></button>
-        <button class="cheese-button"><span>Общая информация</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Как отличить настоящий сыр бри?"><span>Как отличить</br> настоящий сыр бри?</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Бри – сыр королей"><span>Бри – сыр королей</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Ассортимент"><span>Ассортимент</span></button>
+        <button class="cheese-button" data-modal-type="mold"><span>Культура плесени</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="С чем сочетать Бри President?"><span>С чем сочетать</br> Бри President?</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Настоящий вкус!"><span>Настоящий вкус!</span></button>
+        <button class="cheese-button" data-modal-type="characteristics"><span>Органолептика</span></button>
+        <button class="cheese-button" data-modal-type="images"><span>Общая информация</span></button>
     </div>
 
     <div class="cheese-buttons-grid" data-cheese="camamber">
-        <button class="cheese-button"><span>Когда появился камабер? </span></button>
-        <button class="cheese-button"><span>Настоящая легенда!</span></button>
-        <button class="cheese-button"><span>Ассортимент</span></button>
-        <button class="cheese-button"><span>Культура плесени</span></button>
-        <button class="cheese-button"><span>С чем сочетать</br>Камамбер?</span></button>
-        <button class="cheese-button"><span>Отличительная</br>особенность</span></button>
-        <button class="cheese-button"><span>Органолептика</span></button>
-        <button class="cheese-button"><span>Общая информация</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Когда появился камабер?"><span>Когда появился камабер? </span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Настоящая легенда!"><span>Настоящая легенда!</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Ассортимент"><span>Ассортимент</span></button>
+        <button class="cheese-button" data-modal-type="mold"><span>Культура плесени</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="С чем сочетать Камамбер?"><span>С чем сочетать</br>Камамбер?</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Отличительная особенность"><span>Отличительная</br>особенность</span></button>
+        <button class="cheese-button" data-modal-type="characteristics"><span>Органолептика</span></button>
+        <button class="cheese-button" data-modal-type="images"><span>Общая информация</span></button>
     </div>
 
     <div class="cheese-buttons-grid" data-cheese="blue">
-        <button class="cheese-button"><span>Богатая история</span></button>
-        <button class="cheese-button"><span>Настоящий вкус!</span></button>
-        <button class="cheese-button"><span>С чем сочетать?</span></button>
-        <button class="cheese-button"><span>Культура плесени</span></button>
-        <button class="cheese-button"><span>Цвет настоящей</br>благородной плесени</span></button>
-        <button class="cheese-button"><span>Мраморный рисунок</span></button>
-        <button class="cheese-button"><span>Общая информация</span></button>
-        <button class="cheese-button"><span>Органолептика</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Богатая история"><span>Богатая история</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Настоящий вкус!"><span>Настоящий вкус!</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="С чем сочетать?"><span>С чем сочетать?</span></button>
+        <button class="cheese-button" data-modal-type="mold"><span>Культура плесени</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Цвет настоящей благородной плесени"><span>Цвет настоящей</br>благородной плесени</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Мраморный рисунок"><span>Мраморный рисунок</span></button>
+        <button class="cheese-button" data-modal-type="images"><span>Общая информация</span></button>
+        <button class="cheese-button" data-modal-type="characteristics"><span>Органолептика</span></button>
     </div>
 
     <div class="cheese-buttons-grid" data-cheese="fondant">
-        <button class="cheese-button"><span>Текстура</span></button>
-        <button class="cheese-button"><span>Настоящее</br>удовольствие</span></button>
-        <button class="cheese-button"><span>С чем сочетать?</span></button>
-        <button class="cheese-button"><span>Культура плесени</span></button>
-        <button class="cheese-button"><span>Что такое Extra Fondant?</span></button>
-        <button class="cheese-button"><span>Рецепт</span></button>
-        <button class="cheese-button"><span>Органолептика</span></button>
-        <button class="cheese-button"><span>Общая информация</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Текстура"><span>Текстура</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Настоящее удовольствие"><span>Настоящее</br>удовольствие</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="С чем сочетать?"><span>С чем сочетать?</span></button>
+        <button class="cheese-button" data-modal-type="mold"><span>Культура плесени</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Что такое Extra Fondant?"><span>Что такое Extra Fondant?</span></button>
+        <button class="cheese-button" data-modal-type="description" data-content-key="Рецепт"><span>Рецепт</span></button>
+        <button class="cheese-button" data-modal-type="characteristics"><span>Органолептика</span></button>
+        <button class="cheese-button" data-modal-type="images"><span>Общая информация</span></button>
     </div>
 
     <img src="images/knife.webp" class="knife-image" alt="Knife">
@@ -460,40 +526,40 @@
     <div class="modal modal-characteristics">
         <div class="modal-content">
             <img src="images/close.webp" alt="Close" class="modal-close">
+            <img src="images/characteristics-top.webp" alt="Characteristics" class="characteristics-top-image">
             <div class="characteristics-container">
-                <img src="" alt="Image 1" class="modal-image modal-image-5">
-            <div class="characteristic-block">
-                <h3>Мягкость текстуры</h3>
-                <p>(в середине срока годности)</p>
-                <div class="characteristic-images">
-                    <img src="" alt="Char 1" class="char-image char-image-1">
-                    <img src="" alt="Char 2" class="char-image char-image-2">
-                    <img src="" alt="Char 3" class="char-image char-image-3">
-                    <img src="" alt="Char 4" class="char-image char-image-4">
-                    <img src="" alt="Char 5" class="char-image char-image-5">
+                <div class="characteristic-block">
+                    <h3>Мягкость текстуры</h3>
+                    <p>(в середине срока годности)</p>
+                    <div class="characteristic-images">
+                        <img src="" alt="Char 1" class="char-image char-image-1">
+                        <img src="" alt="Char 2" class="char-image char-image-2">
+                        <img src="" alt="Char 3" class="char-image char-image-3">
+                        <img src="" alt="Char 4" class="char-image char-image-4">
+                        <img src="" alt="Char 5" class="char-image char-image-5">
+                    </div>
+                </div>
+                <div class="characteristic-block">
+                    <h3>Интенсивность аромата</h3>
+                    <div class="characteristic-images">
+                        <img src="" alt="Char 1" class="char-image char-image-1">
+                        <img src="" alt="Char 2" class="char-image char-image-2">
+                        <img src="" alt="Char 3" class="char-image char-image-3">
+                        <img src="" alt="Char 4" class="char-image char-image-4">
+                        <img src="" alt="Char 5" class="char-image char-image-5">
+                    </div>
+                </div>
+                <div class="characteristic-block">
+                    <h3>Интенсивность вкуса</h3>
+                    <div class="characteristic-images">
+                        <img src="" alt="Char 1" class="char-image char-image-1">
+                        <img src="" alt="Char 2" class="char-image char-image-2">
+                        <img src="" alt="Char 3" class="char-image char-image-3">
+                        <img src="" alt="Char 4" class="char-image char-image-4">
+                        <img src="" alt="Char 5" class="char-image char-image-5">
+                    </div>
                 </div>
             </div>
-            <div class="characteristic-block">
-                <h3>Интенсивность аромата</h3>
-                <div class="characteristic-images">
-                    <img src="" alt="Char 1" class="char-image char-image-1">
-                    <img src="" alt="Char 2" class="char-image char-image-2">
-                    <img src="" alt="Char 3" class="char-image char-image-3">
-                    <img src="" alt="Char 4" class="char-image char-image-4">
-                    <img src="" alt="Char 5" class="char-image char-image-5">
-                </div>
-            </div>
-            <div class="characteristic-block">
-                <h3>Интенсивность вкуса</h3>
-                <div class="characteristic-images">
-                    <img src="" alt="Char 1" class="char-image char-image-1">
-                    <img src="" alt="Char 2" class="char-image char-image-2">
-                    <img src="" alt="Char 3" class="char-image char-image-3">
-                    <img src="" alt="Char 4" class="char-image char-image-4">
-                    <img src="" alt="Char 5" class="char-image char-image-5">
-                </div>
-            </div>
-        </div>
             <button class="modal-understand-button"><span>Понятно</span></button>
         </div>
     </div>
@@ -2105,6 +2171,19 @@
             const data = cheeseModalData[cheeseType];
             if (!data) return;
 
+            // Проверяем, является ли это кнопкой "Рецепт" для сыра fondant
+            if (cheeseType === 'fondant' && buttonText === 'Рецепт') {
+                window.open('/files/recipe.pdf', '_blank');
+                return;
+            }
+
+            function normalizeText(text) {
+                return text
+                    .replace(/<br\s*\/?>/gi, ' ') // Заменяем <br> на пробел
+                    .replace(/\s+/g, ' ')         // Убираем лишние пробелы
+                    .trim();                      // Убираем пробелы в начале и конце
+            }
+
             // Заполняем контент в зависимости от типа модального окна
             switch(modalType) {
                 case 'images':
@@ -2129,6 +2208,12 @@
 
                 case 'characteristics':
                     // Заполняем характеристики
+                    const topImage = modal.querySelector('.characteristics-top-image');
+                    if (topImage && data.characteristics.topImage) {
+                        topImage.src = `images/${data.characteristics.topImage}`;
+                        // Добавляем специфичный класс в зависимости от типа сыра
+                        topImage.className = `characteristics-top-image characteristics-top-image-${cheeseType}`;
+                    }
                     const textureImages = modal.querySelector('.characteristic-block:nth-of-type(1) .characteristic-images').querySelectorAll('.char-image');
                     const aromaImages = modal.querySelector('.characteristic-block:nth-of-type(2) .characteristic-images').querySelectorAll('.char-image');
                     const tasteImages = modal.querySelector('.characteristic-block:nth-of-type(3) .characteristic-images').querySelectorAll('.char-image');
@@ -2177,19 +2262,22 @@
                     // Устанавливаем изображение выбранного сыра
                     descCheeseImage.src = document.querySelector('.selected-cheese-image').src;
                     
-                    // Находим соответствующие данные по тексту кнопки
+                    // Используем data-content-key для поиска описания
                     const descriptionData = data.description[buttonText];
+                    
                     if (descriptionData) {
                         descSubtitle.textContent = descriptionData.title;
                         descText.textContent = descriptionData.text;
+                    } else {
+                        console.warn(`Описание не найдено для ключа: "${buttonText}"`);
                     }
                     break;
             }
 
             // Показываем оверлей и модальное окно
             modalOverlay.classList.add('active');
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         // Функция для закрытия модального окна
@@ -2209,22 +2297,11 @@
         // Добавляем обработчики событий для кнопок
         cheeseButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const buttonText = button.querySelector('span').textContent;
+                const modalType = button.getAttribute('data-modal-type');
+                const contentKey = button.getAttribute('data-content-key');
                 const cheeseType = document.querySelector('.selected-cheese').getAttribute('data-cheese');
                 
-                // Определяем тип модального окна в зависимости от текста кнопки
-                let modalType;
-                if (buttonText.includes('Общая информация')) {
-                    modalType = 'images';
-                } else if (buttonText.includes('Органолептика')) {
-                    modalType = 'characteristics';
-                } else if (buttonText.includes('Культура плесени')) {
-                    modalType = 'mold';
-                } else {
-                    modalType = 'description';
-                }
-                
-                openModal(modalType, cheeseType, buttonText);
+                openModal(modalType, cheeseType, contentKey);
             });
         });
 
@@ -2259,6 +2336,7 @@
                     ]
                 },
                 characteristics: {
+                    topImage: "brie-piece.webp",
                     texture: {
                         title: "Мягкость текстуры",
                         description: "(в середине срока годности)",
@@ -2335,6 +2413,7 @@
                     ]
                 },
                 characteristics: {
+                    topImage: "camamber-piece.webp",
                     texture: {
                         title: "Мягкость текстуры",
                         description: "(в середине срока годности)",
@@ -2411,6 +2490,7 @@
                     ]
                 },
                 characteristics: {
+                    topImage: "blue-piece.webp",
                     texture: {
                         title: "Мягкость текстуры",
                         description: "(в середине срока годности)",
@@ -2486,6 +2566,7 @@
                     ]
                 },
                 characteristics: {
+                    topImage: "fondant-piece.webp",
                     texture: {
                         title: "Мягкость текстуры",
                         description: "(в середине срока годности)",
