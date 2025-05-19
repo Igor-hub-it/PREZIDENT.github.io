@@ -651,7 +651,8 @@
 }
 
 .knife-image.active {
-    right: 11%;
+    padding: 0px 100px;
+    right: 5%;
     opacity: 1;
     transform: translateY(-50%) rotate(-30deg);
     z-index: 100;
@@ -666,8 +667,6 @@
     transition: transform 0.2s ease-out;
 }
 
-
-
 .paw-image {
     position: fixed;
     right: -100%;
@@ -677,13 +676,15 @@
     height: 12vh;
     opacity: 0;
     transition: right 0.5s ease-out, opacity 0.5s ease-out;
-    z-index: 101;
+    z-index: 99;
     animation: pawFloat 2s ease-in-out infinite;
 }
 
 .paw-image.active {
     right: 5%;
     opacity: 1;
+    z-index: 101;
+    pointer-events: none;
 }
 
 @keyframes pawFloat {
@@ -1336,31 +1337,19 @@
         top: 50%;
         transform: translateY(-50%);
         width: auto;
-        height: 60vh;
+        height: 70vh;
         opacity: 0;
         transition: all 1s ease-in-out;
         z-index: -1;
         pointer-events: none;
+        padding: 0px;
     }
     
     .knife-image.active {
-        right: 5%;
         opacity: 1;
-        transform: translateY(-50%) rotate(30deg);
-        z-index: 100;
-        pointer-events: auto;
-    }
-
-    .knife-image {
-        right: -200%;
-        height: 70vh;
-        z-index: -1;
-        pointer-events: none;
-    }
-
-    .knife-image.active {
         right: 3%;
         top: 70%;
+        padding: 0;
         transform: translateY(-50%) rotate(3deg);
         z-index: 100;
         pointer-events: auto;
@@ -1421,6 +1410,7 @@
     opacity: 0;
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     z-index: 100;
+    pointer-events: none;
 }
 
 .selected-cheese-text-desktop.active {

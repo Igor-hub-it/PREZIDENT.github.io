@@ -424,6 +424,89 @@
             .modal-understand-button span {
                 font-size: 20px;
             }
+
+            .modal.active {
+                width: 85%;
+            }
+        }
+
+        .auth-modal-content.successAuth {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #00000000;
+            width: ;
+        }
+
+        .success-blocks {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .user-info-block {
+            background: #FFFFFF;
+            padding: 30px;
+            flex: 1;
+            border-radius: 25px;
+            height: 40vh;
+        }
+
+        .user-name {
+            color: #CC0102;
+            text-align: left;
+            margin: 0;
+        }
+
+        .user-email, .user-phone {
+            color: #1D1D1B;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .user-phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .phone-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .winner-block {
+            background: #CC0102;
+            padding: 30px;
+            flex: 1;
+            color: #FFFFFF;
+            border-radius: 25px;
+            height: 40vh;
+            width: 62vw;
+        }
+
+        .winner-block h3 {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .winner-message {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .certificate-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .success-blocks {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -687,7 +770,7 @@
                     <label for="rememberMe">Запомнить меня</label>
                 </div>
                 <div class="form-checkbox register-only">
-                    <input type="checkbox" id="authRules" required>
+                    <input type="checkbox" id="authRules">
                     <label for="authRules">
                         Я соглашаюсь с <button type="button" class="rules-link">Правилами</button>
                     </label>
@@ -1052,8 +1135,7 @@
                 const rulesButton = content.querySelector('.quiz-rules');
                 startButton.addEventListener('click', () => updateQuizContent(1));
                 rulesButton.addEventListener('click', () => {
-                    // Здесь можно добавить логику для показа правил акции
-                    alert('Правила акции будут добавлены позже');
+                    window.open('/files/rules.pdf', '_blank');
                 });
             } else if (data.isFinal) {
                 const participateButton = content.querySelector('.quiz-option');
@@ -1403,6 +1485,14 @@
                     cheeseImagesGrid.classList.remove('active');
                     cheeseImagesGrid.classList.remove('cutting');
                 }
+                const buttonsGrids = document.querySelectorAll('.cheese-buttons-grid');
+                buttonsGrids.forEach(grid => {
+                    grid.classList.remove('cutting');
+                    grid.style.left = '';
+                    grid.style.top = '';
+                    grid.style.width = '';
+                    grid.style.height = '';
+                });
                 if (knifeImage) knifeImage.classList.remove('active');
                 if (pawImage) pawImage.classList.remove('active');
                 if (selectedCheeseText) selectedCheeseText.classList.remove('active');
@@ -1503,6 +1593,7 @@
         const enterButtons = document.querySelectorAll('.enter-button');
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
+        let isLogin = true;
 
         // Функция для открытия модального окна авторизации
         function openAuthModal() {
@@ -1532,6 +1623,7 @@
         authTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const targetForm = tab.dataset.tab;
+                isLogin = targetForm === 'login' ? true : false;
                 
                 // Обновляем активные классы для вкладок
                 authTabs.forEach(t => {
@@ -1554,10 +1646,10 @@
                 submitButton.innerHTML = `<span>${targetForm === 'login' ? 'Войти' : 'Зарегистрироваться'}</span>`;
                 
                 // Обновляем required атрибуты
-                const registerFields = authForm.querySelectorAll('.register-only input');
-                registerFields.forEach(field => {
-                    field.required = targetForm === 'register';
-                });
+                // const registerFields = authForm.querySelectorAll('.register-only input');
+                // registerFields.forEach(field => {
+                //     field.required = targetForm === 'register';
+                // });
             });
         });
 
@@ -1568,13 +1660,15 @@
             
             const formData = new FormData(authForm);
             const data = Object.fromEntries(formData.entries());
-            const isLogin = authForm.getAttribute('data-form') === 'login';
+            // const isLogin = authForm.getAttribute('data-form') === 'login';
+
+            console.log(isLogin);
             
             try {
                 if(isLogin) {
-                    showSuccessScreen();
-            } else {
-                    showSuccessScreen();
+                    showSuccessAuthScreen();
+                } else {
+                    showSuccessRegScreen();
                 }
 
                 const endpoint = isLogin ? '/api/login' : '/api/register';
@@ -1590,22 +1684,21 @@
                     const responseData = await response.json();
                     closeAuthModal();
                 } else {
-                    alert(isLogin ? 'Ошибка входа. Проверьте email и пароль.' : 'Ошибка регистрации. Возможно, email уже используется.');
+                    // alert(isLogin ? 'Ошибка входа' : 'Ошибка регистрации');
                 }
             } catch (error) {
                 console.error('Ошибка:', error);
-                alert(`Произошла ошибка при попытке ${isLogin ? 'входа' : 'регистрации'}`);
+                // alert(`Произошла ошибка при попытке ${isLogin ? 'входа' : 'регистрации'}`);
             }
         });
 
         // Обработка клика по ссылке "Правила"
         const rulesLink = document.querySelector('.rules-link');
         rulesLink.addEventListener('click', () => {
-            // Здесь можно добавить логику для показа правил акции
-            alert('Правила акции будут добавлены позже');
+            window.open('/files/rules.pdf', '_blank');
         });
 
-        function showSuccessScreen() {
+        function showSuccessRegScreen() {
             const modalContent = document.querySelector('.auth-modal-content');
             const authTabs = document.querySelector('.auth-tabs');
             const authForm = document.getElementById('authForm');
@@ -1621,6 +1714,42 @@
                 <h2 class="success-title">Спасибо за регистрацию! 🎉</h2>
                 <p class="success-description">Добавьте благородного вкуса в общение с нашим сырным стикерпаком в Telegram!</p>
                 <a href="#" class="success-button"><span>Скачать стикеры</span></a>
+            `;
+            
+            modalContent.appendChild(successContent);
+        }
+
+        function showSuccessAuthScreen() {
+            const modalContent = document.querySelector('.auth-modal-content');
+            const authTabs = document.querySelector('.auth-tabs');
+            const authForm = document.getElementById('authForm');
+            
+            modalContent.classList.add('successAuth');
+            authTabs.style.display = 'none';
+            authForm.style.display = 'none';
+            
+            const successContent = document.createElement('div');
+            successContent.className = 'success-content active';
+            successContent.innerHTML = `
+                <div class="success-blocks">
+                    <div class="user-info-block">
+                        <h2 class="user-name">Константинопольский</h2>
+                        <h2 class="user-name">Пантелеймон</h2>
+                        <h2 class="user-name">Александрович</h2>
+                        <p class="user-email">E-mail: panteleymon@gmail.ru</p>
+                        <div class="user-phone">
+                            <span>Телефон: +7 900 900 00</span>
+                            <img src="images/link.webp" alt="Phone" class="phone-icon">
+                        </div>
+                    </div>
+                    <div class="winner-block">
+                        <h3>Вы участвуйте в акции!</h3>
+                        <div class="winner-message">
+                            <p>Вы выиграли сертификат! Наш менеджер свяжется с вами для вручения в ближайшее время!</p>
+                            <img src="images/go.webp" alt="Certificate" class="certificate-icon">
+                        </div>
+                    </div>
+                </div>
             `;
             
             modalContent.appendChild(successContent);
@@ -2207,7 +2336,7 @@
             if (!isFixed) {
                 // Если не зафиксирован, возвращаем назад на 11%
                 knifeImage.style.transition = 'right 0.3s ease-out, top 0.3s ease-out';
-                knifeImage.style.right = '11%';
+                knifeImage.style.right = '5%';
                 knifeImage.style.top = startTop + 'px';
                 setTimeout(() => {
                     knifeImage.style.transition = '';
@@ -2279,7 +2408,7 @@
                 knifeImage.style.transition = '';
                 knifeImage.style.top = startTop + 'px';
                 knifeImage.style.opacity = '1';
-                knifeImage.style.right = '11%';
+                knifeImage.style.right = '5%';
                 isFixed = false;
             }, 600);
         }
@@ -2338,7 +2467,7 @@
             } else {
                 knifeImage.style.top = 65 + '%';
                 knifeImage.style.opacity = '1';
-                knifeImage.style.right = '11%';
+                knifeImage.style.right = '5%';
                 knifeImage.style.transform = 'translateY(-50%) rotate(-30deg)';
             }
             
@@ -2647,13 +2776,13 @@
                 },
                 mold: {
                     title: "Культура плесени",
-                    subtitle: "Geotrichum Candidum и Penicillium Candidum",
-                    description: "Geotrichum Candidum и Penicillium Candidum"
+                    subtitle: "Geotrichum Candidum и Penicillium Candidum",
+                    description: "Geotrichum Candidum и Penicillium Candidum"
                 },
                 description: {
                     "Когда появился камабер?": {
                         title: "Когда появился камабер?",
-                        text: "Камамбер появился XVIII веке, а название сыра происходит от местности, где, по легенде, его впервые начали изготавливать: деревушки Камамбер в Нормандии, на севере Франции."
+                        text: "Камамбер появился XVIII веке, а название сыра происходит от местности, где, по легенде, его впервые начали изготавливать: деревушки Камамбер в Нормандии, на севере Франции."
                     },
                     "Настоящая легенда!": {
                         title: "Настоящая легенда!",
@@ -2661,7 +2790,7 @@
                     },
                     "Ассортимент": {
                         title: "Ассортимент",
-                        text: "Наслаждайтесь вкусом настоящего Камамбера в различных "
+                        text: "Наслаждайтесь вкусом настоящего Камамбера в различных "
                     },
                     "С чем сочетать Камамбер?": {
                         title: "С чем сочетать Камамбер?",
@@ -2669,7 +2798,7 @@
                     },
                     "Отличительная особенность": {
                         title: "Отличительная особенность",
-                        text: "Камамбер President — это сочетание ярко выраженного пикантного вкуса и тонкой корочки, которая со временем приобретает острые нотки. Нежная текстура Камамбера President по мере созревания становится более текучей, раскрывая глубокий вкус сыра."
+                        text: "Камамбер President — это сочетание ярко выраженного пикантного вкуса и тонкой корочки, которая со временем приобретает острые нотки. Нежная текстура Камамбера President по мере созревания становится более текучей, раскрывая глубокий вкус сыра."
                     },
                 }
             },
@@ -2729,7 +2858,7 @@
                 description: {
                     "Богатая история": {
                         title: "Богатая история",
-                        text: "Сыры с голубой плесенью уже много веков пользуются огромной популярностью среди королевских домов и знати. Они восхищались его изысканным вкусом и неповторимым ароматом."
+                        text: "Сыры с голубой плесенью уже много веков пользуются огромной популярностью среди королевских домов и знати. Они восхищались его изысканным вкусом и неповторимым ароматом."
                     },
                     "Настоящий вкус!": {
                         title: "Настоящий вкус!",
@@ -2808,7 +2937,7 @@
                     },
                     "Настоящее удовольствие": {
                         title: "Настоящее удовольствие",
-                        text: "Сыр PRESIDENT Le Crémiot Extra Fondant President — это уникальная инновация для настоящих гурманов и ценителей французского сыра."
+                        text: "Сыр PRESIDENT Le Crémiot Extra Fondant President — это уникальная инновация для настоящих гурманов и ценителей французского сыра."
                     },
                     "С чем сочетать?": {
                         title: "С чем сочетать?",
@@ -2816,7 +2945,7 @@
                     },
                     "Что такое Extra Fondant?": {
                         title: "Что такое Extra Fondant?",
-                        text: "Extra Fondant – специальная технология производства, благодаря которой данный сыр приобретает кремовую, нежную текстуру камамбера, которая буквально тает во рту, но при этом его аромат и вкус ближе к бри. "
+                        text: "Extra Fondant – специальная технология производства, благодаря которой данный сыр приобретает кремовую, нежную текстуру камамбера, которая буквально тает во рту, но при этом его аромат и вкус ближе к бри. "
                     },
                     "Рецепт": {
                         title: "Рецепт",
