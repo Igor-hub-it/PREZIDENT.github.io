@@ -258,6 +258,19 @@
     z-index: 54;
 }
 
+.selected-cheese[data-cheese="camamber"] {
+    bottom: 23%;
+}
+
+.selected-cheese[data-cheese="blue"] {
+    bottom: 22.5%;
+    left: 6.5%;
+}
+
+.selected-cheese[data-cheese="fondant"] {
+    left: 4.5%;
+}
+
 .selected-cheese.active {
     opacity: 1;
 }
@@ -385,7 +398,7 @@
 }
 
 .cheese-images-grid.active[data-cheese="petite"] {
-    left: 32%;
+    left: 30%;
     top: 18%;
     width: 70vh;
     height: 70vh;
@@ -393,7 +406,7 @@
 }
 
 .cheese-images-grid.active[data-cheese="camamber"] {
-    left: 32%;
+    left: 30%;
     top: 18%;
     width: 70vh;
     height: 70vh;
@@ -401,11 +414,11 @@
 }
 
 .cheese-images-grid.active[data-cheese="blue"] {
-    left: 35%;
+    left: 33%;
     top: 23%;
     right: auto;
     width: 36%;
-    transform: rotate(-40deg);
+    transform: rotate(-33deg);
     z-index: 52;
 }
 
@@ -419,7 +432,7 @@
 
 .cheese-images-grid.active[data-cheese="fondant"] {
     top: 6%;
-    left: 44%;
+    left: 38%;
     width: 65vh;
     height: 65vh;
     transform: translateX(-35%) rotate(59deg);
@@ -552,37 +565,37 @@
 }
 
 .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(3) {
-    top: 19%;
+    top: 18%;
     left: 10%;
     width: 40%;
 }
 
 .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(4) {
-    top: 19%;
+    top: 18%;
     right: 10%;
     width: 41%;
 }
 
 .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(5) {
-    top: 38%;
+    top: 36%;
     left: 10%;
     width: 40%;
 }
 
 .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(6) {
-    top: 38%;
+    top: 36%;
     right: 10%;
     width: 40%;
 }
 
 .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(7) {
-    top: 57%;
+    top: 54%;
     left: 10%;
     width: 40%;
 }
 
 .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(8) {
-    top: 57%;
+    top: 54%;
     right: 10%;
     width: 40%;
 }
@@ -595,43 +608,43 @@
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(2) {
-    top: 12.5%;
+    top: 12%;
     left: 44%;
     height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(3) {
-    top: 25%;
+    top: 24%;
     left: 41%;
     height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(4) {
-    top: 37.5%;
+    top: 36%;
     left: 40%;
     height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(5) {
-    top: 50%;
+    top: 48%;
     left: 40%;
     height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(6) {
-    top: 62.5%;
+    top: 60%;
     left: 41%;
     height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(7) {
-    top: 75%;
+    top: 72%;
     left: 44.5%;
     height: 12.5%;
 }
 
 .cheese-images-grid[data-cheese="fondant"] .cheese-grid-image:nth-child(8) {
-    top: 87.5%;
+    top: 84%;
     left: 51%;
     height: 11.6%;
 }
@@ -977,6 +990,47 @@
     .fondant {
         height: 45%;
     }
+
+    /* Стили для изображений Блю */
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(1) {
+        top: 0%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(2) {
+        top: 0%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(3) {
+        top: 17%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(4) {
+        top: 17%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(5) {
+        top: 34%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(6) {
+        top: 34%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(7) {
+        top: 51%;
+
+    }
+
+    .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(8) {
+        top: 51%;
+
+    }
 }
 
 @media screen and (max-width: 1400px) {
@@ -1142,7 +1196,7 @@
     }
 
     .selected-cheese.active {
-        right: -20%;
+        right: -80%;
         top: 3%;
         bottom: auto;
         width: auto;
@@ -1151,7 +1205,7 @@
     }
 
     .selected-cheese.active[data-cheese="fondant"] {
-        right: -5%;
+        right: -63%;
     }
     
     .selected-cheese-image {
@@ -1283,68 +1337,32 @@
         bottom: 119%;
     }
     
-    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(2) {
-
-    }
-    
-    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(3) {
-
-    }
-    
     .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(4) {
         left: -9%;
     }
-    
-    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(5) {
-
-    }
-    
-    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(6) {
-        top: 80%;
-    }
-    
-    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(7) {
-
-    }
-    
-    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(8) {
-
-    }
-
 
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(1) {
         left: 7%;
         bottom: 119%;
     }
-    
-    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(2) {
 
-    }
-    
-    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(3) {
-
-    }
-    
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(4) {
         left: -9%;
-    }
-    
-    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(5) {
-
     }
     
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(6) {
         top: 80%;
     }
     
-    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(7) {
+    .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(3) {
+        top: -15%;
+        left: -85%;
+    }
+    
+    .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(5) {
+        left: -37%;
+    }
 
-    }
-    
-    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(8) {
-        
-    }
-    
     .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(7) {
         top: 78%;
         left: 20%;

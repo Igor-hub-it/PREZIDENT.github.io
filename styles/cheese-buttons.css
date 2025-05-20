@@ -51,11 +51,11 @@
     border: none;
     width: auto;
     border-radius: 16px;
-    padding: 12px 24px;
+    padding: 1.4vh 3vh;
     cursor: pointer;
     color: #442F1E;
-    font-weight: 400;
-    font-size: 24px;
+    font-weight: 600;
+    font-size: 2.7vh;
     text-align: center;
     font-family: 'Circe Rounded', Arial, sans-serif;
     display: flex;
@@ -118,43 +118,43 @@
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
     top: 52%;
-    left: 56%;
+    left: 51%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
-    left: 68%;
+    left: 63%;
     top: 104%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
-    top: 86%;
-    left: 11%;
+    top: 82%;
+    left: 10%;
     width: max-content; 
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
-    left: 38%;
-    top: 71%;
+    left: 39%;
+    top: 68%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
-    top: 25%;
+    top: 29%;
     left: 0%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
     left: 24%;
-    top: -13%;
+    top: -9%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
-    top: -8%;
-    right: 13%;
+    top: -13%;
+    right: 8%;
     width: max-content;
 }
 
@@ -165,44 +165,44 @@
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
-    top: 55%;
-    left: 54%;
+    top: 57%;
+    left: 44%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
-    left: 68%;
+    left: 63%;
     top: 104%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
-    top: 86%;
-    left: 11%;
+    top: 82%;
+    left: 10%;
     width: max-content; 
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
-    left: 38%;
-    top: 71%;
+    left: 39%;
+    top: 68%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(5) {
-    top: 25%;
+    top: 29%;
     left: 0%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
     left: 24%;
-    top: -13%;
+    top: -12%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
-    top: -8%;
-    right: 13%;
+    top: -13%;
+    right: 8%;
     width: max-content;
 }
 
@@ -213,8 +213,8 @@
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(1) {
-    top: 14%;
-    left: 52%;
+    top: 12%;
+    left: 47%;
     width: max-content;
 }
 
@@ -225,37 +225,37 @@
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(3) {
-    top: 91%;
-    left: 55%;
+    top: 95%;
+    left: 44%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(4) {
-    left: 63%;
-    top: 56%;
+    left: 59%;
+    top: 52%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(5) {
-    top: 53%;
+    top: 55%;
     left: -6%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
-    left: -41%;
-    top: 5%;
+    left: -46%;
+    top: 6%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(7) {
-    top: -76%;
+    top: -70%;
     right: 113%;
     width: max-content;
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
-    right: 73.5%;
+    right: 70%;
     top: -35%;
     width: max-content;
 }
@@ -264,7 +264,7 @@
     top: 36%;
     left: 81%;
     width: max-content;
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(2) {
     left: 125%;
@@ -297,8 +297,8 @@
 }
 
 .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(7) {
-    top: 43%;
-    right: 69%;
+    top: 44%;
+    right: 66%;
     width: max-content;
 }
 
@@ -307,6 +307,56 @@
     top: 28%;
     width: max-content;
 }
+/* 
+@media (max-width: 1500px) {
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
+        top: 52%;
+        left: 51%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
+        left: 63%;
+        top: 104%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
+        top: 82%;
+        left: 10%;
+        width: max-content; 
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
+        left: 39%;
+        top: 68%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
+        top: 29%;
+        left: 0%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
+        left: 24%;
+        top: -9%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
+        top: -13%;
+        right: 8%;
+        width: max-content;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
+        right: 10%;
+        top: -72%;
+        width: max-content;
+    }
+} */
 
 @media (max-width: 768px) {
     .desktop-back-arrow {
@@ -315,7 +365,7 @@
 
     .cheese-buttons-grid {
         position: fixed;
-        left: -100%;
+        left: -200%;
         width: 85vw;
         height: 85vw;
         max-width: 50vh;
@@ -325,6 +375,7 @@
         transition-delay: 1.5s;
         z-index: 2;
     }
+
 
     .cheese-buttons-grid.cutting[data-cheese="petite"] {
         transform: rotate(0deg);
@@ -349,33 +400,6 @@
         font-size: 4vw;
     }
 
-    .cheese-buttons-grid.cutting {
-        opacity: 1;
-        pointer-events: auto;
-        left: 43%;
-        top: 40%;
-    }
-
-    .cheese-buttons-grid.cutting[data-cheese="petite"] {
-        left: 5%;
-        top: 40%;
-    }
-    
-    .cheese-buttons-grid.cutting[data-cheese="camamber"] {
-        left: 5%;
-        top: 40%;
-    }
-
-    .cheese-buttons-grid.cutting[data-cheese="blue"] {
-        left: 39%;
-        top: 45%;
-    }
-
-    .cheese-buttons-grid.cutting[data-cheese="fondant"] {
-        left: 5%;
-        top: 48%;
-    }
-
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button {
         transform: rotate(0deg);
     }
@@ -384,38 +408,81 @@
         transform: rotate(0deg);
     }
     
-    .cheese-buttons-grid[data-cheese="blue"] .cheese-button {
+    .cheese-buttons-grid.cutting {
+        opacity: 1;
+        pointer-events: auto;
+        left: 43%;
+        top: 40%;
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="petite"] {
+        width: 85vw;
+        height: 85vw;
+        left: 5%;
+        top: 40%;
         transform: rotate(0deg);
     }
+    
+    .cheese-buttons-grid.cutting[data-cheese="camamber"] {
+        width: 85vw;
+        height: 85vw;
+        left: 5%;
+        top: 40%;
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="blue"] {
+        left: 5%;
+        top: 48%;
+        width: 38vh;
+        height: 38vh;
+        transform: rotate(50deg);
+    }
 
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button {
+        transform: rotate(-50deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="fondant"] {
+        left: 13%;
+        top: 47%;
+        width: 38vh;
+        height: 38vh;
+        transform: rotate(-48deg);
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button {
+        transform: rotate(48deg);
+    }
+    
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
         top: auto;
         bottom: -4%;
         left: auto;
-        right: 4%;
+        right: -1%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
-        left: 14%;
+        left: 18%;
         bottom: auto;
-        top: 60%;
+        top: 68%;
         right: auto;
     }
     
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
-        top: 46%;
+        top: 49%;
         left: auto;
-        right: 11%;
+        right: 5%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
         left: 14%;
-        top: 29%;
+        top: 33%;
         right: auto;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
-        top: 6%;
+        top: 8%;
         left: auto;
         right: 10%;
     }
@@ -423,52 +490,52 @@
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
         left: auto;
         top: auto;
-        right: 36%;
+        right: 32%;
         bottom: 100%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
-        top: -31%;
+        top: -35%;
         bottom: auto;
         right: auto;
-        left: 49%;
+        left: 51%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
         bottom: 144%;
         right: auto;
-        left: 17%;
+        left: 19%;
         top: auto;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
         top: auto;
-        bottom: -4%;
+        bottom: -8%;
         left: auto;
-        right: 4%;
+        right: -1%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
-        left: 14%;
+        left: 18%;
         bottom: auto;
-        top: 60%;
+        top: 68%;
         right: auto;
     }
     
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
-        top: 46%;
+        top: 49%;
         left: auto;
-        right: 11%;
+        right: 5%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
         left: 14%;
-        top: 29%;
+        top: 33%;
         right: auto;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(5) {
-        top: 6%;
+        top: 8%;
         left: auto;
         right: 10%;
     }
@@ -476,120 +543,120 @@
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
         left: auto;
         top: auto;
-        right: 36%;
-        bottom: 100%;
+        right: 35%;
+        bottom: 97%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
-        top: -31%;
+        top: -35%;
         bottom: auto;
         right: auto;
-        left: 49%;
+        left: 51%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(8) {
         bottom: 144%;
         right: auto;
-        left: 17%;
+        left: 19%;
         top: auto;
     }
 
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(1) {
-        top: 49%;
-        left: -33%;
+        top: 47%;
+        left: 59%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(2) {
-        left: 18%;
-        top: -1%;
+        left: -6%;
+        top: -10%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(3) {
-        top: 71%;
-        left: 0%;
+        top: 41%;
+        left: 24%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(4) {
-        left: -3%;
-        top: 30%;
+        left: -39%;
+        top: -1%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(5) {
-        top: 93%;
-        left: 41%;
+        top: 18%;
+        left: -1%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
-        left: -94%;
-        top: -15%;
+        left: -82%;
+        top: -47%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(7) {
-        top: -70%;
+        top: -30%;
         right: auto;
-        left: -37%;
+        left: -46%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
         right: auto;
-        left: 49%;
-        top: -34%;
+        left: 99%;
+        top: 56%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(1) {
-        top: 66%;
-        left: 62%;
+        top: 37%;
+        left: -2%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(2) {
-        left: 9%;
-        top: 37%;
+        left: 27%;
+        top: 91%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(3) {
-        top: 24%;
-        left: 62%;
+        top: 69%;
+        left: 64%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(4) {
-        left: 34%;
-        top: 7%;
+        left: 70%;
+        top: 36%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(5) {
-        top: -26%;
-        left: 45%;
+        top: 19%;
+        left: 0%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(6) {
-        left: 13%;
+        left: 70%;
         top: -29%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(7) {
-        top: -50%;
+        top: -15%;
         right: auto;
-        left: 32%;
+        left: 96%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(8) {
-        top: -75%;
-        left: 2%;
+        top: -62%;
+        left: 91%;
         width: max-content;
     }
 }

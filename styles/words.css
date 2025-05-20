@@ -5,6 +5,7 @@
     overflow: hidden;
     z-index: 40;
     opacity: 0;
+    pointer-events: none;
 }
 
 .word-drum-1 {

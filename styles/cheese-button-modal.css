@@ -283,7 +283,7 @@
     left: 6%;
     top: 15%;
     width: 35px;
-        height: 40px;
+    height: 40px;
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
@@ -381,11 +381,17 @@
         width: 85%;
     }
 
+    .modal-text-block {
+        font-size: 3vh;
+    }
+
     .modal-cheese-image {
-        top: -133px;
+        content: url(../images/fondant-shadow.webp);
+        top: -100px;
         left: 26%;
         width: 90%;
         max-height: 320px;
+        z-index: 51;
     }
 
     .modal-subtitle {
