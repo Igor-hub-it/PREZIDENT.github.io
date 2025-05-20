@@ -93,6 +93,36 @@
         .modal-characteristics .modal-content {
             padding-top: 60px;
         }
+
+        .modal-mold .modal-title {
+            margin-top: 120px;
+        }
+
+        .modal-mold .modal-mold-subtitle {
+            width: 90%;
+            margin-top: 0;
+            font-size: 2.2vh;
+            color: #FFE26B;
+        }
+
+        .modal-text-blocks[data-cheese="fondant"] {
+            height: 210px;
+        }
+
+        .modal-image-1[data-cheese="fondant"] {
+            top: 38%;
+            left: 20%;
+            width: 63%;
+        }
+
+        .modal-image-2[data-cheese="fondant"] {
+            display: none;
+        }
+
+        .modal-image-4[data-cheese="fondant"] {
+            top: 22%;
+            left: 72%;
+        }
     </style>
 </head>
 <body>
@@ -570,7 +600,7 @@
             <img src="images/close.webp" alt="Close" class="modal-close">
             <img src="" alt="Selected Cheese" class="modal-cheese-image">
             <h2 class="modal-title">Культура плесени</h2>
-            <h3 class="modal-subtitle"></h3>
+            <h3 class="modal-mold-subtitle"></h3>
             <button class="modal-understand-button"><span>Понятно</span></button>
         </div>
     </div>
@@ -2191,6 +2221,13 @@
                     const images = modal.querySelectorAll('.modal-image');
                     const textBlocks = modal.querySelectorAll('.modal-text-block');
                     
+                    // Устанавливаем атрибут data-cheese для всех изображений и текстовых блоков
+                    images.forEach(img => img.setAttribute('data-cheese', cheeseType));
+                    const textBlocksContainer = modal.querySelector('.modal-text-blocks');
+                    if (textBlocksContainer) {
+                        textBlocksContainer.setAttribute('data-cheese', cheeseType);
+                    }
+                    
                     // Заполняем изображения
                     data.images.images.forEach((src, index) => {
                         if (images[index]) {
@@ -2244,7 +2281,7 @@
                 case 'mold':
                     // Заполняем информацию о культуре плесени
                     const cheeseImage = modal.querySelector('.modal-cheese-image');
-                    const subtitle = modal.querySelector('.modal-subtitle');
+                    const subtitle = modal.querySelector('.modal-mold-subtitle');
                     
                     // Устанавливаем изображение выбранного сыра
                     cheeseImage.src = document.querySelector('.selected-cheese-image').src;
@@ -2267,7 +2304,7 @@
                     
                     if (descriptionData) {
                         descSubtitle.textContent = descriptionData.title;
-                        descText.textContent = descriptionData.text;
+                        descText.innerHTML = descriptionData.text;
                     } else {
                         console.warn(`Описание не найдено для ключа: "${buttonText}"`);
                     }
@@ -2371,8 +2408,8 @@
                 },
                 mold: {
                     title: "Культура плесени",
-                    subtitle: "Penicillium candidum",
-                    description: "Белая плесень, которая создает характерную бархатистую корочку"
+                    subtitle: "Penicillium Candidum и Geotrichum Candidum",
+                    description: "Penicillium Candidum и Geotrichum Candidum"
                 },
                 description: {
                     "Бри – сыр королей": {
@@ -2381,7 +2418,7 @@
                     },
                     "Ассортимент": {
                         title: "Ассортимент",
-                        text: "Наслаждайтесь вкусом настоящего Бри в различных форматах"
+                        text: "Наслаждайтесь вкусом настоящего Бри в различных форматах<br><br>• Petit Brie 125g<br>• Brie 200g<br>• Brie 1,2 kg"
                     },
                     "С чем сочетать<br> Бри President?": {
                         title: "С чем сочетать<br> Бри President?",
@@ -2462,7 +2499,7 @@
                     },
                     "Ассортимент": {
                         title: "Ассортимент",
-                        text: "Наслаждайтесь вкусом настоящего Камамбера в различных "
+                        text: "Наслаждайтесь вкусом настоящего Камамбера в различных форматах<br><br>• Классический Camembert President<br>• Camembert Grill — идеально для жарки и запекания"
                     },
                     "С чем сочетать Камамбер?": {
                         title: "С чем сочетать Камамбер?",
@@ -2525,8 +2562,8 @@
                 },
                 mold: {
                     title: "Культура плесени",
-                    subtitle: "Penicillium roqueforti",
-                    description: "Голубая плесень, которая создает характерный мраморный рисунок"
+                    subtitle: "Penicillium Roqueforti",
+                    description: "Penicillium Roqueforti"
                 },
                 description: {
                     "Богатая история": {
@@ -2562,7 +2599,7 @@
                     ],
                     textBlocks: [
                         "Тающая, нежная текстура",
-                        "Тонкаякорочка",
+                        "Тонкая корочка",
                     ]
                 },
                 characteristics: {
@@ -2601,8 +2638,8 @@
                 },
                 mold: {
                     title: "Культура плесени",
-                    subtitle: "Penicillium candidum",
-                    description: "Белая плесень, которая создает характерную бархатистую корочку"
+                    subtitle: "Geotrichum Candidum и Penicillium Candidum",
+                    description: "Geotrichum Candidum и Penicillium Candidum"
                 },
                 description: {
                     "Текстура": {

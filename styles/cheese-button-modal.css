@@ -153,7 +153,7 @@
 }
 
 .modal-text-block:nth-of-type(1) {
-    left: 27%;
+    left: 30%;
     top: -2%;
     width: 40%;
 }
@@ -382,7 +382,10 @@
     }
 
     .modal-cheese-image {
-        top: -140px;
+        top: -133px;
+        left: 26%;
+        width: 90%;
+        max-height: 320px;
     }
 
     .modal-subtitle {
