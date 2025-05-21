@@ -271,7 +271,7 @@
 
 @media screen and (max-width: 768px) {
     .auth-modal.active .auth-modal-content {
-        transform: translateY(30%);
+        transform: translateY(90%);
     }
     .auth-modal-content {
         width: 95%;
@@ -766,6 +766,10 @@
         right: -3%;
         top: -5%;
     }
+}
 
-
+@media screen and (max-width: 600px) {
+    .auth-modal.active .auth-modal-content {
+        transform: translateY(30%);
+    }
 }

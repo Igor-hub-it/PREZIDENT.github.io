@@ -306,6 +306,106 @@
     }
 
     .quiz-image-1 {
+        width: 50%;
+        top: -150px;
+        left: 25%;
+    }
+
+    .quiz-image-2 {
+        width: 100%;
+        top: -310px;
+        left: 29%;
+    }
+
+    .quiz-image-3 {
+        width: 120%;
+        top: -360px;
+        left: 16%;
+    }
+
+    .quiz-image-4 {
+        width: 110%;
+        top: -270px;
+        left: 27%;
+    }
+
+    .quiz-image-5 {
+        width: 90%;
+        top: -240px;
+        left: 32%;
+    }
+
+    .quiz-image-6 {
+        width: 48%;
+        top: -80px;
+        left: 25%;
+    }
+
+    .quiz-image-7 {
+        width: 50%;
+        top: -150px;
+        left: 25%;
+    }
+
+    .quiz-text {
+        margin-top: 150px;
+        font-size: 3vh;
+    }
+
+    .quiz-options {
+        gap: 0px;
+        width: 100%;
+    }
+
+    .quiz-option {
+        font-size: 3vh;
+        padding: 20px 15px;
+    }
+
+    .quiz-result {
+        font-size: 3.5vh;
+    }
+
+    .quiz-description {
+        font-size: 2vh;
+    }
+
+    .quiz-next {
+        font-size: 2.8vh;
+        padding: 12px 20px;
+    }
+
+    .quiz-rules {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+}
+
+.quiz-modal-close {
+    position: absolute;
+    top: 0px;
+    right: -50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+@media screen and (max-width: 768px) {
+    .quiz-modal-close {
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .quiz-text {
+        margin-top: 100px;
+    }
+
+    .quiz-image-1 {
         width: 60%;
         top: -80px;
         left: 20%;
@@ -346,55 +446,4 @@
         top: -80px;
         left: 20%;
     }
-
-    .quiz-text {
-        font-size: 20px;
-    }
-
-    .quiz-options {
-        gap: 0px;
-        width: 100%;
-    }
-
-    .quiz-option {
-        font-size: 20px;
-        padding: 20px 15px;
-    }
-
-    .quiz-result {
-        font-size: 32px;
-    }
-
-    .quiz-description {
-        font-size: 16px;
-    }
-
-    .quiz-next {
-        font-size: 16px;
-        padding: 12px 20px;
-    }
-
-    .quiz-rules {
-        margin-top: 20px;
-        font-size: 16px;
-    }
 }
-
-.quiz-modal-close {
-    position: absolute;
-    top: 0px;
-    right: -50px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 101;
-}
-
-@media screen and (max-width: 768px) {
-    .quiz-modal-close {
-        top: 15px;
-        right: 15px;
-        width: 30px;
-        height: 30px;
-    }
-} 

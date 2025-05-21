@@ -111,6 +111,13 @@
     width: 63%;
 }
 
+.modal-image-1[data-cheese="blue"] {
+    position: absolute;
+    top: 25%;
+    left: 28%;
+    width: 60%;
+}
+
 .modal-image-2 {
     position: absolute;
     top: 53%;
