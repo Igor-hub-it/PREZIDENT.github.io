@@ -177,6 +177,10 @@
     width: 64%;
 }
 
+.modal-text-block:nth-of-type(3)[data-cheese="fondant"] {
+    display: none;
+}
+
 /* Стили для модального окна с характеристиками */
 .characteristics-container {
     display: flex;
@@ -379,29 +383,38 @@
         padding: 12px 24px;
         margin-top: 20px;
     }
-
+    
     .modal-understand-button span {
         font-size: 20px;
     }
-
+    
     .modal.active {
-        width: 85%;
+        width: 47%;
     }
-
+    
     .modal-text-block {
-        font-size: 3vh;
+        font-size: 2vh;
     }
-
-    .modal-cheese-image {
+    
+    .modal-cheese-image[data-cheese="fondant"] {
         content: url(../images/fondant-shadow.webp);
-        top: -100px;
-        left: 26%;
-        width: 90%;
-        max-height: 320px;
+        top: -118px;
+        left: 18%;
+        width: 112%;
         z-index: 51;
     }
 
     .modal-subtitle {
         margin-top: 90px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal.active {
+        width: 85%;
+    }
+
+    .modal-text-block {
+        font-size: 2.2vh;
     }
 }

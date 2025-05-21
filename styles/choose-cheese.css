@@ -281,6 +281,10 @@
     object-fit: contain;
 }
 
+.selected-cheese-image[data-cheese="fondant"] {
+    content: url(../images/fondant-shadow.webp);
+}
+
 .cheese-info-card {
     display: none;
     position: fixed;

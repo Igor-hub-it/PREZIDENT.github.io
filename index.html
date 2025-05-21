@@ -64,33 +64,6 @@
             transform: translateX(-50%);
         }
 
-        /* @media (max-width: 768px) {
-            .characteristics-top-image {
-                width: 150px;
-                top: -20px;
-            }
-
-            .characteristics-top-image-petite {
-                width: 130px;
-                top: -18px;
-            }
-
-            .characteristics-top-image-camamber {
-                width: 160px;
-                top: -25px;
-            }
-
-            .characteristics-top-image-blue {
-                width: 140px;
-                top: -22px;
-            }
-
-            .characteristics-top-image-fondant {
-                width: 135px;
-                top: -20px;
-            }
-        } */
-
         .modal-characteristics .modal-content {
             padding-top: 60px;
         }
@@ -1561,7 +1534,7 @@
                         });
                         break;
                     case 'fondant':
-                        selectedCheeseImage.src = 'images/fondant.webp';
+                        selectedCheeseImage.src = 'images/fondant-shadow.webp';
                         cheeseInfoName.textContent = 'LE CREMIOT EXTRA FONDANT';
                         cheeseInfoNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
                         selectedCheeseName.textContent = 'LE CREMIOT EXTRA FONDANT';
@@ -2247,6 +2220,7 @@
                     data.images.textBlocks.forEach((text, index) => {
                         if (textBlocks[index]) {
                             textBlocks[index].textContent = text;
+                            textBlocks[index].setAttribute('data-cheese', cheeseType);
                         }
                     });
                     break;
@@ -2293,6 +2267,7 @@
                     
                     // Устанавливаем изображение выбранного сыра
                     cheeseImage.src = document.querySelector('.selected-cheese-image').src;
+                    cheeseImage.setAttribute('data-cheese', cheeseType);
                     
                     // Устанавливаем данные о плесени
                     subtitle.textContent = data.mold.subtitle;
@@ -2301,6 +2276,7 @@
                 case 'description':
                     // Заполняем описание
                     const descCheeseImage = modal.querySelector('.modal-cheese-image');
+                    descCheeseImage.setAttribute('data-cheese', cheeseType);
                     const descSubtitle = modal.querySelector('.modal-subtitle');
                     const descText = modal.querySelector('.modal-text');
                     
