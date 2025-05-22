@@ -236,6 +236,23 @@
                     <h3 class="cheese-name">Red Snack</h3>
                     <p class="cheese-description">Уникальный насыщенный вкус с пикантными дымными нотками и сливочным послевкусием</p>
                 </div>
+                <div class="cheese-card">
+                    <img src="images/grill.webp" alt="Grill" class="cheese-image">
+                    <h3 class="cheese-name">Red Snack</h3>
+                    <p class="cheese-description"> Легендарный французский сыр с бархатистой белой корочкой при запекании становится еще более нежным, а вкус раскрывается с новой стороны. Подходит для запекания в духовке, на гриле, а также для жарки на сковородке. 
+                    </p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/lingot.webp" alt="Lingot" class="cheese-image">
+                    <h3 class="cheese-name">Red Snack</h3>
+                    <p class="cheese-description">Lingot - это настоящий слиток удовольствия для любителей французских сыров. Этот мягкий сыр с белой корочкой имеет прямоугольную форму, благодаря которой его удобно нарезать на сэндвичи. Также Lingot прекрасно запекается.
+                    </p>
+                </div>
+                <div class="cheese-card">
+                    <img src="images/snack_france.webp" alt="France" class="cheese-image">
+                    <h3 class="cheese-name">Red Snack</h3>
+                    <p class="cheese-description">Снэк a la Francaise President - это перекус по-французски. Традиционный французский сыр с белой корочкой удобно резать на небольшие кружочки благодаря "разметке".   Побалуйте себя изысканным перекусом или дополните этим снэком сырную тарелку.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -737,8 +754,7 @@ function updateQuizContent(step) {
         const participateButton = content.querySelector('.quiz-option');
         participateButton.addEventListener('click', () => {
             // Здесь можно добавить логику для участия в розыгрыше
-            alert('Спасибо за участие!');
-            closeQuizModal();
+            showQuizSuccessScreen();
         });
     } else {
         const options = content.querySelectorAll('.quiz-option');
@@ -1225,6 +1241,7 @@ function openAuthModal() {
         burgerMenu.classList.remove('active');
         document.querySelector('.content-wrapper').classList.remove('menu-active');
         mobileMenu.classList.remove('active');
+        showCards();
         showProducts();
         applyAnimation(slateMobile, 'showSlateMobile');
     }
@@ -1543,8 +1560,8 @@ function hideSliderAndText(cheeseType) {
                 cheeseInfoNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
                 selectedCheeseName.textContent = 'LE CREMIOT EXTRA FONDANT';
                 selectedCheeseNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
-                cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
-                cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
+                cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>12 дней</span>';
+                cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>12 дней</span>';
                 cheeseInfoFat.innerHTML = 'Жирность: <span>60%</span>';
                 cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>60%</span>';
                 gridImages.forEach((img, index) => {
@@ -1679,14 +1696,26 @@ headerBackArrow.addEventListener('click', () => {
         const cheeseImages = document.querySelectorAll('.cheese-image');
         cheeseImages.forEach(image => {
             image.classList.add('active');
-            if (image.classList.contains('petite')) {
-                image.style.animation = 'showPetite 1s ease-out forwards';
-            } else if (image.classList.contains('camamber-box')) {
-                image.style.animation = 'showCamamberBox 1s ease-out forwards';
-            } else if (image.classList.contains('blue')) {
-                image.style.animation = 'showBlue 1.5s ease-out forwards';
-            } else if (image.classList.contains('fondant')) {
-                image.style.animation = 'showFondant 1s ease-out forwards';
+            if(window.innerWidth <= 1050) {
+                if (image.classList.contains('petite')) {
+                    image.style.animation = 'showPetiteTablet 1s ease-out forwards';
+                } else if (image.classList.contains('camamber-box')) {
+                    image.style.animation = 'showCamamberBoxTablet 1s ease-out forwards';
+                } else if (image.classList.contains('blue')) {
+                    image.style.animation = 'showBlueTablet 1.5s ease-out forwards';
+                } else if (image.classList.contains('fondant')) {
+                    image.style.animation = 'showFondantTablet 1s ease-out forwards';
+                }
+            } else if (window.innerWidth > 1050) {
+                if (image.classList.contains('petite')) {
+                    image.style.animation = 'showPetite 1s ease-out forwards';
+                } else if (image.classList.contains('camamber-box')) {
+                    image.style.animation = 'showCamamberBox 1s ease-out forwards';
+                } else if (image.classList.contains('blue')) {
+                    image.style.animation = 'showBlue 1.5s ease-out forwards';
+                } else if (image.classList.contains('fondant')) {
+                    image.style.animation = 'showFondant 1s ease-out forwards';
+                }
             }
         });
 
@@ -1784,6 +1813,7 @@ cheeseChoiceButtons.forEach(button => {
         // Скрываем изображения сыров с анимацией
         const cheeseImages = document.querySelectorAll('.cheese-image');
         cheeseImages.forEach(image => {
+            if (window.innerWidth <= 1050) {}
             if (image.classList.contains('petite')) {
                 image.style.animation = 'hidePetite 1s ease-out forwards';
             } else if (image.classList.contains('camamber-box')) {
@@ -1884,8 +1914,8 @@ cheeseChoiceButtons.forEach(button => {
                     cheeseInfoNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
                     selectedCheeseName.textContent = 'LE CREMIOT EXTRA FONDANT';
                     selectedCheeseNameDesktop.textContent = 'LE CREMIOT EXTRA FONDANT';
-                    cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
-                    cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>3-4 недели</span>';
+                    cheeseInfoMaturation.innerHTML = 'Срок созревания: <span>12 дней</span>';
+                    cheeseInfoMaturationDesktop.innerHTML = 'Срок созревания: <span>12 дней</span>';
                     cheeseInfoFat.innerHTML = 'Жирность: <span>60%</span>';
                     cheeseInfoFatDesktop.innerHTML = 'Жирность: <span>60%</span>';
                     gridImages.forEach((img, index) => {
@@ -2155,14 +2185,26 @@ desktopBackArrow.addEventListener('click', () => {
     const cheeseImages = document.querySelectorAll('.cheese-image');
     cheeseImages.forEach(image => {
         image.classList.add('active');
-        if (image.classList.contains('petite')) {
-            image.style.animation = 'showPetite 1s ease-out forwards';
-        } else if (image.classList.contains('camamber-box')) {
-            image.style.animation = 'showCamamberBox 1s ease-out forwards';
-        } else if (image.classList.contains('blue')) {
-            image.style.animation = 'showBlue 1.5s ease-out forwards';
-        } else if (image.classList.contains('fondant')) {
-            image.style.animation = 'showFondant 1s ease-out forwards';
+        if(window.innerWidth <= 1050) {
+            if (image.classList.contains('petite')) {
+                image.style.animation = 'showPetiteTablet 1s ease-out forwards';
+            } else if (image.classList.contains('camamber-box')) {
+                image.style.animation = 'showCamamberBoxTablet 1s ease-out forwards';
+            } else if (image.classList.contains('blue')) {
+                image.style.animation = 'showBlueTablet 1.5s ease-out forwards';
+            } else if (image.classList.contains('fondant')) {
+                image.style.animation = 'showFondantTablet 1s ease-out forwards';
+            }
+        } else if (window.innerWidth > 1050) {
+            if (image.classList.contains('petite')) {
+                image.style.animation = 'showPetite 1s ease-out forwards';
+            } else if (image.classList.contains('camamber-box')) {
+                image.style.animation = 'showCamamberBox 1s ease-out forwards';
+            } else if (image.classList.contains('blue')) {
+                image.style.animation = 'showBlue 1.5s ease-out forwards';
+            } else if (image.classList.contains('fondant')) {
+                image.style.animation = 'showFondant 1s ease-out forwards';
+            }
         }
     });
 
@@ -2674,6 +2716,46 @@ document.addEventListener('DOMContentLoaded', function() {
 // Добавляем обработчик для кнопки закрытия
 const authModalClose = document.querySelector('.auth-modal-close');
 authModalClose.addEventListener('click', closeAuthModal);
+
+// Добавляем обработчики для кнопок в мобильном меню
+const mobileMenuButtons = document.querySelectorAll('.mobile-menu .nav-button, .mobile-menu .quiz-button, .mobile-menu .enter-button');
+mobileMenuButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Закрываем бургер-меню
+        burgerMenu.classList.remove('active');
+        document.querySelector('.content-wrapper').classList.remove('menu-active');
+        mobileMenu.classList.remove('active');
+        
+        // Показываем карточки
+        showProducts();
+        showCards();
+        if (slateMobile) {
+            applyAnimation(slateMobile, 'showSlateMobile');
+        }
+    });
+});
+
+function showQuizSuccessScreen() {
+    const quizContent = document.querySelector('.quiz-modal-content');
+    
+    quizContent.innerHTML = ''; // очищаем старое содержимое
+
+    const successContent = document.createElement('div');
+    successContent.className = 'success-content active';
+    successContent.innerHTML = `
+        <img src="images/sticker.webp" alt="Sticker" class="success-sticker">
+        <h2 class="success-title-quiz">Спасибо за участие! 🎉</h2>
+        <button class="success-button"><span>Закрыть</span></button>
+    `;
+    
+    quizContent.appendChild(successContent);
+
+    const closeButton = successContent.querySelector('.success-button');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeQuizModal);
+    }
+}
+
 </script>
 </body>
 </html>

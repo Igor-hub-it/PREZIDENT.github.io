@@ -358,6 +358,157 @@
     }
 } */
 
+@media (max-width: 1050px) {
+    .desktop-back-arrow {
+        display: none;
+    }
+
+    .cheese-buttons-grid {
+        position: fixed;
+        left: -200%;
+        width: 85vw;
+        height: 85vw;
+        max-width: 50vh;
+        max-height: 50vh;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        transition-delay: 1.5s;
+        z-index: 2;
+    }
+
+
+    .cheese-buttons-grid.cutting[data-cheese="petite"] {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="camamber"] {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="blue"] {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="fondant"] {
+
+    }
+
+    .cheese-button {
+        padding: 12px;
+        font-weight: 400;
+        left: 50%;
+        font-size: 4vw;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid[data-cheese="camamber"] .cheese-button {
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting {
+        opacity: 1;
+        pointer-events: auto;
+        left: 43%;
+        top: 40%;
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="petite"] {
+        width: 85vw;
+        height: 85vw;
+        left: 5%;
+        top: 40%;
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="camamber"] {
+        width: 85vw;
+        height: 85vw;
+        left: 5%;
+        top: 40%;
+        transform: rotate(0deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="blue"] {
+        left: 5%;
+        top: 48%;
+        width: 38vh;
+        height: 38vh;
+        transform: rotate(50deg);
+    }
+
+    .cheese-buttons-grid[data-cheese="blue"] .cheese-button {
+        transform: rotate(-50deg);
+    }
+    
+    .cheese-buttons-grid.cutting[data-cheese="fondant"] {
+        left: 13%;
+        top: 47%;
+        width: 38vh;
+        height: 38vh;
+        transform: rotate(-48deg);
+    }
+    
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button {
+        transform: rotate(48deg);
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
+        top: auto;
+        bottom: -4%;
+        left: auto;
+        right: -1%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
+        left: 18%;
+        bottom: auto;
+        top: 68%;
+        right: auto;
+    }
+    
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
+        top: 49%;
+        left: auto;
+        right: 5%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
+        left: 14%;
+        top: 33%;
+        right: auto;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
+        top: 8%;
+        left: auto;
+        right: 10%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
+        left: auto;
+        top: auto;
+        right: 32%;
+        bottom: 100%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {
+        top: -32%;
+        bottom: auto;
+        right: auto;
+        left: 66%;
+    }
+
+    .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(8) {
+        bottom: 137%;
+        right: auto;
+        left: 26%;
+        top: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .desktop-back-arrow {
         display: none;

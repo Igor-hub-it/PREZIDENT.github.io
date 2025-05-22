@@ -222,9 +222,45 @@
     .quiz-button {
         padding: 1vh 1.8vw;
     }
+
+    .header {
+        background: linear-gradient(to bottom, #cc0101 0%, #cc0101 80%, transparent 80%, transparent 100%);
+    }
+
+    .logo {
+        position: absolute;
+        top: 24%;
+        width: 16%;
+        margin-left: 4.05%;
+        z-index: 1;
+    }
+
+    .header-red {
+        top: 55%;
+    }
+    
+    .header-yellow {
+        top: 56%;
+    }
+
+    .nav-button, .quiz-button {
+        font-size: 1.7vh;
+    }
+
+    .enter-button {
+        font-size: 1.7vh;
+    }
+    
+    .enter-button img {
+        height: 2.5vh;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    .header {
+        background: none;
+    }
+
     .logo {
         position: absolute;
         top: 60%;
@@ -236,6 +272,7 @@
     }
     
     .header-red {
+        top: 0;
         content: url('../images/header-red-mobile.webp');
         height: auto;
         width: 100%;
@@ -244,8 +281,8 @@
     }
     
     .header-yellow {
+        top: 0;
         content: url('../images/header-yellow-mobile.webp');
-        top: 1px;
         height: auto;
         width: 100%;
         z-index: 0;
