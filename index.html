@@ -615,6 +615,15 @@
         </div>
     </div>
 
+    <!-- Модальное окно приглашения к квизу -->
+    <div class="quiz-invite-modal">
+        <div class="quiz-invite-modal-content">
+            <img src="images/close.webp" alt="Close" class="quiz-invite-modal-close">
+            <div class="quiz-invite-text">Пройдите сырный квиз и участвуйте в розыгрыше призов</div>
+            <button class="quiz-invite-button"><span>Участвовать</span></button>
+        </div>
+    </div>
+
 <script>
 let isFirstLoad = true;
 const slateMobile = document.querySelector('.slate-mobile');
@@ -2782,6 +2791,31 @@ function showQuizSuccessScreen() {
         closeButton.addEventListener('click', closeQuizModal);
     }
 }
+
+// Модальное окно приглашения к квизу
+const quizInviteModal = document.querySelector('.quiz-invite-modal');
+const quizInviteButton = document.querySelector('.quiz-invite-button');
+const quizInviteClose = document.querySelector('.quiz-invite-modal-close');
+
+function openQuizInviteModal() {
+    quizInviteModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeQuizInviteModal() {
+    quizInviteModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+setTimeout(openQuizInviteModal, 100000);
+
+quizInviteButton.addEventListener('click', function() {
+    closeQuizInviteModal();
+    openQuizModal();
+});
+quizInviteClose.addEventListener('click', closeQuizInviteModal);
+quizInviteModal.addEventListener('click', function(e) {
+    if (e.target === quizInviteModal) closeQuizInviteModal();
+});
 
 </script>
 <script src="js/cheese-slider.js"></script>
