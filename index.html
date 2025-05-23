@@ -240,19 +240,19 @@
                     </div>
                     <div class="cheese-card">
                         <img src="images/grill.webp" alt="Grill" class="great-cheese-image">
-                        <h3 class="cheese-name">Red Snack</h3>
+                        <h3 class="cheese-name">Camembert Grill</h3>
                         <p class="cheese-description"> Легендарный французский сыр с бархатистой белой корочкой при запекании становится еще более нежным, а вкус раскрывается с новой стороны. Подходит для запекания в духовке, на гриле, а также для жарки на сковородке. 
                         </p>
                     </div>
                     <div class="cheese-card">
                         <img src="images/lingot.webp" alt="Lingot" class="great-cheese-image">
-                        <h3 class="cheese-name">Red Snack</h3>
+                        <h3 class="cheese-name">Lingot</h3>
                         <p class="cheese-description">Lingot - это настоящий слиток удовольствия для любителей французских сыров. Этот мягкий сыр с белой корочкой имеет прямоугольную форму, благодаря которой его удобно нарезать на сэндвичи. Также Lingot прекрасно запекается.
                         </p>
                     </div>
                     <div class="cheese-card">
                         <img src="images/snack_france.webp" alt="France" class="great-cheese-image">
-                        <h3 class="cheese-name">Red Snack</h3>
+                        <h3 class="cheese-name">Snack a la Francaise</h3>
                         <p class="cheese-description">Снэк a la Francaise President - это перекус по-французски. Традиционный французский сыр с белой корочкой удобно резать на небольшие кружочки благодаря "разметке".   Побалуйте себя изысканным перекусом или дополните этим снэком сырную тарелку.</p>
                     </div>
                 </div>
@@ -326,7 +326,7 @@
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <ul>
-                                <li>Бри и камамбер — оба сыра с благородной белой плесенью, но с рядом различий. Бри немного мягче, сливочнее и выпускается в крупных кругах. Камамбер созревает быстрее, а также  имеет более насыщенный вкус и выраженный грибной аромат. У камамбера плотная корочка и текучая текстура, у бри — нежнее и кремовее.</li>
+                                <li>Бри и Камамбер – оба сыра с благородной плесенью, но у них есть ряд различий. Бри President имеет бархатистую корочку, сливочную сердцевину и нежный вкус. А Камамбер President - это сочетание ярко выраженного пикантного вкуса и тонкой корочки, которая со временем приобретает острые нотки.</li>
                             </ul>
                         </div>
                     </div>
@@ -400,7 +400,7 @@
     <div class="choose-cheese-container">
         <button class="cheese-choice-button"><span>PRÉSIDENT БРИ</span></button>
         <button class="cheese-choice-button"><span>PRÉSIDENT КАМАМБЕР</span></button>
-        <button class="cheese-choice-button"><span>PRÉSIDENT ROUAL BLEU</span></button>
+        <button class="cheese-choice-button"><span>PRÉSIDENT ROYAL BLEU</span></button>
         <button class="cheese-choice-button"><span>PRÉSIDENT EXTRA FOUNDANT</span></button>
     </div>
 
@@ -417,7 +417,7 @@
                 </div>
                 <div class="slide">
                     <img src="images/bleu-shadow.webp" alt="Blue" class="slide-image blue-slider">
-                    <button class="slide-button" data-cheese="blue"><span>PRÉSIDENT ROUAL BLEU</span></button>
+                    <button class="slide-button" data-cheese="blue"><span>PRÉSIDENT ROYAL BLEU</span></button>
                 </div>
                 <div class="slide">
                     <img src="images/fondant.webp" alt="Fondant" class="slide-image fondant-slider">
@@ -681,12 +681,12 @@ const quizData = [
         questionNumber: '4/5',
         text: 'Какое из утверждений верно?',
         options: [
-            'Камамбер имеет более грибной вкус и тонкую корочку, а Бри более</br> сливочный вкус и мягкий внутри',
-            'У Бри более толстая корочка,</br> чем у Камамбера.',
-            'Камамбер не имеет корочки, в отличие</br> от Бри, который всегда имеет</br> выраженную корочку.'
+            'Камамбер имеет более грибной вкус и тонкую корочку, а Бри более сливочный вкус и мягкий внутри',
+            'У Бри более толстая корочка, чем у Камамбера.',
+            'Камамбер не имеет корочки, в отличие от Бри, который всегда имеет выраженную корочку.'
         ],
-        correctAnswer: 'Камамбер имеет более</br> грибной вкус и тонкую корочку, а Бри более</br> сливочный вкус и мягкий внутри',
-        description: 'Камамбер обычно имеет более</br> насыщенный грибной вкус и более</br> тонкую корочку, в то время</br> как Бри может быть более мягким</br> и сливочным.'
+        correctAnswer: 'Камамбер имеет более грибной вкус и тонкую корочку, а Бри более сливочный вкус и мягкий внутри',
+        description: 'Камамбер обычно имеет более</br> насыщенный грибной вкус и более тонкую корочку, в то время как Бри может быть более мягким и сливочным.'
     },
     {
         image: 'logo.webp',
@@ -1342,6 +1342,8 @@ authTabs.forEach(tab => {
                 authModalContent.style.transform = 'translateY(21%)';
             } else if(window.innerWidth<=768) {
                 authModalContent.style.transform = 'translateY(50%)';
+            } else if(window.innerWidth<=1500) {
+                authModalContent.style.transform = 'translateY(16%)';
             } else {
                 authModalContent.style.transform = 'translateY(30%)';
             }
@@ -2417,9 +2419,9 @@ const cheeseModalData = {
             title: "Как отличить настоящий сыр бри?",
             images: [
                 "brie-piece.webp",
-                "arrow_1.webp",
-                "arrow_2.webp",
-                "arrow_3.webp"
+                "arrow_1.svg",
+                "arrow_2.svg",
+                "arrow_3.svg"
             ],
             textBlocks: [
                 "Сливочная сердцевина, нежный вкус",
@@ -2494,9 +2496,9 @@ const cheeseModalData = {
             title: "Когда появился камамбер?",
             images: [
                 "camamber-piece.webp",
-                "arrow_1.webp",
-                "arrow_2.webp",
-                "arrow_3.webp"
+                "arrow_1.svg",
+                "arrow_2.svg",
+                "arrow_3.svg"
             ],
             textBlocks: [
                 "Пикантный, немного острый вкус",
@@ -2571,9 +2573,9 @@ const cheeseModalData = {
             title: "Богатая история",
             images: [
                 "blue-piece.webp",
-                "arrow_1.webp",
-                "arrow_2.webp",
-                "arrow_3.webp"
+                "arrow_1.svg",
+                "arrow_2.svg",
+                "arrow_3.svg"
             ],
             textBlocks: [
                 "Срок созревания 80 дней",
@@ -2648,9 +2650,9 @@ const cheeseModalData = {
             title: "Текстура",
             images: [
                 "fondant-piece.webp",
-                "arrow_1.webp",
-                "arrow_2.webp",
-                "arrow_3.webp"
+                "arrow_1.svg",
+                "arrow_2.svg",
+                "arrow_3.svg"
             ],
             textBlocks: [
                 "Тающая, нежная текстура",

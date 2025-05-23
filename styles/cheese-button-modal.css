@@ -1,4 +1,3 @@
-
 /* Стили для модальных окон */
 .modal-overlay {
     position: fixed;
@@ -177,8 +176,8 @@
     width: 64%;
 }
 
-.modal-text-block:nth-of-type(3)[data-cheese="fondant"] {
-    display: none;
+.modal-text-blocks .modal-text-block:nth-of-type(3)[data-cheese="fondant"] {
+    display: none !important;
 }
 
 /* Стили для модального окна с характеристиками */

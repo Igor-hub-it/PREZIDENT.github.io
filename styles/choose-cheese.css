@@ -428,7 +428,7 @@
 
 .cheese-images-grid.active.cutting[data-cheese="blue"] {
     left: 50%;
-    top: 26%;
+    top: 23%;
     right: auto;
     width: 36%;
     transform: rotate(-40deg);
@@ -2132,7 +2132,7 @@
     width: 25%;
     position: fixed;
     bottom: -50%;
-    right: 5%;
+    right: 13%;
     color: #fff;
     font-size: 2.5vh;
     text-align: left;
