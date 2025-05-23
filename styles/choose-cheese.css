@@ -1093,7 +1093,7 @@
             opacity: 1;
         }
         to {
-            bottom: 16%;
+            bottom: 21%;
             left: 28%;
             opacity: 1;
         }
@@ -1101,7 +1101,7 @@
     
     @keyframes hideCamamberBoxTablet {
         from {
-            bottom: 16%;
+            bottom: 21%;
             left: 28%;
             opacity: 1;
         }
@@ -1114,7 +1114,7 @@
 
     .blue {
         position: fixed;
-        bottom: 18%;
+        bottom: 21%;
         left: 49%;
         width: auto;
         height: 21%;
@@ -1141,7 +1141,7 @@
 
     .fondant {
         position: fixed;
-        bottom: 16%;
+        bottom: 21%;
         right: -30%;
         width: auto;
         height: 20%;
@@ -2131,7 +2131,7 @@
 .selected-cheese-text-desktop {
     width: 25%;
     position: fixed;
-    bottom: 5%;
+    bottom: -50%;
     right: 5%;
     color: #fff;
     font-size: 2.5vh;
@@ -2144,8 +2144,98 @@
 }
 
 .selected-cheese-text-desktop.active {
+    bottom: 5%;
     transform: translateY(0);
     opacity: 1;
+}
+
+@media (max-width: 1100px) {
+    .cheese-text-container.active {
+        width: 80%;
+        top: 15%;
+    }
+
+    .cheese-info-card-desktop {
+        bottom: 70%;
+        left: 35%;
+        max-width: 55%;
+    }
+    
+    .selected-cheese {
+        bottom: 5%;
+    }
+    
+    .selected-cheese[data-cheese="petite"] {
+        left: 6%;
+    }
+    
+    .selected-cheese[data-cheese="camamber"] {
+        left: 6%;
+        bottom: 6%;
+    }
+    
+    .selected-cheese[data-cheese="blue"] {
+        left: 6%;
+        bottom: 9%;
+    }
+    
+    .selected-cheese[data-cheese="fondant"] {
+        left: 4%;
+    }
+
+    .cheese-images-grid.active[data-cheese="petite"] {
+        left: 20%;
+        top: 40%;
+        width: 60vw;
+        height: 60vw;
+        transform: rotate(0deg);
+    }
+
+    .cheese-images-grid.active[data-cheese="camamber"] {
+        left: 20%;
+        top: 40%;
+        width: 60vw;
+        height: 60vw;
+        transform: rotate(0deg);
+    }
+    
+    .selected-cheese-text-desktop {
+        
+    }
+
+    .selected-cheese-text-desktop.active {
+        width: 55%;
+        font-size: 2vh;
+        pointer-events: none;
+    }
+
+    .knife-image {
+        right: -200%;
+        top: 50%;
+        height: 55vh;
+    }
+
+    .knife-image.active {
+        opacity: 1;
+        right: 14%;
+        top: 59%;
+        padding: 0;
+        transform: translateY(-50%) rotate(3deg);
+        z-index: 100;
+    }
+    
+    .paw-image.active {
+        width: 10%;
+        height: auto;
+        opacity: 1;
+        right: 1%;
+        top: 70%;
+    }
+    
+    .selected-cheese {
+        pointer-events: none;
+    }
+
 }
 
 @media (max-width: 768px) {

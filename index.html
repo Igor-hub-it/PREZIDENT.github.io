@@ -1012,13 +1012,21 @@ function hideCards() {
         const petiteImage = document.querySelector('.petite');
         petiteImage.style.animation = 'none';
         petiteImage.offsetHeight; // Форсируем перерисовку
-        petiteImage.style.animation = 'showPetite 1s ease-out forwards';
+        if(window.innerWidth > 1100) {
+            petiteImage.style.animation = 'showPetite 1s ease-out forwards';
+        } else if(window.innerWidth <= 1100) {
+            petiteImage.style.animation = 'showPetiteTablet 1s ease-out forwards';
+        }
         petiteImage.classList.add('active');
         // Показываем изображение camamber-box
         const camamberBox = document.querySelector('.camamber-box');
         camamberBox.style.animation = 'none';
         camamberBox.offsetHeight; // Форсируем перерисовку
-        camamberBox.style.animation = 'showCamamberBox 1s ease-out forwards';
+        if(window.innerWidth > 1100) {
+            camamberBox.style.animation = 'showCamamberBox 1s ease-out forwards';
+        } else if(window.innerWidth <= 1100) {
+            camamberBox.style.animation = 'showCamamberBoxTablet 1s ease-out forwards';
+        }
         camamberBox.classList.add('active');
         // Показываем изображение blue
         const blue = document.querySelector('.blue');
@@ -1757,9 +1765,16 @@ document.addEventListener('touchmove', (e) => {
         
         // Если свайп влево на 10% или больше
         if (swipePercentage <= -10) {
-            knifeImage.style.right = '45%';
-            knifeImage.style.top = '65%';
-            knifeImage.style.transform = 'translateY(-50%) rotate(-40deg)';
+            if(window.innerWidth > 768) {
+                knifeImage.style.right = '45%';
+                knifeImage.style.top = '65%';
+                knifeImage.style.transform = 'translateY(-50%) rotate(-40deg)';
+            } else {
+                knifeImage.style.right = '45%';
+                knifeImage.style.top = '65%';
+                knifeImage.style.transform = 'translateY(-50%) rotate(-40deg)';
+            }
+            knifeImage.style.transition = 'right 0.3s ease, top 0.3s ease, transform 0.3s ease';
             // Добавляем флаг, что нож был перемещен
             knifeImage.dataset.moved = 'true';
             
@@ -1768,11 +1783,15 @@ document.addEventListener('touchmove', (e) => {
             const selectedCheeseText = document.querySelector('.selected-cheese-text');
             const cheeseInfoCard = document.querySelector('.cheese-info-card');
             const selectedCheese = document.querySelector('.selected-cheese');
-            
+            const cheeseInfoCardDesktop = document.querySelector('.cheese-info-card-desktop');
+            const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+
             pawImage.classList.remove('active');
             selectedCheeseText.classList.remove('active');
             cheeseInfoCard.classList.remove('active');
             selectedCheese.classList.remove('active');
+            cheeseInfoCardDesktop.classList.remove('active');
+            selectedCheeseTextDesktop.classList.remove('active');
 
             // Показываем соответствующий блок с кнопками
             const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
