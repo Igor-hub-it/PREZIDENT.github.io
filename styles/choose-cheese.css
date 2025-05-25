@@ -309,6 +309,50 @@
     opacity: 1;
 }
 
+.cheese-info-card-desktop {
+    position: fixed;
+    bottom: 10%;
+    left: 6%;
+    padding: 20px;
+    background: #CC0102;
+    transform: translateY(100%);
+    opacity: 0;
+    border-radius: 16px;
+    border-left: 8px solid #FFE26B;
+    color: #fff;
+    text-align: left;
+    transition: all 0.5s ease-out;
+    z-index: 53;
+    min-width: 25%;
+    max-width: 30%;
+}
+
+.cheese-info-card-desktop.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.selected-cheese-text-desktop {
+    width: 25%;
+    position: fixed;
+    bottom: -50%;
+    right: 13%;
+    color: #fff;
+    font-size: 2.5vh;
+    text-align: left;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.selected-cheese-text-desktop.active {
+    bottom: 5%;
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .cheese-info-name {
     font-family: 'Circe Rounded', Arial, sans-serif;
     font-size: 3.5vh;
@@ -1045,6 +1089,88 @@
     
 @media screen and (max-width: 1050px) {
 
+    .cheese-text-container.active {
+        width: 80%;
+        top: 15%;
+    }
+
+    .cheese-info-card-desktop {
+        bottom: 70%;
+        left: 35%;
+        max-width: 55%;
+    }
+    
+    .selected-cheese {
+        bottom: 5%;
+    }
+    
+    .selected-cheese[data-cheese="petite"] {
+        left: 6%;
+    }
+    
+    .selected-cheese[data-cheese="camamber"] {
+        left: 6%;
+        bottom: 6%;
+    }
+    
+    .selected-cheese[data-cheese="blue"] {
+        left: 6%;
+        bottom: 9%;
+    }
+    
+    .selected-cheese[data-cheese="fondant"] {
+        left: 4%;
+    }
+
+    /* .cheese-images-grid.active[data-cheese="petite"] {
+        left: 20%;
+        top: 40%;
+        width: 60vw;
+        height: 60vw;
+        transform: rotate(0deg);
+    }
+
+    .cheese-images-grid.active[data-cheese="camamber"] {
+        left: 20%;
+        top: 40%;
+        width: 60vw;
+        height: 60vw;
+        transform: rotate(0deg);
+    } */
+
+    .selected-cheese-text-desktop.active {
+        width: 55%;
+        font-size: 2vh;
+        pointer-events: none;
+    }
+
+    .knife-image {
+        right: -200%;
+        top: 50%;
+        height: 55vh;
+    }
+
+    .knife-image.active {
+        opacity: 1;
+        right: 14%;
+        top: 59%;
+        padding: 0;
+        transform: translateY(-50%) rotate(3deg);
+        z-index: 100;
+    }
+    
+    .paw-image.active {
+        width: 10%;
+        height: auto;
+        opacity: 1;
+        right: 1%;
+        top: 70%;
+    }
+    
+    .selected-cheese {
+        pointer-events: none;
+    }
+
     .petite {
         position: fixed;
         top: -100vh;
@@ -1178,18 +1304,18 @@
     }
 
     .cheese-images-grid.active[data-cheese="petite"] {
-        left: 5%;
+        left: 20%;
         top: 40%;
-        width: 65vw;
-        height: 65vw;
+        width: 60vw;
+        height: 60vw;
         transform: rotate(0deg);
     }
     
     .cheese-images-grid.active[data-cheese="camamber"] {
-        left: 5%;
+        left: 20%;
         top: 40%;
-        width: 65vw;
-        height: 65vw;
+        width: 60vw;
+        height: 60vw;
         transform: rotate(0deg);
     }
 
@@ -1732,19 +1858,27 @@
     }
 
     .cheese-images-grid.active[data-cheese="petite"] {
-        left: 5%;
+        left: 20%;
         top: 40%;
         width: 85vw;
         height: 85vw;
         transform: rotate(0deg);
     }
+
+    .cheese-images-grid.active.cutting[data-cheese="petite"] {
+        left: 5%;
+    }
     
     .cheese-images-grid.active[data-cheese="camamber"] {
-        left: 5%;
+        left: 20%;
         top: 40%;
         width: 85vw;
         height: 85vw;
         transform: rotate(0deg);
+    }
+
+    .cheese-images-grid.active.cutting[data-cheese="camamber"] {
+        left: 5%;
     }
 
     .cheese-images-grid.active[data-cheese="blue"] {
@@ -2105,139 +2239,6 @@
     }
 }
 
-.cheese-info-card-desktop {
-    position: fixed;
-    bottom: 10%;
-    left: 6%;
-    padding: 20px;
-    background: #CC0102;
-    transform: translateY(100%);
-    opacity: 0;
-    border-radius: 16px;
-    border-left: 8px solid #FFE26B;
-    color: #fff;
-    text-align: left;
-    transition: all 0.5s ease-out;
-    z-index: 53;
-    min-width: 25%;
-    max-width: 30%;
-}
-
-.cheese-info-card-desktop.active {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.selected-cheese-text-desktop {
-    width: 25%;
-    position: fixed;
-    bottom: -50%;
-    right: 13%;
-    color: #fff;
-    font-size: 2.5vh;
-    text-align: left;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-    z-index: 100;
-    pointer-events: none;
-}
-
-.selected-cheese-text-desktop.active {
-    bottom: 5%;
-    transform: translateY(0);
-    opacity: 1;
-}
-
-@media (max-width: 1100px) {
-    .cheese-text-container.active {
-        width: 80%;
-        top: 15%;
-    }
-
-    .cheese-info-card-desktop {
-        bottom: 70%;
-        left: 35%;
-        max-width: 55%;
-    }
-    
-    .selected-cheese {
-        bottom: 5%;
-    }
-    
-    .selected-cheese[data-cheese="petite"] {
-        left: 6%;
-    }
-    
-    .selected-cheese[data-cheese="camamber"] {
-        left: 6%;
-        bottom: 6%;
-    }
-    
-    .selected-cheese[data-cheese="blue"] {
-        left: 6%;
-        bottom: 9%;
-    }
-    
-    .selected-cheese[data-cheese="fondant"] {
-        left: 4%;
-    }
-
-    .cheese-images-grid.active[data-cheese="petite"] {
-        left: 20%;
-        top: 40%;
-        width: 60vw;
-        height: 60vw;
-        transform: rotate(0deg);
-    }
-
-    .cheese-images-grid.active[data-cheese="camamber"] {
-        left: 20%;
-        top: 40%;
-        width: 60vw;
-        height: 60vw;
-        transform: rotate(0deg);
-    }
-    
-    .selected-cheese-text-desktop {
-        
-    }
-
-    .selected-cheese-text-desktop.active {
-        width: 55%;
-        font-size: 2vh;
-        pointer-events: none;
-    }
-
-    .knife-image {
-        right: -200%;
-        top: 50%;
-        height: 55vh;
-    }
-
-    .knife-image.active {
-        opacity: 1;
-        right: 14%;
-        top: 59%;
-        padding: 0;
-        transform: translateY(-50%) rotate(3deg);
-        z-index: 100;
-    }
-    
-    .paw-image.active {
-        width: 10%;
-        height: auto;
-        opacity: 1;
-        right: 1%;
-        top: 70%;
-    }
-    
-    .selected-cheese {
-        pointer-events: none;
-    }
-
-}
-
 @media (max-width: 768px) {
     .cheese-info-card-desktop,
     .selected-cheese-text-desktop {
@@ -2255,21 +2256,27 @@
     .slide-image.petite-slider {
         position: absolute;
         left: 11%;
-        height: 90%;
+        /* height: 90%; */
+        height: auto;
+        width: 135%;
         object-fit: contain;
     }
 
     .slide-image.camamber-box-slider {
         position: absolute;
         left: 116%;
-        height: 80%;
+        /* height: 80%; */
+        height: auto;
+        width: 135%;
         object-fit: contain;
     }
 
     .slide-image.blue-slider {
         position: absolute;
         left: 214%;
-        height: 83%;
+        /* height: 83%; */
+        height: auto;
+        width: 135%;
         object-fit: contain;
     }
 
@@ -2279,6 +2286,41 @@
         width: 90%;
         height: 75%;
         object-fit: contain;
+    }
+
+    .cheese-images-grid.active[data-cheese="petite"] {
+        left: 5%;
+        top: 40%;
+
+    }
+    
+    .cheese-images-grid.active[data-cheese="camamber"] {
+        left: 5%;
+        top: 40%;
+
+    }
+
+    .cheese-images-grid.active[data-cheese="blue"] {
+        left: 39%;
+        top: 45%;
+
+    }
+
+    .cheese-images-grid.active.cutting[data-cheese="blue"] {
+        left: 5%;
+        top: 48%;
+
+    }
+
+    .cheese-images-grid.active[data-cheese="fondant"] {
+        top: 38%;
+
+    }
+
+    .cheese-images-grid.active.cutting[data-cheese="fondant"] {
+        top: 47%;
+        left: 13%;
+
     }
 
     .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(1) {

@@ -209,9 +209,14 @@
     @media screen and (max-width: 415px) {
         .cheese-modal-title {
             max-width: 80%;
-            margin-top: 25%;
+            margin-top: 8%;
             font-size: 18px;
             top: 0;
+        }
+
+        .cheese-modal-close {
+            top: 2%;
+            right: 3%;
         }
 
         .cheese-card {

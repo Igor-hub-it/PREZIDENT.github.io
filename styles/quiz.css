@@ -608,7 +608,7 @@
 
     .quiz-rules {
         margin-top: 20px;
-        font-size: 16px;
+        font-size: 2vh;
     }
 }
 
@@ -626,8 +626,8 @@
     .quiz-modal-close {
         top: 15px;
         right: 15px;
-        width: 30px;
-        height: 30px;
+        width: 6vh;
+        height: 6vh;
     }
 }
 

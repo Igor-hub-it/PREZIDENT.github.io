@@ -68,15 +68,22 @@
 }
 
 .cheese-buttons-grid[data-cheese="petite"] .cheese-button {
+    height: fit-content;
     transform: rotate(86deg);
 }
 
 .cheese-buttons-grid[data-cheese="camamber"] .cheese-button {
+    height: fit-content;
     transform: rotate(86deg);
 }
 
 .cheese-buttons-grid[data-cheese="blue"] .cheese-button {
+    height: fit-content;
     transform: rotate(40deg);
+}
+
+.cheese-buttons-grid[data-cheese="fondant"] .cheese-button {
+    height: fit-content;
 }
 
 .cheese-button::before {
@@ -1063,7 +1070,7 @@
     }
     
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(3) {
-        top: 69%;
+        top: 61%;
         left: 64%;
         width: max-content;
     }

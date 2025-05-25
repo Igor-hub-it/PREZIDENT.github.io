@@ -1769,6 +1769,12 @@ document.addEventListener('touchstart', (e) => {
 document.addEventListener('touchmove', (e) => {
     touchEndX = e.touches[0].clientX;
     
+    // Проверяем, что мы находимся на экране нарезки сыра
+    const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+    if (!cheeseImagesGrid || !cheeseImagesGrid.classList.contains('active')) {
+        return;
+    }
+    
     // Проверяем, что свайп начался в правой половине экрана
     if (touchStartX > rightHalf) {
         const swipeDistance = touchEndX - touchStartX;
@@ -1805,7 +1811,6 @@ document.addEventListener('touchmove', (e) => {
             selectedCheeseTextDesktop.classList.remove('active');
 
             // Показываем соответствующий блок с кнопками
-            const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
             const cheeseType = cheeseImagesGrid.getAttribute('data-cheese');
             const buttonsGrid = document.querySelector(`.cheese-buttons-grid[data-cheese="${cheeseType}"]`);
             if (buttonsGrid) {

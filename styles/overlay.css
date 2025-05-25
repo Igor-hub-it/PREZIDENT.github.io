@@ -253,6 +253,12 @@
     }
 }
 
+@media screen and (max-width: 1050px) {
+    .discover-button {
+        width: 85%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .cards-container.active {
         flex-direction: column;

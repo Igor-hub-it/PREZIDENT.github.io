@@ -350,7 +350,7 @@
     }
 
     .brie-mobile {
-        display: block;
+        display: none;
         bottom: -100vh;
         width: 50%;
         height: auto;
@@ -1054,5 +1054,11 @@
     to {
         opacity: 0;
         transform: translateX(100vw);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .brie-mobile {
+        display: block;
     }
 }
