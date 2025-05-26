@@ -97,10 +97,10 @@
             top: 22%;
             left: 72%;
         }
-
+/* 
         .modal-text-block-3[data-cheese="fondant"] {
             display: none;
-        }
+        } */
     </style>
 </head>
 <body>
@@ -1354,7 +1354,7 @@ authTabs.forEach(tab => {
             } else if(window.innerWidth<=1500) {
                 authModalContent.style.transform = 'translateY(16%)';
             } else {
-                authModalContent.style.transform = 'translateY(30%)';
+                authModalContent.style.transform = 'translateY(23%)';
             }
         }
     });
@@ -2289,12 +2289,18 @@ function openModal(modalType, cheeseType, buttonText) {
             const images = modal.querySelectorAll('.modal-image');
             const textBlocks = modal.querySelectorAll('.modal-text-block');
             
-            // Устанавливаем атрибут data-cheese для всех изображений и текстовых блоков
+            // Очищаем текст и устанавливаем атрибут data-cheese для всех изображений и текстовых блоков
             images.forEach(img => img.setAttribute('data-cheese', cheeseType));
             const textBlocksContainer = modal.querySelector('.modal-text-blocks');
             if (textBlocksContainer) {
                 textBlocksContainer.setAttribute('data-cheese', cheeseType);
             }
+            
+            // Очищаем текст всех блоков перед заполнением
+            textBlocks.forEach(block => {
+                block.textContent = '';
+                block.setAttribute('data-cheese', cheeseType);
+            });
             
             // Заполняем изображения
             data.images.images.forEach((src, index) => {
