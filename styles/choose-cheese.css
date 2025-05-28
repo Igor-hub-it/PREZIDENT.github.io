@@ -1111,6 +1111,8 @@
     }
     
     .selected-cheese {
+        display: block;
+        max-width: auto;
         bottom: 5%;
     }
     
