@@ -24,8 +24,8 @@
 .auth-modal-content {
     background: #E30613;
     width: 90%;
-    max-width: 500px;
-    padding: 0 0 40px 0;
+    max-width: 450px;
+    padding: 0 0 30px 0;
     border-radius: 24px;
     position: relative;
     transform: translateY(100%);
@@ -48,7 +48,7 @@
     width: 100%;
     opacity: 0;
     transition: opacity 0.3s ease;
-    padding: 0 20px;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -76,6 +76,13 @@
     max-height: 100px;
     overflow: visible;
 }
+
+/* Добавляем z-index для каждого form-group */
+.form-group:nth-child(1) { z-index: 5; }
+.form-group:nth-child(2) { z-index: 4; }
+.form-group:nth-child(3) { z-index: 3; }
+.form-group:nth-child(4) { z-index: 2; }
+.form-group:nth-child(5) { z-index: 1; }
 
 .form-group.register-only {
     opacity: 0;
@@ -166,7 +173,7 @@
     width: 30px;
     height: 30px;
     border: 3px solid #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -220,7 +227,7 @@
     box-sizing: border-box;
     background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
     border: none;
-    border-radius: 10px;
+    border-radius: 18px;
     padding: 15px 30px;
     color: #442F1E;
     font-size: 24px;
@@ -326,10 +333,48 @@
 .auth-tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    background: #B10000;
+    border-radius: 23px 23px 0 0;
+    transition: background-color 1s ease;
+}
+
+.auth-tabs.switching {
+    background: #E30613;
+    animation: switchBackgroundSmoothest 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes switchBackgroundSmoothest {
+    0% {
+        background: #E30613;
+    }
+    20% {
+        background: #DB0612;
+    }
+    40% {
+        background: #C80510;
+    }
+    60% {
+        background: #B8040C;
+    }
+    75% {
+        background: #B40005;
+    }
+    85% {
+        background: #B20003;
+    }
+    92% {
+        background: #B10002;
+    }
+    97% {
+        background: #B10001;
+    }
+    100% {
+        background: #B10000;
+    }
 }
 
 .auth-tab {
@@ -348,17 +393,15 @@
 }
 
 .auth-tab[data-tab="login"] {
-    width: 40%;
-    margin-right: -5%;
-    width: 40%;
-    margin-right: -5%;
+    width: 35%;
+    margin-right: 0;
     text-align: start;
-    padding: 20px 0 20px 60px;
+    padding: 20px 0 20px 47px;
 }
 
 .auth-tab[data-tab="register"] {
-    width: 70%;
-    margin-left: -5%;
+    width: 65%;
+    margin-left: 0;
     text-align: end;
     padding-right: 60px;
 }
@@ -429,7 +472,7 @@
     position: absolute;
     background: #FDE170;
     color: #442F1E;
-    padding: 3px 9px;
+    padding: 8px 11px;
     font-size: 14px;
     top: calc(100% + 5px);
     left: 0;
@@ -438,6 +481,9 @@
     box-sizing: border-box;
     z-index: 1000;
     white-space: nowrap;
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(34, 60, 80, 0.18);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(34, 60, 80, 0.18);
+    box-shadow: 0px 3px 9px 0px rgba(34, 60, 80, 0.18);
 }
 
 .error-message::before {
