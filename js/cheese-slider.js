@@ -6,24 +6,42 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentPosition = 0;
     const cardWidth = cards[0].offsetWidth;
-    const cardsPerView = 5;
-    const totalCards = cards.length;
+    let cardsPerView = 5; // По умолчанию показываем 5 карточек
+    
+    function updateCardsPerView() {
+        if (window.innerWidth > 2200) {
+            cardsPerView = 5;
+        } else if (window.innerWidth > 1500) {
+            cardsPerView = 4;
+        } else if (window.innerWidth <= 1200) {
+            cardsPerView = 1;
+            // Скрываем стрелки на мобильных устройствах
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
+        } else {
+            cardsPerView = 3;
+            // Показываем стрелки на десктопе
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
+        }
+    }
     
     function updateSliderPosition() {
-        let k = 1;
-        if (window.innerWidth > 1700) {
-            k = 1;
-        } else if (window.innerWidth > 1500) {
-            k = 1.25;
-        } else if (window.innerWidth > 1400) {
-            k = 1.3;
-        }
-
-        slider.style.transform = `translateX(-${currentPosition * cardWidth * k}px)`;
+        const totalCards = cards.length;
+        const maxPosition = totalCards - cardsPerView;
+        
+        // Обновляем видимость карточек
+        cards.forEach((card, index) => {
+            if (index >= currentPosition && index < currentPosition + cardsPerView) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
         
         // Обновляем состояние кнопок
         prevButton.style.opacity = currentPosition === 0 ? '0.3' : '1';
-        nextButton.style.opacity = currentPosition >= totalCards - cardsPerView ? '0.3' : '1';
+        nextButton.style.opacity = currentPosition >= maxPosition ? '0.3' : '1';
     }
     
     prevButton.addEventListener('click', (e) => {
@@ -38,21 +56,20 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (currentPosition < totalCards - cardsPerView) {
+        const maxPosition = cards.length - cardsPerView;
+        if (currentPosition < maxPosition) {
             currentPosition++;
             updateSliderPosition();
         }
     });
     
-    // Инициализация состояния кнопок
+    // Инициализация
+    updateCardsPerView();
     updateSliderPosition();
     
     // Обработка изменения размера окна
     window.addEventListener('resize', () => {
-        const newCardWidth = cards[0].offsetWidth;
-        if (newCardWidth !== cardWidth) {
-            currentPosition = 0;
-            updateSliderPosition();
-        }
+        updateCardsPerView();
+        updateSliderPosition();
     });
 }); 
