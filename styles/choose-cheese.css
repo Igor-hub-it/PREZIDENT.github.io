@@ -1181,6 +1181,7 @@
     
     .selected-cheese {
         pointer-events: none;
+        max-width: none;
     }
 
     .petite {
@@ -1778,6 +1779,7 @@
     }
 
     .cheese-title {
+        max-width: 90%;
         font-size: 3vh;
     }
     
