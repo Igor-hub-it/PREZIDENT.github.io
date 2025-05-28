@@ -1030,6 +1030,12 @@
     transition: all 1s ease-in-out;
 }
 
+@media screen and (max-width: 1600px) {
+    .cheese-info-card-desktop {
+        max-width: 40%;
+    }
+}
+
 @media screen and (max-width: 1500px) {
     .petite {
         height: 58%;
