@@ -11,7 +11,7 @@
 }
 
 .choose-cheese-container.active {
-    bottom: 100px;
+    bottom: 7%;
     opacity: 1;
 }
 
@@ -81,6 +81,7 @@
     width: auto;
     height: 60%;
     opacity: 0;
+    pointer-events: none;
 }
 
 .petite.active {
@@ -93,14 +94,14 @@
         left: 10%;
     }
     to {
-        top: 20%;
+        top: 18%;
         left: 3%;
     }
 }
 
 @keyframes hidePetite {
     from {
-        top: 20%;
+        top: 18%;
         left: 3%;
     }
     to {
@@ -116,6 +117,7 @@
     width: auto;
     height: 52%;
     opacity: 0;
+    pointer-events: none;
 }
 
 .camamber-box.active {
@@ -129,7 +131,7 @@
         opacity: 1;
     }
     to {
-        bottom: 16%;
+        bottom: 18%;
         left: 28%;
         opacity: 1;
     }
@@ -137,7 +139,7 @@
 
 @keyframes hideCamamberBox {
     from {
-        bottom: 16%;
+        bottom: 18%;
         left: 28%;
         opacity: 1;
     }
@@ -150,11 +152,12 @@
 
 .blue {
     position: fixed;
-    bottom: 22%;
-    left: 49%;
+    bottom: 26%;
+    left: 50%;
     width: auto;
     height: 52%;
     opacity: 0;
+    pointer-events: none;
 }  
 
 .blue.active {
@@ -182,10 +185,12 @@
 .fondant {
     position: fixed;
     bottom: 16%;
-    right: -30%;
+    left: 150%;
     width: auto;
-    height: 52%;
+    height: 48%;
     opacity: 0;
+    pointer-events: none;
+    transform: rotate(15deg);
 }  
 
 .fondant.active {
@@ -194,22 +199,22 @@
 
 @keyframes showFondant {
     from {
-        right: -30%;
+        left: 150%;
         opacity: 0;
     }
     to {
-        right: -2%;
+        left: 72%;
         opacity: 1;
     }
 }
 
 @keyframes hideFondant {
     from {
-        right: -2%;
+        left: 72%;
         opacity: 1;
     }
     to {
-        right: -30%;
+        left: 150%;
         opacity: 0;
     }
 }
@@ -249,13 +254,17 @@
 
 .selected-cheese {
     position: fixed;
+    display: flex;
+    justify-content: flex-start;
     bottom: 22%;
     left: 6%;
+    height: 23%;
     width: fit-content;
-    height: 23vh;
+    max-width: 25%;
     opacity: 0;
     transition: all 0.5s ease-out;
     z-index: 54;
+    pointer-events: none;
 }
 
 .selected-cheese[data-cheese="camamber"] {
@@ -276,7 +285,7 @@
 }
 
 .selected-cheese-image {
-    width: 100%;
+    width: fit-content;
     height: 100%;
     object-fit: contain;
 }
@@ -325,6 +334,7 @@
     z-index: 53;
     min-width: 25%;
     max-width: 30%;
+    pointer-events: none;
 }
 
 .cheese-info-card-desktop.active {
