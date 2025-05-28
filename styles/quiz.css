@@ -610,6 +610,10 @@
         margin-top: 20px;
         font-size: 2vh;
     }
+
+    .quiz-modal.active {
+        overflow-x: hidden;
+    }
 }
 
 .quiz-modal-close {
@@ -819,5 +823,15 @@
     .quiz-invite-button {
         font-size: 20px;
         padding: 14px 20px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .quiz-text {
+        margin-top: 55px;
+    }
+
+    .quiz-modal-content {
+        margin: 10% 0 0 0;
     }
 }
