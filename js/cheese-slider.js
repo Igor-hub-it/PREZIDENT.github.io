@@ -11,16 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateCardsPerView() {
         if (window.innerWidth > 2200) {
             cardsPerView = 5;
+            // Показываем все карточки и скрываем стрелки для мобильных
+            cards.forEach(card => card.style.display = 'flex');
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
         } else if (window.innerWidth > 1500) {
             cardsPerView = 4;
+            cards.forEach(card => card.style.display = 'flex');
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
         } else if (window.innerWidth <= 1200) {
-            cardsPerView = 1;
-            // Скрываем стрелки на мобильных устройствах
+            // На мобильных показываем все карточки и скрываем стрелки
+            cards.forEach(card => card.style.display = 'flex');
             prevButton.style.display = 'none';
             nextButton.style.display = 'none';
         } else {
             cardsPerView = 3;
-            // Показываем стрелки на десктопе
+            cards.forEach(card => card.style.display = 'flex');
             prevButton.style.display = 'block';
             nextButton.style.display = 'block';
         }
@@ -30,18 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalCards = cards.length;
         const maxPosition = totalCards - cardsPerView;
         
-        // Обновляем видимость карточек
-        cards.forEach((card, index) => {
-            if (index >= currentPosition && index < currentPosition + cardsPerView) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-        
-        // Обновляем состояние кнопок
-        prevButton.style.opacity = currentPosition === 0 ? '0.3' : '1';
-        nextButton.style.opacity = currentPosition >= maxPosition ? '0.3' : '1';
+        // Обновляем видимость карточек только для десктопной версии
+        if (window.innerWidth > 1200) {
+            cards.forEach((card, index) => {
+                if (index >= currentPosition && index < currentPosition + cardsPerView) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Обновляем состояние кнопок
+            prevButton.style.opacity = currentPosition === 0 ? '0.3' : '1';
+            nextButton.style.opacity = currentPosition >= maxPosition ? '0.3' : '1';
+        }
     }
     
     prevButton.addEventListener('click', (e) => {
