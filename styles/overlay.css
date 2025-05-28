@@ -86,8 +86,8 @@
 }
 
 .card-circle {
-    width: 5vw;
-    height: 5vw;
+    width: 6vh;
+    height: 6vh;
     border-radius: 50%;
     background: linear-gradient(to right, #FFE680, #FAB041, #FFE680);
     display: flex;
@@ -97,7 +97,7 @@
 }
 
 .card-circle span {
-    font-size: 3.8vh;
+    font-size: 4vh;
     font-weight: 700;
     color: #442F1E;
     font-family: 'Circe Rounded', Arial, sans-serif;
