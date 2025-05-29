@@ -759,6 +759,7 @@ function updateQuizContent(step) {
                 if (currentText) currentText.classList.remove('visible');
                 
                 content.innerHTML = `
+                    <img src="images/close.webp" alt="Close" class="quiz-modal-close">
                     <img src="images/${data.image}" alt="Quiz" class="quiz-image quiz-image-${step + 1}">
                     <div class="quiz-question-number">${data.questionNumber}</div>
                     <div class="quiz-text">${data.text}</div>
@@ -766,6 +767,11 @@ function updateQuizContent(step) {
                     <div class="quiz-description">${data.description}</div>
                     <button class="quiz-next"><span>Далее</span></button>
                 `;
+
+                const closeButton = content.querySelector('.quiz-modal-close');
+                if (closeButton) {
+                    closeButton.addEventListener('click', closeQuizModal);
+                }
                 
                 // Добавляем классы visible с небольшой задержкой для анимации
                 requestAnimationFrame(() => {
@@ -2784,6 +2790,7 @@ function showQuizSuccessScreen() {
     const successContent = document.createElement('div');
     successContent.className = 'success-content active';
     successContent.innerHTML = `
+        <img src="images/close.webp" alt="Close" class="quiz-modal-close">
         <img src="images/sticker.webp" alt="Sticker" class="success-sticker">
         <h2 class="success-title-quiz">Спасибо за участие! 🎉</h2>
         <button class="success-button"><span>Закрыть</span></button>
@@ -2791,7 +2798,7 @@ function showQuizSuccessScreen() {
     
     quizContent.appendChild(successContent);
 
-    const closeButton = successContent.querySelector('.success-button');
+    const closeButton = successContent.querySelector('.success-button, .quiz-modal-close');
     if (closeButton) {
         closeButton.addEventListener('click', closeQuizModal);
     }

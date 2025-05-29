@@ -80,10 +80,10 @@
 
 .modal-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
+    top: -35px;
+    right: -75px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     z-index: 1002;
 }
@@ -417,6 +417,16 @@
     .modal {
         width: 440px;
         padding: 20px;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 1002;
     }
 
     .modal-text-blocks {
