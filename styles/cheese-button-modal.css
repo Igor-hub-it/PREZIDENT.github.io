@@ -361,7 +361,6 @@
 .characteristic-images {
     display: flex;
     justify-content: center;
-    gap: 2px;
     width: 50%;
     margin-left: 25%;
 }
@@ -369,15 +368,33 @@
 .char-image {
     width: 18%;
     height: auto;
+    position: relative;
+}
+
+.char-image-1 {
+    top: 7px;
+    left: 8px;
 }
 
 .char-image-2 {
     transform: rotate(180deg);
+    left: 4px;
+}
+
+.char-image-3 {
+    top: 7px;
 }
 
 .char-image-4 {
     transform: rotate(180deg);
+    right: 4px;
 }
+
+.char-image-5 {
+    top: 7px;
+    right: 8px;
+}
+
 
 /* Стили для модального окна культуры плесени */
 .modal-cheese-image {
