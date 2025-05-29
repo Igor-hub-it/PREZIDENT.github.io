@@ -817,7 +817,13 @@
 }
 
 @media screen and (max-width: 600px) {
+    .auth-modal {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
     .auth-modal.active .auth-modal-content {
         transform: translateY(30%);
+        margin-bottom: 120px;
     }
 }
