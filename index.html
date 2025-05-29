@@ -103,7 +103,7 @@
         <img src="images/header-red.webp" alt="Header Red" class="header-red">
         <img src="images/header-yellow.webp" alt="Header Yellow" class="header-yellow">
         <div class="logo-background"></div>
-            <img src="images/logo.webp" alt="Logo" class="logo">
+            <img src="images/logo.webp" alt="Logo" class="logo" onclick="showCardsBack()">
         <div class="header-container">
         <div class="nav-buttons">
             <button class="nav-button">Благородные сыры</button>
@@ -974,11 +974,61 @@ function showCards() {
         return; // Если меню открыто, не показываем карточки
     }
     
-    hideWords();
+    // hideWords();
     setTimeout(() => {
         overlay.classList.add('active');
         cardsContainer.classList.add('active');
         discoverButton.classList.add('active');
+    }, 500);
+}
+
+function showCardsBack() {
+    setTimeout(() => {
+        overlay.classList.add('active');
+        cardsContainer.classList.add('active');
+        discoverButton.classList.add('active');
+
+        // Показываем текстовый блок
+        const textContainer = document.querySelector('.cheese-text-container');
+        textContainer.classList.remove('active');
+        textContainer.style.opacity = '1';
+
+        // Показываем кнопки выбора сыра
+        const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
+        chooseCheeseContainer.classList.remove('active');
+
+        // Показываем изображение petite
+        const petiteImage = document.querySelector('.petite');
+        petiteImage.style.animation = 'none';
+        petiteImage.offsetHeight; // Форсируем перерисовку
+        if(window.innerWidth > 1100) {
+            petiteImage.style.animation = 'hidePetite 1s ease-out forwards';
+        }
+
+        petiteImage.classList.remove('active');
+        // Показываем изображение camamber-box
+        const camamberBox = document.querySelector('.camamber-box');
+        camamberBox.style.animation = 'none';
+        camamberBox.offsetHeight; // Форсируем перерисовку
+        if(window.innerWidth > 1100) {
+            camamberBox.style.animation = 'hideCamamberBox 1s ease-out forwards';
+        }
+
+        camamberBox.classList.remove('active');
+        // Показываем изображение blue
+        const blue = document.querySelector('.blue');
+        blue.style.animation = 'none';
+        blue.offsetHeight; // Форсируем перерисовку
+        blue.style.animation = 'hideBlue 1s ease-out forwards';
+        blue.classList.remove('active');
+        // Показываем изображение fondant
+        const fondant = document.querySelector('.fondant');
+        fondant.style.animation = 'none';
+        fondant.offsetHeight; // Форсируем перерисовку
+        fondant.style.animation = 'hideFondant 1s ease-out forwards';
+        fondant.classList.remove('active');
+
+        showProducts();
     }, 500);
 }
 
@@ -1075,8 +1125,10 @@ window.addEventListener('load', function() {
         // 4. Через 2 секунды показываем карточки
 
         if(window.innerWidth>768) {
+            setTimeout(hideWords, 5000);
             setTimeout(showCards, 5200);
         } else {
+            setTimeout(hideWords, 5000);
             setTimeout(showCards, 5200);
         }
     }, 5000);

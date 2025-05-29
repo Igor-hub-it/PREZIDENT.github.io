@@ -368,7 +368,7 @@
 
 .cheese-text-container {
     position: fixed;
-    top: -100px;
+    top: -100vh;
     left: 50%;
     display: flex;
     flex-direction: column;
