@@ -1150,12 +1150,14 @@ burgerMenu.addEventListener('click', function() {
         discoverButton.classList.remove('active');
 
         // Закрываем профиль
+        closeProfileModal()
+
         const authModal = document.querySelector('.auth-modal');
         if (authModal.classList.contains('active')) {
             closeAuthModal();
             header.classList.remove('profile-active');
         }
-        
+
         // Скрываем элементы выбора сыра
         const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
         const cheeseTextContainer = document.querySelector('.cheese-text-container');
@@ -1480,46 +1482,61 @@ function showSuccessRegScreen() {
     modalContent.appendChild(successContent);
 }
 
+function closeProfileModal() {
+    const profileModal = document.querySelector('.profile-modal.active');
+    if (profileModal) {
+        profileModal.remove();
+        document.body.style.overflow = '';
+    }
+}
+
 function showSuccessAuthScreen() {
-    const modalContent = document.querySelector('.auth-modal-content');
-    const authTabs = document.querySelector('.auth-tabs');
-    const authForm = document.getElementById('authForm');
-    const header = document.querySelector('.header');
+    // Закрываем текущее модальное окно авторизации
+    const authModal = document.querySelector('.auth-modal');
+    authModal.classList.remove('active');
     
-    modalContent.classList.add('successAuth');
-    authTabs.style.display = 'none';
-    authForm.style.display = 'none';
-    header.classList.add('profile-active');
-    
-    const successContent = document.createElement('div');
-    successContent.className = 'success-content active';
-    successContent.innerHTML = `
-        <div class="success-blocks">
-            <div class="user-info-block">
-                <div class="user-name-block">
-                    <h2 class="user-name">Константинопольский</h2>
-                    <h2 class="user-name">Пантелеймон</h2>
-                    <h2 class="user-name">Александрович</h2>
-                </div>
-                <div class="user-contact-block">
-                    <p class="user-email">E-mail: panteleymon@gmail.ru</p>
-                    <div class="user-phone">
-                        <span>Телефон: +7 900 900 00</span>
-                        <img src="images/link.webp" alt="Phone" class="phone-icon">
+    // Создаем новое модальное окно
+    const successModal = document.createElement('div');
+    successModal.className = 'profile-modal active';
+    successModal.innerHTML = `
+        <div class="auth-modal-content successAuth">
+            <button class="profile-modal-close">
+                <img src="images/close.webp" alt="Close">
+            </button>
+            <div class="success-content active">
+                <div class="success-blocks">
+                    <div class="user-info-block">
+                        <div class="user-name-block">
+                            <h2 class="user-name">Константинопольский</h2>
+                            <h2 class="user-name">Пантелеймон</h2>
+                            <h2 class="user-name">Александрович</h2>
+                        </div>
+                        <div class="user-contact-block">
+                            <p class="user-email">E-mail: panteleymon@gmail.ru</p>
+                            <div class="user-phone">
+                                <span>Телефон: +7 900 900 00</span>
+                                <img src="images/link.webp" alt="Phone" class="phone-icon">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="winner-block">
-                <h3>Вы участвуйте в акции!</h3>
-                <div class="winner-message">
-                    <p>Вы выиграли сертификат! Наш менеджер свяжется с вами для вручения в ближайшее время!</p>
-                    <img src="images/go.webp" alt="Certificate" class="certificate-icon">
+                    <div class="winner-block">
+                        <h3>Вы участвуйте в акции!</h3>
+                        <div class="winner-message">
+                            <p>Вы выиграли сертификат! Наш менеджер свяжется с вами для вручения в ближайшее время!</p>
+                            <img src="images/go.webp" alt="Certificate" class="certificate-icon">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     `;
     
-    modalContent.appendChild(successContent);
+    // Добавляем новое модальное окно в DOM
+    document.body.appendChild(successModal);
+    
+    // Добавляем обработчик закрытия для нового модального окна
+    const closeButton = successModal.querySelector('.profile-modal-close');
+    closeButton.addEventListener('click', closeProfileModal);
 }
 
 // Слайдер для мобильной версии

@@ -809,10 +809,31 @@
     height: 40px;
 }
 
+.profile-modal-close {
+    position: absolute;
+    right: -105%;
+    top: 20%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.profile-modal-close img {
+    width: 40px;
+    height: 40px;
+}
+
 @media screen and (max-width: 768px) {
     .auth-modal-close {
         right: -3%;
         top: -5%;
+    }
+
+    .profile-modal-close {
+        display: none;
     }
 }
 
@@ -823,6 +844,46 @@
     }
     
     .auth-modal.active .auth-modal-content {
+        transform: translateY(30%);
+        margin-bottom: 120px;
+    }
+}
+
+.profile-modal {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10vh;
+}
+
+.profile-modal.active {
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-modal .auth-modal-content {
+    transform: translateY(65%);
+}
+
+@media screen and (max-width: 768px) {
+    .profile-modal .auth-modal-content {
+        transform: translateY(90%);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile-modal .auth-modal-content {
         transform: translateY(30%);
         margin-bottom: 120px;
     }
