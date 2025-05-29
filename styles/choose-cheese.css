@@ -78,8 +78,8 @@
     position: fixed;
     top: -100vh;
     left: 10%;
-    width: auto;
-    height: 60%;
+    width: 43%;
+    height: auto;
     opacity: 0;
     pointer-events: none;
 }
@@ -94,14 +94,14 @@
         left: 10%;
     }
     to {
-        top: 18%;
+        top: 13%;
         left: 3%;
     }
 }
 
 @keyframes hidePetite {
     from {
-        top: 18%;
+        top: 13%;
         left: 3%;
     }
     to {
@@ -114,8 +114,8 @@
     position: fixed;
     bottom: -100vh;
     left: 10%;
-    width: auto;
-    height: 52%;
+    width: 40%;
+    height: auto;
     opacity: 0;
     pointer-events: none;
 }
@@ -152,10 +152,10 @@
 
 .blue {
     position: fixed;
-    bottom: 26%;
+    bottom: 17%;
     left: 50%;
-    width: auto;
-    height: 52%;
+    width: 40%;
+    height: auto;
     opacity: 0;
     pointer-events: none;
 }  
@@ -186,8 +186,8 @@
     position: fixed;
     bottom: 16%;
     left: 150%;
-    width: auto;
-    height: 48%;
+    width: 45%;
+    height: auto;
     opacity: 0;
     pointer-events: none;
     transform: rotate(15deg);
@@ -216,6 +216,153 @@
     to {
         left: 150%;
         opacity: 0;
+    }
+}
+
+@media screen and (max-width: 2060px) {
+    .petite {
+        position: fixed;
+        top: -100vh;
+        left: 10%;
+        width: auto;
+        height: 60%;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .petite.active {
+        opacity: 1;
+    }
+    
+    @keyframes showPetite {
+        from {
+            top: -100vh;
+            left: 10%;
+        }
+        to {
+            top: 18%;
+            left: 3%;
+        }
+    }
+    
+    @keyframes hidePetite {
+        from {
+            top: 18%;
+            left: 3%;
+        }
+        to {
+            top: -100vh;
+            left: 10%;
+        }
+    }
+    
+    .camamber-box {
+        position: fixed;
+        bottom: -100vh;
+        left: 10%;
+        width: auto;
+        height: 52%;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .camamber-box.active {
+        opacity: 1;
+    }
+    
+    @keyframes showCamamberBox {
+        from {
+            bottom: -100vh;
+            left: 19%;
+            opacity: 1;
+        }
+        to {
+            bottom: 18%;
+            left: 28%;
+            opacity: 1;
+        }
+    }
+    
+    @keyframes hideCamamberBox {
+        from {
+            bottom: 18%;
+            left: 28%;
+            opacity: 1;
+        }
+        to {
+            bottom: -100vh;
+            left: 19%;
+            opacity: 1;
+        }
+    }
+    
+    .blue {
+        position: fixed;
+        bottom: 26%;
+        left: 50%;
+        width: auto;
+        height: 52%;
+        opacity: 0;
+        pointer-events: none;
+    }  
+    
+    .blue.active {
+        opacity: 1;
+    }
+    
+    @keyframes showBlue {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes hideBlue {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    
+    .fondant {
+        position: fixed;
+        bottom: 16%;
+        left: 150%;
+        width: auto;
+        height: 48%;
+        opacity: 0;
+        pointer-events: none;
+        transform: rotate(15deg);
+    }  
+    
+    .fondant.active {
+        opacity: 1;
+    }
+    
+    @keyframes showFondant {
+        from {
+            left: 150%;
+            opacity: 0;
+        }
+        to {
+            left: 72%;
+            opacity: 1;
+        }
+    }
+    
+    @keyframes hideFondant {
+        from {
+            left: 72%;
+            opacity: 1;
+        }
+        to {
+            left: 150%;
+            opacity: 0;
+        }
     }
 }
 
