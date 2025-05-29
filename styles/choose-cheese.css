@@ -370,6 +370,9 @@
     margin: 0 0 6px 0;
     text-align: left;
     text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
 }
 
 .cheese-info-details {
@@ -1750,7 +1753,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 80%;
+        width: 85%;
         max-width: 300px;
     }
 
