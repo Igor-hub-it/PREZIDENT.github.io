@@ -1354,6 +1354,16 @@ authModal.addEventListener('click', (e) => {
     }
 });
 
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    const rememberMeCheckbox = document.querySelector('.form-checkbox.login-only');
+    const rulesCheckbox = document.querySelector('.form-checkbox.register-only');
+    
+    // Устанавливаем начальное состояние чекбоксов
+    rememberMeCheckbox.style.display = 'flex';
+    rulesCheckbox.style.display = 'none';
+});
+
 // Переключение между вкладками
 authTabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -1384,6 +1394,18 @@ authTabs.forEach(tab => {
         // Обновляем форму
         const authForm = document.getElementById('authForm');
         authForm.setAttribute('data-form', targetForm);
+        
+        // Управляем видимостью чекбоксов
+        const rememberMeCheckbox = document.querySelector('.form-checkbox.login-only');
+        const rulesCheckbox = document.querySelector('.form-checkbox.register-only');
+        
+        if (targetForm === 'login') {
+            rememberMeCheckbox.style.display = 'flex';
+            rulesCheckbox.style.display = 'none';
+        } else {
+            rememberMeCheckbox.style.display = 'none';
+            rulesCheckbox.style.display = 'flex';
+        }
         
         // Обновляем текст кнопки
         const submitButton = authForm.querySelector('.auth-submit');
