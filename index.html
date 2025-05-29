@@ -1697,6 +1697,23 @@ slideButtons.forEach(button => {
     button.addEventListener('click', () => {
         const cheeseType = button.getAttribute('data-cheese');
         hideSliderAndText(cheeseType);
+        const knifeImage = document.querySelector('.knife-image');
+        const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+        if (cheeseImagesGrid) {
+            cheeseImagesGrid.classList.remove('cutting');
+        }
+        
+        knifeImage.dataset.moved = 'false';
+        // Сбрасываем позицию ножа
+        if (window.innerWidth <= 768) {
+            knifeImage.style.right = '3%';
+            knifeImage.style.top = '70%';
+            knifeImage.style.transform = 'translateY(-50%) rotate(3deg)';
+        } else {
+            knifeImage.style.right = '5%';
+            knifeImage.style.top = '50%';
+            knifeImage.style.transform = 'translateY(-50%) rotate(30deg)';
+        }
     });
 });
 
@@ -1758,6 +1775,7 @@ headerBackArrow.addEventListener('click', () => {
     
     // Скрываем нож и лапу
     const knifeImage = document.querySelector('.knife-image');
+    knifeImage.dataset.moved = 'false';
     const pawImage = document.querySelector('.paw-image');
     knifeImage.classList.remove('active');
     pawImage.classList.remove('active');
@@ -1848,6 +1866,11 @@ document.addEventListener('touchmove', (e) => {
         return;
     }
     
+    // Проверяем, что нож еще не был перемещен
+    if (knifeImage.dataset.moved === 'true') {
+        return;
+    }
+    
     // Проверяем, что свайп начался в правой половине экрана
     if (touchStartX > rightHalf) {
         const swipeDistance = touchEndX - touchStartX;
@@ -1912,7 +1935,7 @@ document.addEventListener('touchend', () => {
             }, 1000);
         }
         // Сбрасываем флаг
-        knifeImage.dataset.moved = 'false';
+        // knifeImage.dataset.moved = 'false';
     }
 });
 
