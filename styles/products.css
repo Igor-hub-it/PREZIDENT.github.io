@@ -11,11 +11,11 @@
         position: fixed;
         bottom: -165%;
         left: 55%;
-        height: 130%;
+        height: 140%;
         object-fit: contain;
     }
 }
-
+/* 
 @media screen and (max-width: 2060px) {
     .slate-desktop {
         position: fixed;
@@ -24,8 +24,7 @@
         height: 113%;
         object-fit: contain;
     }
-
-}
+} */
 
 .slate-mobile {
     display: none;
@@ -257,11 +256,11 @@
 
 @keyframes showSlateBigDesktop {
     from {
-        bottom: -150%;
+        bottom: -200%;
         left: 150vh;
     }
     to {
-        bottom: -17%;
+        bottom: -28%;
         left: 0%;
         opacity: 1;
     }
@@ -945,15 +944,15 @@
 
 @keyframes scaleUpSlateBigDesktop {
     from {
-        height: 130%;
-        bottom: -17%;
+        height: 140%;
+        bottom: -28%;
         left: 0;
         opacity: 1;
     }
     to {
-        height: 150%;
-        bottom: -30%;
-        left: -7%;
+        height: 160%;
+        bottom: -35%;
+        left: -11%;
         opacity: 1;
     }
 }
