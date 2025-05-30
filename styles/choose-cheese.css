@@ -596,7 +596,7 @@
     opacity: 0;
     transition: bottom 0.5s ease-out, opacity 0.5s ease-out;
     z-index: 100;
-    width: 65%;
+    width: 68%;
     max-width: 400px;
 }
 
