@@ -994,16 +994,16 @@ function showCardsBack() {
         cardsContainer.classList.add('active');
         discoverButton.classList.add('active');
 
-        // Показываем текстовый блок
+        //  текстовый блок
         const textContainer = document.querySelector('.cheese-text-container');
         textContainer.classList.remove('active');
         textContainer.style.opacity = '1';
 
-        // Показываем кнопки выбора сыра
+        //  кнопки выбора сыра
         const chooseCheeseContainer = document.querySelector('.choose-cheese-container');
         chooseCheeseContainer.classList.remove('active');
 
-        // Показываем изображение petite
+        //  изображение petite
         const petiteImage = document.querySelector('.petite');
         petiteImage.style.animation = 'none';
         petiteImage.offsetHeight; // Форсируем перерисовку
@@ -1012,7 +1012,7 @@ function showCardsBack() {
         }
 
         petiteImage.classList.remove('active');
-        // Показываем изображение camamber-box
+        //  изображение camamber-box
         const camamberBox = document.querySelector('.camamber-box');
         camamberBox.style.animation = 'none';
         camamberBox.offsetHeight; // Форсируем перерисовку
@@ -1021,18 +1021,74 @@ function showCardsBack() {
         }
 
         camamberBox.classList.remove('active');
-        // Показываем изображение blue
+        //  изображение blue
         const blue = document.querySelector('.blue');
         blue.style.animation = 'none';
         blue.offsetHeight; // Форсируем перерисовку
         blue.style.animation = 'hideBlue 1s ease-out forwards';
         blue.classList.remove('active');
-        // Показываем изображение fondant
+        //  изображение fondant
         const fondant = document.querySelector('.fondant');
         fondant.style.animation = 'none';
         fondant.offsetHeight; // Форсируем перерисовку
         fondant.style.animation = 'hideFondant 1s ease-out forwards';
         fondant.classList.remove('active');
+
+        // Скрываем карточку с информацией
+        const cheeseInfoCard = document.querySelector('.cheese-info-card');
+        const cheeseInfoCardDesktop = document.querySelector('.cheese-info-card-desktop');
+        cheeseInfoCard.classList.remove('active');
+        cheeseInfoCardDesktop.classList.remove('active');
+        
+        // Скрываем выбранный сыр
+        const selectedCheese = document.querySelector('.selected-cheese');
+        selectedCheese.classList.remove('active');
+        
+        // Скрываем текст о выбранном сыре
+        const selectedCheeseText = document.querySelector('.selected-cheese-text');
+        const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+        selectedCheeseText.classList.remove('active');
+        selectedCheeseTextDesktop.classList.remove('active');
+        selectedCheeseTextDesktop.style.opacity = '0';
+        selectedCheeseTextDesktop.style.transform = '';
+        
+        // Скрываем сетку изображений и возвращаем изображения на место
+        const cheeseImagesGrid = document.querySelector('.cheese-images-grid');
+        cheeseImagesGrid.classList.remove('active');
+        cheeseImagesGrid.classList.remove('cutting');
+        cheeseImagesGrid.style.left = '';
+        cheeseImagesGrid.style.top = '';
+        
+        // Скрываем все блоки с кнопками
+        const buttonsGrids = document.querySelectorAll('.cheese-buttons-grid');
+        buttonsGrids.forEach(grid => {
+            grid.classList.remove('cutting');
+            grid.style.left = '';
+            grid.style.top = '';
+            grid.style.width = '';
+            grid.style.height = '';
+        });
+        
+        // Скрываем нож и лапу
+        const knifeImage = document.querySelector('.knife-image');
+        const pawImage = document.querySelector('.paw-image');
+        knifeImage.classList.remove('active');
+        pawImage.classList.remove('active');
+        
+        // Сбрасываем позицию ножа
+        if (window.innerWidth <= 768) {
+            knifeImage.style.right = '3%';
+            knifeImage.style.top = '70%';
+            knifeImage.style.transform = 'translateY(-50%) rotate(3deg)';
+        } else {
+            knifeImage.style.top = 65 + '%';
+            knifeImage.style.opacity = '1';
+            knifeImage.style.right = '5%';
+            knifeImage.style.transform = 'translateY(-50%) rotate(-30deg)';
+        }
+        
+        // Скрываем стрелку
+        desktopBackArrow.classList.remove('active');
 
         showProducts();
     }, 500);
