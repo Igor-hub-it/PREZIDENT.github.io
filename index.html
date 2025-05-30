@@ -876,7 +876,7 @@ function showProducts() {
     } else {
         if (slateDesktop) {
             slateDesktop.classList.add('active');
-            if (window.innerWidth > 2560) {
+            if (window.innerWidth > 2570) {
                 applyAnimation(slateDesktop, 'showSlateExtraBigDesktop');
             } else if (window.innerWidth > 2060) {
                 applyAnimation(slateDesktop, 'showSlateBigDesktop');
@@ -936,7 +936,7 @@ function hideProducts(context = 'discover') {
         }
     } else {
         if (slateDesktop) {
-            if (window.innerWidth > 2560) {
+            if (window.innerWidth > 2570) {
                 applyAnimation(slateDesktop, 'scaleUpSlateExtraBigDesktop');
             } else if (window.innerWidth > 2060) {
                 applyAnimation(slateDesktop, 'scaleUpSlateBigDesktop');

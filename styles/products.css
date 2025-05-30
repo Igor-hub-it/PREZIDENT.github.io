@@ -6,7 +6,7 @@
     object-fit: contain;
 }
 
-@media screen and (max-width: 2560px) {
+@media screen and (max-width: 2570px) {
     .slate-desktop {
         position: fixed;
         bottom: -165%;

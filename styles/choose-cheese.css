@@ -76,7 +76,8 @@
 
 .petite {
     position: fixed;
-    top: -100vh;
+    bottom: -100vh;
+    top: auto;
     left: 10%;
     width: 43%;
     height: auto;
@@ -90,11 +91,13 @@
 
 @keyframes showPetite {
     from {
-        top: -100vh;
+        bottom: -100vh;
+        top: auto;
         left: 10%;
     }
     to {
-        top: 13%;
+        bottom: 13%;
+        top: auto;
         left: 3%;
     }
 }
@@ -222,7 +225,8 @@
 @media screen and (max-width: 2060px) {
     .petite {
         position: fixed;
-        top: -100vh;
+        bottom: -100vh;
+        top: auto;
         left: 10%;
         width: auto;
         height: 60%;
@@ -236,22 +240,22 @@
     
     @keyframes showPetite {
         from {
-            top: -100vh;
+            bottom: -100vh;
             left: 10%;
         }
         to {
-            top: 18%;
+            bottom: 22%;
             left: 3%;
         }
     }
     
     @keyframes hidePetite {
         from {
-            top: 18%;
+            bottom: 22%;
             left: 3%;
         }
         to {
-            top: -100vh;
+            bottom: -100vh;
             left: 10%;
         }
     }
@@ -1342,7 +1346,8 @@
 
     .petite {
         position: fixed;
-        top: -100vh;
+        bottom: -100vh;
+        top: auto;
         left: 10%;
         width: auto;
         height: 25%;
@@ -1351,22 +1356,25 @@
 
     @keyframes showPetiteTablet {
         from {
-            top: -100vh;
+            bottom: -100vh;
+            top: auto;
             left: 10%;
         }
         to {
-            top: 57%;
+            bottom: 13%;
+            top: auto;
             left: 3%;
         }
     }
     
     @keyframes hidePetiteTablet {
         from {
-            top: 57%;
+            bottom: 13%;
             left: 3%;
         }
         to {
-            top: -100vh;
+            bottom: -100vh;
+            top: auto;
             left: 10%;
         }
     }
