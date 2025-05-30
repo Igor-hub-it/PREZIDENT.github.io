@@ -418,6 +418,18 @@
     pointer-events: none;
 }
 
+.selected-cheese[data-cheese="petite"] {
+    bottom: 20.5%;
+    left: 4.7%;
+}
+
+@media screen and (max-width: 2060px) {
+    .selected-cheese[data-cheese="petite"] {
+        bottom: 21%;
+        left: 4.7%;
+    }
+}
+
 .selected-cheese[data-cheese="camamber"] {
     bottom: 23%;
 }
@@ -483,7 +495,7 @@
     text-align: left;
     transition: all 0.5s ease-out;
     z-index: 53;
-    min-width: 25%;
+    min-width: 23%;
     max-width: 30%;
     pointer-events: none;
 }
@@ -697,13 +709,13 @@
 }
 
 .cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(6) {
-    top: 49%;
+    top: 48%;
     right: 48%;
     width: 50%;
 }
 
 .cheese-images-grid[data-cheese="petite"] .cheese-grid-image:nth-child(7) {
-    bottom: 50%;
+    bottom: 51%;
     right: 48%;
     width: 50%;
 }
