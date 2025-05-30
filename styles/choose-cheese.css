@@ -2559,20 +2559,38 @@
     }
 
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(1) {
-        left: 7%;
-        bottom: 119%;
+        left: 5%;
+        bottom: 124%;
+        transform: rotate(-108deg);
     }
 
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(2) {
-        left: 76%;
+        left: 67%;
+        bottom: 137%;
+        transform: rotate(-13deg);
     }
 
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(4) {
-        left: -9%;
+        left: 21%;
+        transform: rotate(80deg);
+    }
+
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(5) {
+        top: 68%;
+        right: 2%;
+        transform: rotate(-10deg);
     }
     
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(6) {
-        top: 80%;
+        top: 89%;
+        right: 42%;
+        transform: rotate(-4deg);
+    }
+    
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(7) {
+        bottom: 100%;
+        right: 40%;
+        transform: rotate(10deg);
     }
 
     .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(1) {

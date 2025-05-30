@@ -828,41 +828,41 @@
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(1) {
         top: auto;
-        bottom: -8%;
+        bottom: 79%;
         left: auto;
-        right: -8%;
+        right: -5%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(2) {
-        left: 18%;
+        left: 56%;
         bottom: auto;
-        top: 68%;
+        top: 52%;
         right: auto;
     }
     
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(3) {
-        top: 49%;
+        top: 104%;
         left: auto;
-        right: 5%;
+        right: 2%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(4) {
-        left: 14%;
-        top: 33%;
+        left: 1%;
+        top: 32%;
         right: auto;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(5) {
-        top: 8%;
+        top: 74%;
         left: auto;
-        right: 10%;
+        right: 53%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(6) {
         left: auto;
         top: auto;
-        right: 35%;
-        bottom: 97%;
+        right: 58%;
+        bottom: 86%;
     }
 
     .cheese-buttons-grid[data-cheese="camamber"] .cheese-button:nth-child(7) {
