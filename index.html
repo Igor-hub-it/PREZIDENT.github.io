@@ -3030,7 +3030,7 @@ const quizInviteClose = document.querySelector('.quiz-invite-modal-close');
 let isQuizModalShown = false;
 
 function openQuizInviteModal() {
-    if (!isQuizModalShown) {
+    if (!isQuizModalShown && !quizModal.classList.contains('active')) {
         quizInviteModal.classList.add('active');
         document.body.style.overflow = 'hidden';
         isQuizModalShown = true;
