@@ -1039,22 +1039,27 @@
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
-        left: -76%;
-        top: -43%;
+        /* left: -76%;
+        top: -43%; */
+        right: auto;
+        left: 87%;
+        top: 60%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(7) {
-        top: -30%;
         right: auto;
-        left: -46%;
+        /* left: 87%;
+        top: 60%; */
+        left: -75%;
+        top: -42%;
         width: max-content;
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
+        top: -32%;
         right: auto;
-        left: 87%;
-        top: 60%;
+        left: -43%;
         width: max-content;
     }
 
