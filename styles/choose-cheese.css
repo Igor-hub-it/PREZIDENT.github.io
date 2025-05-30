@@ -2620,18 +2620,18 @@
     }
     
     .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(3) {
-        top: 1%;
-        left: 138%;
+        top: 37%;
+        left: 98%;
         height: 12.5%;
-        transform: rotate(0deg);
+        transform: rotate(25deg);
         transition: all 1s ease-in-out;
     }
     
     .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(4) {
-        top: -46%;
-        left: 150%;
+        top: 0%;
+        left: 140%;
         height: 12.5%;
-        transform: rotate(-27deg);
+        transform: rotate(0deg);
         transition: all 1s ease-in-out;
     }
     
@@ -2652,16 +2652,16 @@
     }
     
     .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(7) {
-        top: 70%;
-        left: -24%;
+        top: 51%;
+        left: -26%;
         height: 12.5%;
-        transform: rotate(-44deg);
+        transform: rotate(80deg);
         transition: all 1s ease-in-out;
     }
     
     .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(8) {
-        top: 46%;
-        left: 106%;
+        top: 82%;
+        left: 93%;
         height: 11.6%;
         transform: rotate(-80deg);
         transition: all 1s ease-in-out;
