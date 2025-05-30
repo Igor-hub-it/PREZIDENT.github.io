@@ -81,7 +81,7 @@
 
 .cheese-grid {
     display: flex;
-    padding: 10% 0;
+    padding: 5% 0;
     max-width: 100%;
     justify-content: center;
     gap: 20px;
@@ -118,7 +118,7 @@
 }
 
 .cheese-description {
-    min-height: 35%;
+    min-height: 220px;
     color: #fff;
     font-size: 1.7vh;
     text-align: center;
