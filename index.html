@@ -1279,6 +1279,12 @@ burgerMenu.addEventListener('click', function() {
 
 // Функция для открытия модального окна с сырами
 function openCheeseModal() {
+    const authModal = document.querySelector('.auth-modal');
+    if(authModal.classList.contains('active')) {
+        authModal.classList.remove('active');
+        header.classList.remove('profile-active');
+    }
+    
     cheeseModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -1313,6 +1319,12 @@ cheeseModal.addEventListener('click', (e) => {
 
 // Функция для открытия FAQ модального окна
 function openFaqModal() {
+    const authModal = document.querySelector('.auth-modal');
+    if(authModal.classList.contains('active')) {
+        authModal.classList.remove('active');
+        header.classList.remove('profile-active');
+    }
+
     faqModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
