@@ -3027,21 +3027,25 @@ const quizInviteModal = document.querySelector('.quiz-invite-modal');
 const quizInviteButton = document.querySelector('.quiz-invite-button');
 const quizInviteClose = document.querySelector('.quiz-invite-modal-close');
 
+let isQuizModalShown = false;
+
 function openQuizInviteModal() {
-    quizInviteModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    if (!isQuizModalShown) {
+        quizInviteModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        isQuizModalShown = true;
+    }
 }
+
 function closeQuizInviteModal() {
     quizInviteModal.classList.remove('active');
     document.body.style.overflow = '';
 }
 
-setTimeout(openQuizInviteModal, 10000);
-
-quizInviteButton.addEventListener('click', function() {
-    closeQuizInviteModal();
-    openQuizModal();
+discoverButton.addEventListener('click', () => {
+    setTimeout(openQuizInviteModal, 10000);
 });
+
 quizInviteClose.addEventListener('click', closeQuizInviteModal);
 quizInviteModal.addEventListener('click', function(e) {
     if (e.target === quizInviteModal) closeQuizInviteModal();
