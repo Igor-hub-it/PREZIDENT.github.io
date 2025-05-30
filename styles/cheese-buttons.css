@@ -365,6 +365,14 @@
     }
 } */
 
+@media (max-width: 1450px) {
+    .cheese-buttons-grid[data-cheese="fondant"] .cheese-button:nth-child(2) {
+        left: 119%;
+        top: 34%;
+        width: max-content;
+    }
+}
+
 @media (max-width: 1050px) {
     .desktop-back-arrow {
         display: none;

@@ -1233,42 +1233,43 @@
     /* Стили для изображений Блю */
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(1) {
         top: 0%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(2) {
         top: 0%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(3) {
         top: 17%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(4) {
         top: 17%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(5) {
         top: 34%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(6) {
         top: 34%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(7) {
         top: 51%;
-
     }
 
     .cheese-images-grid[data-cheese="blue"] .cheese-grid-image:nth-child(8) {
         top: 51%;
+    }
 
+    .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(4) {
+        left: 103%;
+    }
+
+    .cheese-images-grid[data-cheese="fondant"].cutting .cheese-grid-image:nth-child(7) {
+        top: 58%;
+        left: -11%;
     }
 }
 
