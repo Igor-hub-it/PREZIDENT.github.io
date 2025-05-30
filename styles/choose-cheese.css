@@ -431,7 +431,15 @@
 }
 
 .selected-cheese[data-cheese="camamber"] {
-    bottom: 23%;
+    transform: rotate(-25deg);
+    bottom: 25%;
+    left: 4.4%;
+}
+
+@media screen and (max-width: 2060px) {
+    .selected-cheese[data-cheese="camamber"] {
+        bottom: 25.6%;
+    }
 }
 
 .selected-cheese[data-cheese="blue"] {
@@ -1983,6 +1991,10 @@
         width: auto;
         height: 20%;
         opacity: 1;
+    }
+
+    .selected-cheese.active[data-cheese="camamber"] {
+        top: 0%;
     }
 
     .selected-cheese.active[data-cheese="fondant"] {
