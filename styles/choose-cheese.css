@@ -657,7 +657,7 @@
 
 .cheese-images-grid.active.cutting[data-cheese="blue"] {
     left: 50%;
-    top: 23%;
+    top: 29%;
     right: auto;
     width: 36%;
     transform: rotate(-40deg);
@@ -1079,7 +1079,7 @@
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(1) {
     top: -76%;
     left: -28%;
-    width: 42%;
+    width: 45%;
     transform: rotate(-90deg);
     transition: all 1s ease-in-out;
 }
@@ -1087,15 +1087,15 @@
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(2) {
     top: -46%;
     right: 38%;
-    width: 42%;
-    transform: rotate(-19deg);
+    width: 45%;
+    transform: rotate(-30deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(3) {
-    top: -20%;
-    left: -69%;
-    width: 40%;
+    top: -23%;
+    left: -63%;
+    width: 48%;
     transform: rotate(-11deg);
     transition: all 1s ease-in-out;
 }
@@ -1103,15 +1103,15 @@
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(4) {
     top: -16%;
     right: 16%;
-    width: 41%;
+    width: 45%;
     transform: rotate(-9deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(5) {
-    top: 27%;
-    left: -13%;
-    width: 40%;
+    top: 30%;
+    left: -21%;
+    width: 45%;
     transform: rotate(-5deg);
     transition: all 1s ease-in-out;
 }
@@ -1119,23 +1119,23 @@
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(6) {
     top: 18%;
     right: -31%;
-    width: 40%;
+    width: 45%;
     transform: rotate(13deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(7) {
-    top: 50%;
-    left: 38%;
-    width: 40%;
+    top: 34%;
+    left: 28%;
+    width: 45%;
     transform: rotate(71deg);
     transition: all 1s ease-in-out;
 }
 
 .cheese-images-grid[data-cheese="blue"].cutting .cheese-grid-image:nth-child(8) {
-    top: 84%;
-    right: -15%;
-    width: 40%;
+    top: 95%;
+    right: -9%;
+    width: 45%;
     transform: rotate(-76deg);
     transition: all 1s ease-in-out;
 }
