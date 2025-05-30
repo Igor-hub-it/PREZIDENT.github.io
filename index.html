@@ -2156,7 +2156,6 @@ cheeseChoiceButtons.forEach(button => {
             headerBackArrow.classList.add('active');
             document.querySelector('.knife-image').classList.add('active');
             document.querySelector('.paw-image').classList.add('active');
-            console.log('Добавлен класс active для paw-image');
             
             // Активируем десктопную стрелку
             if (window.innerWidth > 768) {
@@ -2266,6 +2265,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     knifeImage.style.transition = '';
                 }, 300);
+
+                const pawImage = document.querySelector('.paw-image');
+                const selectedCheeseTextDesktop = document.querySelector('.selected-cheese-text-desktop');
+
+                if (pawImage) {
+                    pawImage.style.transition = 'opacity 0.5s ease-out';
+                    pawImage.style.opacity = '1';
+                }
+                if (selectedCheeseTextDesktop) {
+                    selectedCheeseTextDesktop.style.transition = 'opacity 0.5s ease-out';
+                    selectedCheeseTextDesktop.style.opacity = '1';
+                }
             } else {
                 // Второе отпущение после фиксации
                 let currentRight = parseFloat(window.getComputedStyle(knifeImage).right);
