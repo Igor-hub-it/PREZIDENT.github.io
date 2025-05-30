@@ -1587,9 +1587,7 @@ function showSuccessAuthScreen() {
     successModal.className = 'profile-modal active';
     successModal.innerHTML = `
         <div class="auth-modal-content successAuth">
-            <button class="profile-modal-close">
-                <img src="images/close.webp" alt="Close">
-            </button>
+
             <div class="success-content active">
                 <div class="success-blocks">
                     <div class="user-info-block">
@@ -1607,6 +1605,9 @@ function showSuccessAuthScreen() {
                         </div>
                     </div>
                     <div class="winner-block">
+                        <button class="profile-modal-close">
+                            <img src="images/close.webp" alt="Close">
+                        </button>
                         <h3>Вы участвуете в акции!</h3>
                         <div class="winner-message">
                             <p>Вы выиграли сертификат! Наш менеджер свяжется с вами для вручения в ближайшее время!</p>

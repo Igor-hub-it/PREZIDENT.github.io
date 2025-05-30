@@ -684,6 +684,7 @@
 }
 
 .winner-block {
+    position: relative;
     background: #CC0102;
     padding: 30px;
     display: flex;
@@ -734,7 +735,7 @@
         flex-direction: column;
         gap: 5%;
         width: 100%;
-        top: 70%;
+        top: 90%;
         position: absolute;
         gap: 10px;
     }
@@ -807,8 +808,8 @@
 
 .profile-modal-close {
     position: absolute;
-    right: -105%;
-    top: 20%;
+    right: -10%;
+    top: 5%;
     transform: translateY(-50%);
     background: none;
     border: none;
