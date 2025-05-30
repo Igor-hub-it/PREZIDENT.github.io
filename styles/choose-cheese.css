@@ -1971,7 +1971,8 @@
     .cheese-subtitle {
         width: 60%;
         font-size: 2.5vh;
-        font-weight: 200;
+        font-weight: 400;
+        margin: 0;
     }
 
     .selected-cheese {
