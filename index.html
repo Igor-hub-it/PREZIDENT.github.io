@@ -1094,6 +1094,12 @@ function showCardsBack() {
         // Скрываем стрелку
         desktopBackArrow.classList.remove('active');
 
+        mobileSlider.classList.remove('active');
+        mobileSlider.style.opacity = '0';
+    
+        // Скрываем стрелку
+        headerBackArrow.classList.remove('active');
+
         showProducts();
     }, 500);
 }
