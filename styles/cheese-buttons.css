@@ -1039,8 +1039,8 @@
     }
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(6) {
-        left: -82%;
-        top: -47%;
+        left: -76%;
+        top: -43%;
         width: max-content;
     }
     
@@ -1053,8 +1053,8 @@
     
     .cheese-buttons-grid[data-cheese="blue"] .cheese-button:nth-child(8) {
         right: auto;
-        left: 99%;
-        top: 56%;
+        left: 87%;
+        top: 60%;
         width: max-content;
     }
 
