@@ -715,6 +715,7 @@
         font-weight: 400;
         left: 50%;
         font-size: 4vw;
+        padding: 10px 12px;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button {
@@ -771,44 +772,44 @@
     .cheese-buttons-grid[data-cheese="fondant"] .cheese-button {
         transform: rotate(48deg);
     }
-    
+
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(1) {
         top: auto;
-        bottom: -4%;
+        bottom: 75%;
         left: auto;
-        right: -1%;
+        right: -5%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(2) {
-        left: 18%;
+        left: 56%;
         bottom: auto;
-        top: 68%;
+        top: 52%;
         right: auto;
     }
     
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(3) {
-        top: 49%;
+        top: 104%;
         left: auto;
-        right: 5%;
+        right: 2%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(4) {
-        left: 14%;
-        top: 33%;
+        left: 1%;
+        top: 32%;
         right: auto;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(5) {
-        top: 8%;
+        top: 74%;
         left: auto;
-        right: 10%;
+        right: 53%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(6) {
         left: auto;
         top: auto;
-        right: 32%;
-        bottom: 100%;
+        right: 55%;
+        bottom: 89%;
     }
 
     .cheese-buttons-grid[data-cheese="petite"] .cheese-button:nth-child(7) {

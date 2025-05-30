@@ -2461,54 +2461,74 @@
     .cheese-images-grid.active[data-cheese="petite"] {
         left: 5%;
         top: 40%;
-
     }
     
     .cheese-images-grid.active[data-cheese="camamber"] {
         left: 5%;
         top: 40%;
-
     }
 
     .cheese-images-grid.active[data-cheese="blue"] {
         left: 39%;
         top: 45%;
-
     }
 
     .cheese-images-grid.active.cutting[data-cheese="blue"] {
         left: 5%;
         top: 48%;
-
     }
 
     .cheese-images-grid.active[data-cheese="fondant"] {
         top: 38%;
-
     }
 
     .cheese-images-grid.active.cutting[data-cheese="fondant"] {
         top: 47%;
         left: 13%;
-
     }
 
     .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(1) {
-        left: 7%;
-        bottom: 119%;
+        left: 5%;
+        bottom: 124%;
+        transform: rotate(-108deg);
     }
 
     .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(2) {
-        left: 72%;
+        left: 67%;
+        bottom: 137%;
+        transform: rotate(-13deg);
     }
     
     .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(4) {
-        left: -9%;
+        left: 21%;
+        transform: rotate(80deg);
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(5) {
+        top: 68%;
+        right: 2%;
+        transform: rotate(-62deg);
+    }
+    
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(6) {
+        top: 89%;
+        right: 42%;
+        transform: rotate(-4deg);
+    }
+
+    .cheese-images-grid[data-cheese="petite"].cutting .cheese-grid-image:nth-child(7) {
+        bottom: 100%;
+        right: 40%;
+        transform: rotate(18deg);
     }
 
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(1) {
         left: 7%;
         bottom: 119%;
+    }
+
+    .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(2) {
+        left: 76%;
     }
 
     .cheese-images-grid[data-cheese="camamber"].cutting .cheese-grid-image:nth-child(4) {
