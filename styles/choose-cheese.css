@@ -598,6 +598,7 @@
     z-index: 100;
     width: 68%;
     max-width: 400px;
+    font-weight: 300;
 }
 
 .selected-cheese-text.active {
@@ -1970,6 +1971,7 @@
     .cheese-subtitle {
         width: 60%;
         font-size: 2.5vh;
+        font-weight: 200;
     }
 
     .selected-cheese {
@@ -2041,6 +2043,7 @@
     
     .selected-cheese-text.active {
         bottom: 15px;
+        font-weight: 200;
     }
 
     .cheese-images-grid {

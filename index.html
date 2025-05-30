@@ -1260,13 +1260,6 @@ burgerMenu.addEventListener('click', function() {
         if (pawImage) pawImage.classList.remove('active');
         if (selectedCheeseText) selectedCheeseText.classList.remove('active');
         
-        // Скрываем все изображения сыров
-        cheeseImages.forEach(image => {
-            image.classList.remove('active');
-            image.style.animation = 'none';
-            image.offsetHeight; // Форсируем перерисовку
-        });
-        
             applyAnimation(slateMobile, 'hideSlateMobile');
     } else {
         showProducts();
@@ -2986,9 +2979,16 @@ function showQuizSuccessScreen() {
     
     quizContent.appendChild(successContent);
 
-    const closeButton = successContent.querySelector('.success-button, .quiz-modal-close');
+    // Добавляем обработчики для обеих кнопок закрытия
+    const closeButton = successContent.querySelector('.success-button');
+    const closeIcon = successContent.querySelector('.quiz-modal-close');
+    
     if (closeButton) {
         closeButton.addEventListener('click', closeQuizModal);
+    }
+    
+    if (closeIcon) {
+        closeIcon.addEventListener('click', closeQuizModal);
     }
 }
 
