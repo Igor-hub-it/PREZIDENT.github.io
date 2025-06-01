@@ -1096,6 +1096,7 @@ function showCardsBack() {
 
         mobileSlider.classList.remove('active');
         mobileSlider.style.opacity = '0';
+        mobileSlider.style.pointerEvents = 'none';
     
         // Скрываем стрелку
         headerBackArrow.classList.remove('active');
@@ -1672,6 +1673,7 @@ function hideSliderAndText(cheeseType) {
     // Скрываем слайдер
     mobileSlider.style.opacity = '0';
     mobileSlider.style.transition = 'opacity 0.5s ease-out';
+    mobileSlider.style.pointerEvents = 'none';
     
     // Скрываем текст
     cheeseTextContainer.style.opacity = '0';
@@ -1823,6 +1825,7 @@ discoverButton.addEventListener('click', () => {
         setTimeout(() => {
             mobileSlider.classList.add('active');
             mobileSlider.style.opacity = '1';
+            mobileSlider.style.pointerEvents = 'auto';
         }, 1000);
     }
 });
@@ -1832,6 +1835,7 @@ burgerMenu.addEventListener('click', () => {
     if (burgerMenu.classList.contains('active')) {
         mobileSlider.classList.remove('active');
         mobileSlider.style.opacity = '0';
+        mobileSlider.style.pointerEvents = 'none';
     }
 });
 
@@ -1901,6 +1905,7 @@ headerBackArrow.addEventListener('click', () => {
         
         mobileSlider.classList.add('active');
         mobileSlider.style.opacity = '1';
+        mobileSlider.style.pointerEvents = 'auto';
         cheeseTextContainer.classList.add('active');
         cheeseTextContainer.style.opacity = '1';
     } else {
