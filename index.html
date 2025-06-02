@@ -376,6 +376,7 @@
                     </label>
                 </div>
                 <button type="submit" class="auth-submit"><span>Войти</span></button>
+                <button type="button" class="restore-password login-only">Восстановление пароля</button>
             </form>
         </div>
     </div>
@@ -802,6 +803,15 @@ function updateQuizContent(step) {
 }
 
 function openQuizModal() {
+    header.classList.remove('profile-active');
+    if(authModal.classList.contains('active')) {
+        authModal.classList.remove('active');
+    }
+    const profileModal = document.querySelector('.profile-modal.active');
+    if(profileModal) {
+        profileModal.classList.remove('active');
+    }
+
     quizModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     currentStep = 0;
@@ -1281,9 +1291,13 @@ burgerMenu.addEventListener('click', function() {
 // Функция для открытия модального окна с сырами
 function openCheeseModal() {
     const authModal = document.querySelector('.auth-modal');
+    header.classList.remove('profile-active');
     if(authModal.classList.contains('active')) {
         authModal.classList.remove('active');
-        header.classList.remove('profile-active');
+    }
+    const profileModal = document.querySelector('.profile-modal.active');
+    if(profileModal) {
+        profileModal.classList.remove('active');
     }
     
     cheeseModal.classList.add('active');
@@ -1321,9 +1335,13 @@ cheeseModal.addEventListener('click', (e) => {
 // Функция для открытия FAQ модального окна
 function openFaqModal() {
     const authModal = document.querySelector('.auth-modal');
+    header.classList.remove('profile-active');
     if(authModal.classList.contains('active')) {
         authModal.classList.remove('active');
-        header.classList.remove('profile-active');
+    }
+    const profileModal = document.querySelector('.profile-modal.active');
+    if(profileModal) {
+        profileModal.classList.remove('active');
     }
 
     faqModal.classList.add('active');
@@ -3054,6 +3072,81 @@ discoverButton.addEventListener('click', () => {
 quizInviteClose.addEventListener('click', closeQuizInviteModal);
 quizInviteModal.addEventListener('click', function(e) {
     if (e.target === quizInviteModal) closeQuizInviteModal();
+});
+
+function showRestorePasswordModal() {
+    // Закрываем текущее модальное окно авторизации
+    const authModal = document.querySelector('.auth-modal');
+    authModal.classList.remove('active');
+    header.classList.remove('profile-active');
+    
+    // Создаем новое модальное окно
+    const restoreModal = document.createElement('div');
+    restoreModal.className = 'profile-modal restore-modal active';
+    restoreModal.innerHTML = `
+        <div class="auth-modal-content">
+            <button class="restore-modal-close">
+                <img src="images/close.webp" alt="Close">
+            </button>
+            <h2 class="restore-title">Восстановление пароля</h2>
+            <form id="restore-password-form" class="auth-form active">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="text" name="email" placeholder="E-mail, указанный при регистрации">
+                    <div class="error-message"></div>
+                </div>
+                <button type="submit" class="auth-submit"><span>Восстановить</span></button>
+            </form>
+            <div class="restore-success">
+                <p>Отправили письмо о восстановлении пароля</p>
+                <button class="success-button" onclick="returnToAuth()"><span>Продолжить</span></button>
+            </div>
+        </div>
+    `;
+    
+    // Добавляем новое модальное окно в DOM
+    document.body.appendChild(restoreModal);
+    
+    // Добавляем обработчик закрытия
+    const closeButton = restoreModal.querySelector('.restore-modal-close');
+    closeButton.addEventListener('click', () => {
+        restoreModal.remove();
+        header.classList.add('profile-active');
+        authModal.classList.add('active');
+    });
+
+    // Добавляем обработчик отправки формы
+    const restoreForm = restoreModal.querySelector('#restore-password-form');
+    restoreForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const form = restoreForm;
+        const successBlock = restoreModal.querySelector('.restore-success');
+        // Сохраняем email перед скрытием формы
+        window.restoredEmail = form.querySelector('input[name="email"]').value;
+        form.style.display = 'none';
+        successBlock.classList.add('active');
+    });
+}
+
+function returnToAuth() {
+    const restoreModal = document.querySelector('.restore-modal');
+    const authModal = document.querySelector('.auth-modal');
+    // Подставляем сохраненный email в форму авторизации
+    const authEmailInput = authModal.querySelector('input[name="email"]');
+    if (window.restoredEmail) {
+        authEmailInput.value = window.restoredEmail;
+    }
+    restoreModal.remove();
+    header.classList.add('profile-active');
+    authModal.classList.add('active');
+}
+
+// Добавляем обработчик для кнопки восстановления пароля
+document.addEventListener('DOMContentLoaded', function() {
+    const restoreButton = document.querySelector('.restore-password');
+    if (restoreButton) {
+        restoreButton.addEventListener('click', showRestorePasswordModal);
+    }
 });
 
 </script>
