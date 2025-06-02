@@ -289,6 +289,11 @@
     font-weight: 600;
 }
 
+#close-quiz-modal-button span {
+    position: relative;
+    z-index: 2;
+}
+
 @media screen and (max-width: 1700px) {
     .quiz-image-1 {
         width: 38%;
@@ -840,4 +845,8 @@
     .quiz-text {
         width: 110%;
     }
+}
+
+.close-quiz-modal-button {
+
 }
