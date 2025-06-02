@@ -64,46 +64,92 @@
     transform: translateY(0);
 }
 
+
 .quiz-image-1 {
-    width: 38%;
-    top: -140px;
-    left: 31%;
+    width: 30%;
+    top: -160px;
+    left: 35%;
 }
 
 .quiz-image-2 {
-    width: 83%;
-    top: -350px;
-    left: 32%;
+    width: 50%;
+    top: -256px;
+    left: 39%;
 }
 
 .quiz-image-3 {
-    width: 70%;
-    top: -274px;
-    left: 31%;
-}
-
-.quiz-image-4 {
-    width: 65%;
-    top: -215px;
+    width: 52%;
+    top: -266px;
     left: 36%;
 }
 
-.quiz-image-5 {
-    width: 60%;
-    top: -220px;
+.quiz-image-4 {
+    width: 50%;
+    top: -218px;
     left: 38%;
 }
 
+.quiz-image-5 {
+    width: 43%;
+    top: -205px;
+    left: 41%;
+}
+
 .quiz-image-6 {
-    width: 40%;
-    top: -80px;
-    left: 30%;
+    width: 30%;
+    top: -67px;
+    left: 35%;
 }
 
 .quiz-image-7 {
-    width: 38%;
-    top: -140px;
-    left: 31%;
+    width: 30%;
+    top: -160px;
+    left: 35%;
+}
+
+
+@media screen and (max-width: 2050px) {
+    .quiz-image-1 {
+        width: 38%;
+        top: -140px;
+        left: 31%;
+    }
+    
+    .quiz-image-2 {
+        width: 83%;
+        top: -350px;
+        left: 32%;
+    }
+    
+    .quiz-image-3 {
+        width: 70%;
+        top: -274px;
+        left: 31%;
+    }
+    
+    .quiz-image-4 {
+        width: 65%;
+        top: -215px;
+        left: 36%;
+    }
+    
+    .quiz-image-5 {
+        width: 60%;
+        top: -220px;
+        left: 38%;
+    }
+    
+    .quiz-image-6 {
+        width: 40%;
+        top: -80px;
+        left: 30%;
+    }
+    
+    .quiz-image-7 {
+        width: 38%;
+        top: -140px;
+        left: 31%;
+    }
 }
 
 .quiz-text {
