@@ -1609,6 +1609,12 @@ function closeProfileModal() {
 }
 
 function showSuccessAuthScreen() {
+    // Проверяем, не открыто ли уже модальное окно профиля
+    const existingProfileModal = document.querySelector('.profile-modal.active');
+    if (existingProfileModal) {
+        return; // Если модальное окно уже открыто, выходим из функции
+    }
+
     // Закрываем текущее модальное окно авторизации
     const authModal = document.querySelector('.auth-modal');
     authModal.classList.remove('active');
