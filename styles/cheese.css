@@ -118,12 +118,23 @@
 }
 
 .cheese-description {
-    min-height: 220px;
+    min-height: 330px;
     color: #fff;
     font-size: 1.7vh;
     text-align: center;
     line-height: 1.4;
     font-family: 'Circe Rounded', Arial, sans-serif;
+}
+
+@media screen and (max-width: 2050px) {
+    .cheese-description {
+        min-height: 220px;
+        color: #fff;
+        font-size: 1.7vh;
+        text-align: center;
+        line-height: 1.4;
+        font-family: 'Circe Rounded', Arial, sans-serif;
+    }
 }
 
 @media screen and (max-width: 1920px) {
