@@ -792,8 +792,8 @@
 
 .auth-modal-close {
     position: absolute;
-    right: -12%;
-    top: 3%;
+    right: -60px;
+    top: 15px;
     transform: translateY(-50%);
     background: none;
     border: none;
