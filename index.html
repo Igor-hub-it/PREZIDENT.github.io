@@ -1443,12 +1443,12 @@ enterButtons.forEach(button => {
     button.addEventListener('click', openAuthModal);
 });
 
-// Закрытие по клику вне контента
-authModal.addEventListener('click', (e) => {
-    if (e.target === authModal) {
-        closeAuthModal();
-    }
-});
+// // Закрытие по клику вне контента
+// authModal.addEventListener('click', (e) => {
+//     if (e.target === authModal) {
+//         closeAuthModal();
+//     }
+// });
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
