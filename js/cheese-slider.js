@@ -20,16 +20,21 @@ document.addEventListener('DOMContentLoaded', function() {
             cards.forEach(card => card.style.display = 'flex');
             prevButton.style.display = 'block';
             nextButton.style.display = 'block';
-        } else if (window.innerWidth <= 1200) {
-            // На мобильных показываем все карточки и скрываем стрелки
-            cards.forEach(card => card.style.display = 'flex');
-            prevButton.style.display = 'none';
-            nextButton.style.display = 'none';
-        } else {
+        } else if (window.innerWidth > 1100) {
             cardsPerView = 3;
             cards.forEach(card => card.style.display = 'flex');
             prevButton.style.display = 'block';
             nextButton.style.display = 'block';
+        } else if (window.innerWidth > 900) {
+            cardsPerView = 2;
+            cards.forEach(card => card.style.display = 'flex');
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
+        } else if (window.innerWidth <= 900) {
+            // На мобильных показываем все карточки и скрываем стрелки
+            cards.forEach(card => card.style.display = 'flex');
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
         }
     }
     
@@ -38,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxPosition = totalCards - cardsPerView;
         
         // Обновляем видимость карточек только для десктопной версии
-        if (window.innerWidth > 1200) {
+        if (window.innerWidth > 900) {
             cards.forEach((card, index) => {
                 if (index >= currentPosition && index < currentPosition + cardsPerView) {
                     card.style.display = 'flex';

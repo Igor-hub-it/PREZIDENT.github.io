@@ -147,6 +147,19 @@
     .cheese-card {
         width: calc((100% - 40px) / 3);
     }
+
+    .cheese-description {
+        min-height: 280px;
+
+    }
+
+    .great-cheese-image {
+        min-height: 300px;
+    }
+
+    .cheese-name {
+        min-height: 90px;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -171,6 +184,20 @@
         display: none; /* Chrome, Safari, Opera */
     }
 
+    .cheese-card {
+        width: 280px;
+        min-width: 280px;
+        max-width: 280px;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .cheese-name {
+        min-height: 60px;
+    }
+}
+
+@media screen and (max-width: 900px) {
     .cheese-grid {
         padding: 4% 0 0 0;
         flex-wrap: nowrap;
@@ -178,14 +205,6 @@
         gap: 15px;
         padding-left: 20px;
         padding-right: 20px;
-    }
-
-    .cheese-card {
-        width: 280px;
-        min-width: 280px;
-        max-width: 280px;
-        padding: 20px;
-        margin: 0;
     }
 }
 
