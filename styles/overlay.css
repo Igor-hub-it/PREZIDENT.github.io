@@ -253,6 +253,14 @@
     }
 }
 
+@media screen and (max-width: 1250px) {
+    .discover-button {
+        min-height: auto;
+        border-radius: 17px;
+        padding: 16px 30px;
+    }
+}
+
 @media screen and (max-width: 1050px) {
     .discover-button {
         border-radius: 16px;

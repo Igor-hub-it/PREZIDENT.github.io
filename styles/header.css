@@ -217,10 +217,12 @@
 
 @media screen and (max-width: 1200px) {
     .header-container {
-        padding: 0.6% 6% 0.6% 20%;
+        padding: 0.6% 6% 0.6% 32%;
+        top: 12px;
     }
 
     .quiz-button {
+        border-radius: 10px;
         padding: 1vh 1.8vw;
     }
 
@@ -230,9 +232,9 @@
 
     .logo {
         position: absolute;
-        top: 24%;
-        width: 16%;
-        margin-left: 4.05%;
+        top: 34%;
+        width: 13%;
+        margin-left: 5.4%;
         z-index: 1;
     }
 
@@ -245,15 +247,22 @@
     }
 
     .nav-button, .quiz-button {
-        font-size: 1.7vh;
+        font-size: 1em;
     }
 
     .enter-button {
-        font-size: 1.7vh;
+        font-size: 1em;
     }
     
     .enter-button img {
-        height: 2.5vh;
+        height: 3.5vh;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .header-container {
+        padding: 0.6% 6% 0.6% 28%;
+        top: 12px;
     }
 }
 
