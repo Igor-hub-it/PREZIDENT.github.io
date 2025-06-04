@@ -1394,6 +1394,11 @@ let isLogin = true;
 
 // Функция для открытия модального окна авторизации
 function openAuthModal() {
+    // Проверяем, не открыт ли уже профиль
+    if (header.classList.contains('profile-active')) {
+        return; // Если профиль открыт, прерываем выполнение функции
+    }
+    
     authModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     header.classList.add('profile-active');
