@@ -82,6 +82,14 @@
     z-index: 1;
 }
 
+@media screen and (max-width: 1700px) {
+    .nav-button {
+        font-size: 1.2em;
+    }
+}
+
+
+
 .right-buttons {
     display: flex;
     gap: 24px;
@@ -108,6 +116,35 @@
     line-height: 100%;
     position: relative;
     overflow: hidden;
+}
+
+@media screen and (max-width: 1700px) {
+    .quiz-button {
+        padding: 1.2vh 1.8vw;
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .quiz-button {
+        padding: 0.6em 1.4em;
+        border-radius: 12px;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .quiz-button {
+        padding: 0.5em 1.2em;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .quiz-button {
+        font-size: 1.1em;
+        padding: 0.4em 1em;
+        border-radius: 8px;
+    }
 }
 
 .quiz-button::before {
