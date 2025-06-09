@@ -1448,12 +1448,12 @@ enterButtons.forEach(button => {
     button.addEventListener('click', openAuthModal);
 });
 
-// // Закрытие по клику вне контента
-// authModal.addEventListener('click', (e) => {
-//     if (e.target === authModal) {
-//         closeAuthModal();
-//     }
-// });
+// Закрытие по клику вне контента
+authModal.addEventListener('click', (e) => {
+    if (e.target === authModal) {
+        closeAuthModal();
+    }
+});
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
@@ -1610,6 +1610,7 @@ function showSuccessRegScreen() {
 function closeProfileModal() {
     const profileModal = document.querySelector('.profile-modal.active');
     if (profileModal) {
+        header.classList.remove('profile-active')
         profileModal.remove();
         document.body.style.overflow = '';
     }
